@@ -12,7 +12,7 @@ Recommended to follow these at least once while in a call with JP or Sam.
 4. Join the server using the provided URL
 ## Table of Contents
 - [1. CLIENT SETUP](#1-client-setup)
-  - [1.1. Tunnel/ VPN](#11-tunnel-vpn)
+  - [1.1. Installing Tunnel/ VPN](#11-installing-tunnel-vpn)
     - [1.1.1. ZeroTier (Based on https://docs.zerotier.com/start)](#111-zerotier-based-on-httpsdocszerotiercomstart)
     - [1.1.2. Tailscale](#112-tailscale)
     - [1.1.3. Radmin](#113-radmin)
@@ -20,11 +20,11 @@ Recommended to follow these at least once while in a call with JP or Sam.
   - [1.2. Installing Modpacks](#12-installing-modpacks)
   - [1.3. Connecting to Server](#13-connecting-to-server)
 - [2. SERVER SETUP](#2-server-setup)
-  - [2.1. Tunnel](#21-tunnel)
+  - [2.1. Installing Tunnel](#21-installing-tunnel)
     - [2.1.1. Playit.gg](#211-playitgg)
     - [2.1.2. Ngrok](#212-ngrok)
     - [2.1.3. Notes](#213-notes)
-  - [2.2. VPN](#22-vpn)
+  - [2.2. Installing VPN](#22-installing-vpn)
     - [2.2.1 ZeroTier (Based on https://docs.zerotier.com/start)](#221-zerotier-based-on-httpsdocszerotiercomstart)
     - [2.2.2 Radmin](#222-radmin)
     - [2.2.3 Tailscale](#223-tailscale)
@@ -51,7 +51,7 @@ Recommended to follow these at least once while in a call with JP or Sam.
   - [5.1. Scripts](#51-scripts)
 
 ## 1. CLIENT SETUP
-### 1.1. **Tunnel/ VPN**
+### 1.1. **Installing Tunnel/ VPN**
 #### 1.1.1. **ZeroTier (Based on https://docs.zerotier.com/start)**
 1. Download and install https://www.zerotier.com/download/
 2. Open ZeroTier from tray
@@ -80,7 +80,7 @@ Recommended to follow these at least once while in a call with JP or Sam.
 1. JP/ Sam gives you url.
 2. On Minecraft, join the server using the url
 ## 2. SERVER SETUP
-### 2.1. **Tunnel**
+### 2.1. **Installing Tunnel**
 #### 2.1.1. **Playit.gg**
 1. Register a new account at Playit.gg
 2. Download and install Playit.gg app. Just follow the on-screen instructions (After installation, run it, and it will prompt you to follow a link)
@@ -99,7 +99,7 @@ Recommended to follow these at least once while in a call with JP or Sam.
 - Playit.gg has a glitch that causes connections to fail even with proper settings. Workaround is either set the port to something else and then set it back to the proper port, or unassign all agents, deactivate all tunnels, then reactivate 1 tunnel and reassign your agent.
 - When the server is laggy, the only solution so far is switch between different services or swap servers.
 - Tunnels essentially turn you into a public server without using port forwarding.
-### 2.2. **VPN**
+### 2.2. **Installing VPN**
 #### 2.2.1 **ZeroTier (Based on https://docs.zerotier.com/start)**
 1. Register a new account at https://www.zerotier.com/
 2. Make a new network and open it
