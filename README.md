@@ -8,7 +8,7 @@ Recommended to follow these at least once while in a call with JP or Sam.
 ## Client TLDR
 1. Install the latesst verssion of TLauncher and Tailscale https://tailscale.com/download
 2. Join VPN (Tailscale) using the account provided by JP
-3. Import modpack zip https://drive.google.com/file/d/1quSLGbQZREUee4T02tf9OW7TEmMFd2Qc/view?usp=sharing
+3. Import modpack zip https://drive.google.com/drive/folders/1vuYmIkiJw5WnN9wqXW7krUkUowxOI1wr?usp=sharing
 4. Join the server using the URL provided by JP
 ## Table of Contents
 - [1. CLIENT SETUP](#1-client-setup)
