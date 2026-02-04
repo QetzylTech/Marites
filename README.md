@@ -6,7 +6,7 @@ The tutorial is for Cisco's Modpacks, but it can work with other forge modpacks;
 Recommended to follow these at least once while in a call with JP or Sam.
 
 ## Client TLDR
-1. Install TLauncher and Tailscale https://tailscale.com/download
+1. Install the latesst verssion of TLauncher and Tailscale https://tailscale.com/download
 2. Join VPN (Tailscale) using the account provided by JP
 3. Import modpack zip https://drive.google.com/file/d/1quSLGbQZREUee4T02tf9OW7TEmMFd2Qc/view?usp=sharing
 4. Join the server using the URL provided by JP
@@ -72,7 +72,7 @@ Recommended to follow these at least once while in a call with JP or Sam.
 - Uses a static ip address and port to connect
 ### 1.2. **Installing Modpacks**
 1. Download the modpack zip file that Sam/ JP sends you 
-2. Open Tlauncher and then open the TLmod tab
+2. Open Tlauncher (make sure tLauncher is updated to the latest version) and then open the TLmod tab
 3. On the upper left part of the window, click the screwdriver and wrench icon and select Backup Mods.
 4. Find the  mod zip file you downloaded and click restore.
 5. Launch the game.
