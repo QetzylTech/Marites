@@ -7,9 +7,9 @@ Recommended to follow these at least once while in a call with JP or Sam.
 
 ## Client TLDR
 1. Install TLauncher
-2. Join VPN (ZeroTier/Tailscale)
+2. Join VPN (Tailscale)
 3. Import modpack zip
-4. Join the server using the provided URL
+4. Join the server using the URL provided by JP
 ## Table of Contents
 - [1. CLIENT SETUP](#1-client-setup)
   - [1.1. Installing Tunnel/ VPN](#11-installing-tunnel-vpn)
