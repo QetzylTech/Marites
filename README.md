@@ -1,15 +1,18 @@
 # Minecraft Client and Server Setup
 By JP
 
-This documentation is for Marites only. This guide assumes all VPNs, tunnels, and credentials are distributed manually and are not public.
-The tutorial is for Cisco's Modpacks, but it can work with other forge modpacks; modify accordingly (Steps not tested with other modpacks, though).
-Recommended to follow these at least once while in a call with JP or Sam.
-
-## Client TLDR
-1. Install the latesst verssion of TLauncher and Tailscale https://tailscale.com/download
+## TLDR
+1. Install the latest version of TLauncher and Tailscale https://tlauncher.org/en/ https://tailscale.com/download
 2. Join VPN (Tailscale) using the account provided by JP
 3. Import modpack zip https://drive.google.com/drive/folders/1vuYmIkiJw5WnN9wqXW7krUkUowxOI1wr?usp=sharing
 4. Join the server using the URL provided by JP
+5. Read 1.1 and 1.2 for more details.
+
+## Foreword
+This documentation is for Marites only. Most of it is just instructions for the server admin. This guide assumes all VPNs, tunnels, and credentials are distributed manually and are not public.
+The tutorial is for Cisco's Modpacks, but it can work with other forge modpacks; modify accordingly (Steps not tested with other modpacks, though).
+Recommended to follow these at least once while in a call with JP or Sam. Most of these instructions are for setting up a server.
+
 ## Table of Contents
 - [1. CLIENT SETUP](#1-client-setup)
   - [1.1. Installing Tunnel/ VPN](#11-installing-tunnel-vpn)
@@ -65,6 +68,7 @@ Recommended to follow these at least once while in a call with JP or Sam.
 3. Verify using phone number
 4. Wait for the otp.
 #### 1.1.3. **Radmin**
+Refer to Le Cafe for Radmin setup.
 #### 1.1.4. **Notes**
 - Each device must have the VPN client installed and authorized by the admin (JP)
 - Up to 10 authorized devices (including the server) can access Zerotier
@@ -111,6 +115,7 @@ Recommended to follow these at least once while in a call with JP or Sam.
 8. Click the arrow-up icon on the left of the new device.
 9. Set the device name, ip address of your choice (Within the range you chose), and check Authorize.
 #### 2.2.2 **Radmin***
+Refer to Le Cafe for Radmin setup.
 #### 2.2.3 **Tailscale**
 1. Go to https://tailscale.com/download and install Tailscale
 2. Log in to Tailscale using the account provided by JP
