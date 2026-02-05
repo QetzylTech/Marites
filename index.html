@@ -16,16 +16,22 @@
 <body class="markdown-body">
   <div id="content"></div>
 
-  <!-- Markdown-it JS library -->
-  <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
-  <script>
-    // Load README.md via fetch
-    fetch('README.md')
-      .then(response => response.text())
-      .then(md => {
-        const mdRenderer = window.markdownit({html: true});
-        document.getElementById('content').innerHTML = mdRenderer.render(md);
-      });
-  </script>
+<!-- Markdown-it JS library -->
+<script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/markdown-it-anchor/dist/markdown-it-anchor.min.js"></script>
+<script>
+  // Load README.md via fetch
+  fetch('README.md')
+    .then(response => response.text())
+    .then(md => {
+      const mdRenderer = window.markdownit({html: true})
+        .use(window.markdownitAnchor, {
+          permalink: false, // don’t show link symbol
+          slugify: s => s.trim().toLowerCase().replace(/[^\w]+/g, '-') // matches GitHub style
+        });
+      document.getElementById('content').innerHTML = mdRenderer.render(md);
+    });
+</script>
+
 </body>
 </html>
