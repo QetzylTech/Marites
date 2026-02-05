@@ -1,35 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Marites README</title>
-  <!-- GitHub Markdown CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
-  <style>
-    body {
-      max-width: 960px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Marites README</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
+<style>
+  body { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
+  .markdown-body { padding: 1rem; }
+  nav#toc { margin-bottom: 2rem; border-left: 3px solid #ddd; padding-left: 1rem; }
+  nav#toc a { display: block; margin-bottom: 0.25rem; text-decoration: none; }
+</style>
 </head>
 <body class="markdown-body">
-  <div id="content"></div>
 
-<!-- Markdown-it JS library -->
+<nav id="toc"></nav>
+<div id="content"></div>
+
 <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/markdown-it-anchor/dist/markdown-it-anchor.min.js"></script>
 <script>
-  // Load README.md via fetch
+  // Initialize Markdown-it with anchor plugin
+  const md = window.markdownit({ html: true }).use(window.markdownitAnchor, {
+    permalink: false,
+    slugify: s => s.trim().toLowerCase().replace(/[^\w]+/g, '-')
+  });
+
+  // Fetch README.md
   fetch('README.md')
-    .then(response => response.text())
-    .then(md => {
-      const mdRenderer = window.markdownit({html: true})
-        .use(window.markdownitAnchor, {
-          permalink: false, // don’t show link symbol
-          slugify: s => s.trim().toLowerCase().replace(/[^\w]+/g, '-') // matches GitHub style
-        });
-      document.getElementById('content').innerHTML = mdRenderer.render(md);
+    .then(res => res.text())
+    .then(mdText => {
+      // Render Markdown
+      document.getElementById('content').innerHTML = md.render(mdText);
+
+      // Build Table of Contents
+      const toc = document.getElementById('toc');
+      const headers = document.querySelectorAll('#content h1, #content h2, #content h3, #content h4, #content h5, #content h6');
+
+      headers.forEach(header => {
+        const link = document.createElement('a');
+        link.href = '#' + header.id;
+        link.textContent = header.textContent;
+        link.style.marginLeft = (parseInt(header.tagName[1]) - 1) * 10 + 'px'; // indent by heading level
+        toc.appendChild(link);
+      });
     });
 </script>
 
