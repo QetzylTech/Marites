@@ -20178,6 +20178,584 @@
           "available": true,
           "parser": true,
           "totalComments": 0
+        },
+        {
+          "stateGameElement": "active",
+          "id": 252239,
+          "name": "Spartan Shields",
+          "author": "ObliviousSpartan",
+          "linkProject": "https://www.curseforge.com/minecraft/mc-mods/spartan-shields",
+          "favorite": false,
+          "categories": [
+            {
+              "id": 4,
+              "name": "armor_weapons_tools",
+              "shortName": "military",
+              "nesting": 0
+            }
+          ],
+          "picture": 844191,
+          "pictures": [
+            16705,
+            16716,
+            16709,
+            16696,
+            16702,
+            16719
+          ],
+          "lanName": "spartan-shields",
+          "version": {
+            "id": 5440763,
+            "name": "1.20.1-forge-3.1.1",
+            "updateDate": 1718706599000,
+            "type": "release",
+            "gameVersionsDTO": [
+              {
+                "id": 46,
+                "name": "1.20.1"
+              }
+            ],
+            "metadata": {
+              "sha1": "2d1c99c2a5c6116ed17be0ac3cb223a2f46636e8",
+              "size": 540665,
+              "path": "mods/SpartanShields-1.20.1-forge-3.1.1.jar",
+              "url": "/mods/252239/5440763/SpartanShields-1.20.1-forge-3.1.1.jar"
+            },
+            "installed": 378959,
+            "available": false,
+            "remove": false,
+            "minecraftVersionTypes": [
+              {
+                "id": 5,
+                "name": "neoForge"
+              },
+              {
+                "id": 1,
+                "name": "forge"
+              }
+            ]
+          },
+          "popularity": 5,
+          "downloadMonth": 13115,
+          "userInstall": false,
+          "populateStatus": false,
+          "dependencies": [],
+          "lastGameVersion": {
+            "id": 46,
+            "name": "1.20.1"
+          },
+          "updated": 1718658000000,
+          "update": 1718658000000,
+          "downloadALL": 8218853,
+          "available": true,
+          "parser": true,
+          "totalComments": 0,
+          "adult": false
+        },
+        {
+          "stateGameElement": "active",
+          "id": 302973,
+          "name": "TerraFirmaCraft",
+          "author": "dries007 Dunkleosteus BunsanMC alcatrazEscape",
+          "linkProject": "https://www.curseforge.com/minecraft/mc-mods/terrafirmacraft",
+          "favorite": false,
+          "categories": [
+            {
+              "id": 55,
+              "name": "adventure_and_rpg",
+              "shortName": "roleplay",
+              "nesting": 0
+            },
+            {
+              "id": 4,
+              "name": "armor_weapons_tools",
+              "shortName": "military",
+              "nesting": 0
+            },
+            {
+              "id": 29,
+              "name": "world_gen",
+              "shortName": "world",
+              "nesting": 0
+            }
+          ],
+          "picture": 845361,
+          "pictures": [
+            345564,
+            345562,
+            345560,
+            345563,
+            345561
+          ],
+          "lanName": "terrafirmacraft",
+          "version": {
+            "id": 7442504,
+            "name": "Forge-1.20.1-3.2.20",
+            "updateDate": 1768063613000,
+            "type": "release",
+            "gameVersionsDTO": [
+              {
+                "id": 46,
+                "name": "1.20.1"
+              }
+            ],
+            "metadata": {
+              "sha1": "ea725f5bed9662aa22d4ec089a009bd52fb82275",
+              "size": 47421142,
+              "path": "mods/TerraFirmaCraft-Forge-1.20.1-3.2.20.jar",
+              "url": "/mods/302973/7442504/TerraFirmaCraft-Forge-1.20.1-3.2.20.jar"
+            },
+            "installed": 3981,
+            "available": false,
+            "remove": false,
+            "minecraftVersionTypes": [
+              {
+                "id": 5,
+                "name": "neoForge"
+              },
+              {
+                "id": 1,
+                "name": "forge"
+              }
+            ]
+          },
+          "popularity": 4,
+          "downloadMonth": 194,
+          "userInstall": false,
+          "populateStatus": false,
+          "dependencies": [
+            {
+              "gameType": "mod",
+              "id": 176,
+              "name": "Patchouli",
+              "gameEntityId": 306770,
+              "dependencyType": "required",
+              "available": false
+            },
+            {
+              "gameType": "mod",
+              "id": 4,
+              "name": "Just Enough Items (JEI)",
+              "gameEntityId": 238222,
+              "dependencyType": "optional",
+              "available": false
+            }
+          ],
+          "lastGameVersion": {
+            "id": 53,
+            "name": "1.21.1"
+          },
+          "updated": 1768597200000,
+          "update": 1768597200000,
+          "downloadALL": 361271,
+          "available": true,
+          "parser": true,
+          "totalComments": 0,
+          "adult": false
+        },
+        {
+          "stateGameElement": "active",
+          "id": 1189837,
+          "name": "TFC More Items",
+          "author": "sir_Robson",
+          "linkProject": "https://www.curseforge.com/minecraft/mc-mods/tfc-more-items",
+          "favorite": false,
+          "categories": [
+            {
+              "id": 26,
+              "name": "mc_addons",
+              "shortName": "addons",
+              "nesting": 0
+            }
+          ],
+          "picture": 1016505,
+          "pictures": [
+            1248121,
+            1016525
+          ],
+          "lanName": "tfc-more-items",
+          "version": {
+            "id": 6304834,
+            "name": "tfc_items-1.20.1-forge-1.1.1",
+            "updateDate": 1741990307000,
+            "type": "release",
+            "gameVersionsDTO": [
+              {
+                "id": 46,
+                "name": "1.20.1"
+              }
+            ],
+            "metadata": {
+              "sha1": "62bdce27810e818fe948fb8088531ab60c952387",
+              "size": 1101266,
+              "path": "mods/tfc_items-1.20.1-forge-1.1.1.jar",
+              "url": "/mods/1189837/6304834/tfc_items-1.20.1-forge-1.1.1.jar"
+            },
+            "installed": 6996,
+            "available": false,
+            "remove": false,
+            "minecraftVersionTypes": [
+              {
+                "id": 5,
+                "name": "neoForge"
+              },
+              {
+                "id": 1,
+                "name": "forge"
+              }
+            ]
+          },
+          "popularity": 1,
+          "downloadMonth": 0,
+          "userInstall": false,
+          "populateStatus": false,
+          "dependencies": [
+            {
+              "gameType": "mod",
+              "id": 1690,
+              "name": "TerraFirmaCraft",
+              "gameEntityId": 302973,
+              "dependencyType": "optional",
+              "available": false
+            },
+            {
+              "gameType": "mod",
+              "id": 6385,
+              "name": "TFC + IE Crossover",
+              "gameEntityId": 830886,
+              "dependencyType": "optional",
+              "available": false
+            },
+            {
+              "gameType": "mod",
+              "id": 1967,
+              "name": "FirmaLife",
+              "gameEntityId": 453394,
+              "dependencyType": "optional",
+              "available": false
+            }
+          ],
+          "lastGameVersion": {
+            "id": 53,
+            "name": "1.21.1"
+          },
+          "updated": 1761598800000,
+          "update": 1761598800000,
+          "downloadALL": 7950,
+          "available": true,
+          "parser": true,
+          "totalComments": 0
+        },
+        {
+          "stateGameElement": "active",
+          "id": 1198487,
+          "name": "Spartan Shields TFC",
+          "author": "sir_Robson",
+          "linkProject": "https://www.curseforge.com/minecraft/mc-mods/spartan-shields-tfc",
+          "favorite": false,
+          "categories": [
+            {
+              "id": 4,
+              "name": "armor_weapons_tools",
+              "shortName": "military",
+              "nesting": 0
+            },
+            {
+              "id": 26,
+              "name": "mc_addons",
+              "shortName": "addons",
+              "nesting": 0
+            }
+          ],
+          "picture": 1026301,
+          "pictures": [
+            1026491
+          ],
+          "lanName": "spartan-shields-tfc",
+          "version": {
+            "id": 6182871,
+            "name": "1.20.1-forge-1.0.0",
+            "updateDate": 1739307712000,
+            "type": "release",
+            "gameVersionsDTO": [
+              {
+                "id": 46,
+                "name": "1.20.1"
+              }
+            ],
+            "metadata": {
+              "sha1": "c958c074947a2a6965074fb5092ac1b33f54f994",
+              "size": 50728,
+              "path": "mods/SpartanShieldsTFC-1.20.1-forge-1.0.0.jar",
+              "url": "/mods/1198487/6182871/SpartanShieldsTFC-1.20.1-forge-1.0.0.jar"
+            },
+            "installed": 3148,
+            "available": false,
+            "remove": false,
+            "minecraftVersionTypes": [
+              {
+                "id": 5,
+                "name": "neoForge"
+              },
+              {
+                "id": 1,
+                "name": "forge"
+              }
+            ]
+          },
+          "popularity": 1,
+          "downloadMonth": 0,
+          "userInstall": false,
+          "populateStatus": false,
+          "dependencies": [
+            {
+              "gameType": "mod",
+              "id": 1101,
+              "name": "TerraFirmaCraft",
+              "gameEntityId": 302973,
+              "dependencyType": "required",
+              "available": false
+            },
+            {
+              "gameType": "mod",
+              "id": 6385,
+              "name": "TFC + IE Crossover",
+              "gameEntityId": 830886,
+              "dependencyType": "optional",
+              "available": false
+            },
+            {
+              "gameType": "mod",
+              "id": 11901,
+              "name": "TFC More Items",
+              "gameEntityId": 1189837,
+              "dependencyType": "required",
+              "available": false
+            },
+            {
+              "gameType": "mod",
+              "id": 12052,
+              "name": "Create Vintage Improvements",
+              "gameEntityId": 946579,
+              "dependencyType": "optional",
+              "available": false
+            }
+          ],
+          "lastGameVersion": {
+            "id": 46,
+            "name": "1.20.1"
+          },
+          "updated": 1739221200000,
+          "update": 1739221200000,
+          "downloadALL": 3112,
+          "available": true,
+          "parser": true,
+          "totalComments": 0
+        },
+        {
+          "stateGameElement": "active",
+          "id": 1090102,
+          "name": "Fantasy Weapons (Medieval Series)",
+          "author": "Kenddie",
+          "linkProject": "https://www.curseforge.com/minecraft/mc-mods/fantasy-weapons-medieval-series",
+          "favorite": false,
+          "categories": [
+            {
+              "id": 1,
+              "name": "magic",
+              "shortName": "magic",
+              "nesting": 0
+            },
+            {
+              "id": 55,
+              "name": "adventure_and_rpg",
+              "shortName": "roleplay",
+              "nesting": 0
+            },
+            {
+              "id": 4,
+              "name": "armor_weapons_tools",
+              "shortName": "military",
+              "nesting": 0
+            },
+            {
+              "id": 3,
+              "name": "cosmetic",
+              "shortName": "cosmetic",
+              "nesting": 0
+            }
+          ],
+          "picture": 949208,
+          "pictures": [
+            957693,
+            957689,
+            957692,
+            957694,
+            957699,
+            957697,
+            957698,
+            957695,
+            957696,
+            957691,
+            957690
+          ],
+          "lanName": "fantasy-weapons-medieval-series",
+          "version": {
+            "id": 6761136,
+            "name": "fantasy_weapons-forge-0.4-1.20.1",
+            "updateDate": 1752345565000,
+            "type": "release",
+            "gameVersionsDTO": [
+              {
+                "id": 49,
+                "name": "1.20.4"
+              },
+              {
+                "id": 48,
+                "name": "1.20.3"
+              },
+              {
+                "id": 47,
+                "name": "1.20.2"
+              },
+              {
+                "id": 46,
+                "name": "1.20.1"
+              }
+            ],
+            "metadata": {
+              "sha1": "a2baf193c557e742cd00d314b9061e2848b7f24a",
+              "size": 592319,
+              "path": "mods/fantasy_weapons-forge-0.4-1.20.1.jar",
+              "url": "/mods/1090102/6761136/fantasy_weapons-forge-0.4-1.20.1.jar"
+            },
+            "installed": 39694,
+            "available": false,
+            "remove": false,
+            "minecraftVersionTypes": [
+              {
+                "id": 1,
+                "name": "forge"
+              }
+            ]
+          },
+          "popularity": 2,
+          "downloadMonth": 0,
+          "userInstall": false,
+          "populateStatus": false,
+          "dependencies": [
+            {
+              "gameType": "mod",
+              "id": 8810,
+              "name": "Fantasy Armor (Medieval Series)",
+              "gameEntityId": 1083998,
+              "dependencyType": "optional",
+              "available": false
+            }
+          ],
+          "lastGameVersion": {
+            "id": 49,
+            "name": "1.20.4"
+          },
+          "updated": 1752267600000,
+          "update": 1752267600000,
+          "downloadALL": 89241,
+          "available": true,
+          "parser": true,
+          "totalComments": 0
+        },
+        {
+          "stateGameElement": "active",
+          "id": 872712,
+          "name": "Celestisynth Wishes and Hells",
+          "author": "aquextheseal aquextheseal",
+          "linkProject": "https://www.curseforge.com/minecraft/mc-mods/celestisynth",
+          "favorite": false,
+          "categories": [
+            {
+              "id": 23,
+              "name": "world_ores_resources",
+              "shortName": "ores",
+              "nesting": 0
+            },
+            {
+              "id": 55,
+              "name": "adventure_and_rpg",
+              "shortName": "roleplay",
+              "nesting": 0
+            },
+            {
+              "id": 4,
+              "name": "armor_weapons_tools",
+              "shortName": "military",
+              "nesting": 0
+            }
+          ],
+          "picture": 916235,
+          "pictures": [
+            478582
+          ],
+          "lanName": "celestisynth",
+          "version": {
+            "id": 6900952,
+            "name": "celestisynth-1.20.1-1.3.3-all",
+            "updateDate": 1755535626000,
+            "type": "release",
+            "gameVersionsDTO": [
+              {
+                "id": 46,
+                "name": "1.20.1"
+              }
+            ],
+            "metadata": {
+              "sha1": "587d9980e695dc0c1bb4f6bcc3892cda0eb2a135",
+              "size": 2664846,
+              "path": "mods/celestisynth-1.20.1-1.3.3-all.jar",
+              "url": "/mods/872712/6900952/celestisynth-1.20.1-1.3.3-all.jar"
+            },
+            "installed": 15018,
+            "available": false,
+            "remove": false,
+            "minecraftVersionTypes": [
+              {
+                "id": 1,
+                "name": "forge"
+              }
+            ]
+          },
+          "popularity": 2,
+          "downloadMonth": 0,
+          "userInstall": false,
+          "populateStatus": false,
+          "dependencies": [
+            {
+              "gameType": "mod",
+              "id": 169,
+              "name": "GeckoLib",
+              "gameEntityId": 388172,
+              "dependencyType": "required",
+              "available": false
+            },
+            {
+              "gameType": "mod",
+              "id": 3667,
+              "name": "playerAnimator",
+              "gameEntityId": 658587,
+              "dependencyType": "required",
+              "available": false
+            }
+          ],
+          "lastGameVersion": {
+            "id": 46,
+            "name": "1.20.1"
+          },
+          "updated": 1755464400000,
+          "update": 1755464400000,
+          "downloadALL": 81806,
+          "available": true,
+          "parser": true,
+          "totalComments": 0,
+          "adult": false
         }
       ],
       "resourcePacks": [],
