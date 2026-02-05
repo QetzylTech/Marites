@@ -285,6 +285,7 @@
         "rules": []
       }
     ],
+    "default_user_jvm": [],
     "jvm": [
       {
         "values": [
@@ -467,8 +468,7 @@
         ],
         "rules": []
       }
-    ],
-    "default_user_jvm": []
+    ]
   },
   "assets": "5",
   "libraries": [
