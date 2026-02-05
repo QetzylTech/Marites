@@ -1,5 +1,0 @@
-title: Marites Setup Guide
-theme: minima
-markdown: kramdown
-kramdown:
-  input: GFM
