@@ -63,10 +63,10 @@ Steps required to develop, deploy, expose, and operate a server.
 Skip to [2.5](#25-deploy-server-ubuntu-cli) If Ubuntu is already installed.
 
 1. Prepare:
-  - Blank drive on target PC.
-  - 8GB+ USB drive.
-  - Ubuntu Server ISO downloaded.
-  - Flashing tool ready (Rufus, Balena Etcher, etc.).
+    - Blank drive on target PC.
+    - 8GB+ USB drive.
+    - Ubuntu Server ISO downloaded.
+    - Flashing tool ready (Rufus, Balena Etcher, etc.).
 2. Flash Ubuntu Server ISO to USB using your chosen tool.
 3. Insert USB into target PC.
 4. Boot from USB (adjust BIOS boot order if necessary).
