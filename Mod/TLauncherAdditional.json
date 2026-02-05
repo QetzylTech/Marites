@@ -21003,6 +21003,1051 @@
           "parser": true,
           "totalComments": 0,
           "adult": false
+        },
+        {
+          "stateGameElement": "active",
+          "id": 225738,
+          "name": "MmmMmmMmmMmm (Target Dummy)",
+          "author": "bonusboni",
+          "linkProject": "https://www.curseforge.com/minecraft/mc-mods/mmmmmmmmmmmm",
+          "favorite": false,
+          "categories": [
+            {
+              "id": 22,
+              "name": "mc_miscellaneous",
+              "shortName": "mixed",
+              "nesting": 0
+            },
+            {
+              "id": 6,
+              "name": "map_information",
+              "shortName": "maps",
+              "nesting": 0
+            }
+          ],
+          "picture": 787822,
+          "pictures": [
+            187059,
+            20170,
+            187057,
+            271581,
+            187060,
+            20166,
+            187061,
+            20173,
+            271580,
+            187231,
+            187058
+          ],
+          "lanName": "mmmmmmmmmmmm",
+          "version": {
+            "id": 6860192,
+            "name": "dummmmmmy-1.20-2.0.9",
+            "updateDate": 1754585910000,
+            "type": "release",
+            "gameVersionsDTO": [
+              {
+                "id": 46,
+                "name": "1.20.1"
+              }
+            ],
+            "metadata": {
+              "sha1": "782d16edca6fa22fb72fa825cec39117bbb7e78a",
+              "size": 363044,
+              "path": "mods/dummmmmmy-1.20-2.0.9.jar",
+              "url": "/mods/225738/6860192/dummmmmmy-1.20-2.0.9.jar"
+            },
+            "installed": 26846,
+            "available": false,
+            "remove": false,
+            "minecraftVersionTypes": [
+              {
+                "id": 1,
+                "name": "forge"
+              }
+            ]
+          },
+          "popularity": 5,
+          "downloadMonth": 87,
+          "userInstall": false,
+          "populateStatus": false,
+          "dependencies": [],
+          "lastGameVersion": {
+            "id": 53,
+            "name": "1.21.1"
+          },
+          "updated": 1762722000000,
+          "update": 1762722000000,
+          "downloadALL": 679383,
+          "available": true,
+          "parser": true,
+          "totalComments": 0,
+          "adult": false
+        },
+        {
+          "stateGameElement": "active",
+          "id": 499980,
+          "name": "Moonlight Lib",
+          "author": "mehvahdjukaar",
+          "linkProject": "https://www.curseforge.com/minecraft/mc-mods/selene",
+          "favorite": false,
+          "categories": [
+            {
+              "id": 7,
+              "name": "library_api",
+              "shortName": "api",
+              "nesting": 0
+            }
+          ],
+          "picture": 781712,
+          "pictures": [
+            336754,
+            236307
+          ],
+          "lanName": "selene",
+          "version": {
+            "id": 7469722,
+            "name": "moonlight-1.20-2.16.23-forge",
+            "updateDate": 1768589553000,
+            "type": "release",
+            "gameVersionsDTO": [
+              {
+                "id": 46,
+                "name": "1.20.1"
+              }
+            ],
+            "metadata": {
+              "sha1": "c63750ef54ac17d0dc1e58c246c6dac3d8d9ac87",
+              "size": 1390855,
+              "path": "mods/moonlight-1.20-2.16.23-forge.jar",
+              "url": "/mods/499980/7469722/moonlight-1.20-2.16.23-forge.jar"
+            },
+            "installed": 1648,
+            "available": false,
+            "remove": false,
+            "minecraftVersionTypes": [
+              {
+                "id": 5,
+                "name": "neoForge"
+              },
+              {
+                "id": 1,
+                "name": "forge"
+              }
+            ]
+          },
+          "popularity": 5,
+          "downloadMonth": 0,
+          "userInstall": false,
+          "populateStatus": false,
+          "dependencies": [
+            {
+              "gameType": "mod",
+              "id": 2,
+              "name": "Fabric API",
+              "gameEntityId": 306612,
+              "dependencyType": "required",
+              "available": false
+            }
+          ],
+          "lastGameVersion": {
+            "id": 53,
+            "name": "1.21.1"
+          },
+          "updated": 1768856400000,
+          "update": 1768856400000,
+          "downloadALL": 1795513,
+          "available": true,
+          "parser": true,
+          "totalComments": 0,
+          "adult": false
+        },
+        {
+          "stateGameElement": "active",
+          "id": 1066037,
+          "name": "Stardew Fishing",
+          "author": "garflemn",
+          "linkProject": "https://www.curseforge.com/minecraft/mc-mods/stardew-fishing",
+          "favorite": false,
+          "categories": [
+            {
+              "id": 4,
+              "name": "armor_weapons_tools",
+              "shortName": "military",
+              "nesting": 0
+            },
+            {
+              "id": 3,
+              "name": "cosmetic",
+              "shortName": "cosmetic",
+              "nesting": 0
+            },
+            {
+              "id": 24,
+              "name": "mc_food",
+              "shortName": "food",
+              "nesting": 0
+            }
+          ],
+          "picture": 898830,
+          "pictures": [
+            899626,
+            899627,
+            899628
+          ],
+          "lanName": "stardew-fishing",
+          "version": {
+            "id": 7409704,
+            "name": "stardew_fishing-3.5-1.20.1",
+            "updateDate": 1767387396000,
+            "type": "release",
+            "gameVersionsDTO": [
+              {
+                "id": 46,
+                "name": "1.20.1"
+              }
+            ],
+            "metadata": {
+              "sha1": "5cd0ab913eb925b29ac11b8d6a89700e4568c119",
+              "size": 885533,
+              "path": "mods/stardew_fishing-3.5-1.20.1.jar",
+              "url": "/mods/1066037/7409704/stardew_fishing-3.5-1.20.1.jar"
+            },
+            "installed": 541,
+            "available": false,
+            "remove": false,
+            "minecraftVersionTypes": [
+              {
+                "id": 1,
+                "name": "forge"
+              }
+            ]
+          },
+          "popularity": 2,
+          "downloadMonth": 0,
+          "userInstall": false,
+          "populateStatus": false,
+          "dependencies": [],
+          "lastGameVersion": {
+            "id": 66,
+            "name": "1.21.11"
+          },
+          "updated": 1767560400000,
+          "update": 1767560400000,
+          "downloadALL": 12757,
+          "available": true,
+          "parser": true,
+          "totalComments": 0
+        },
+        {
+          "stateGameElement": "active",
+          "id": 854949,
+          "name": "Fusion (Connected Textures)",
+          "author": "SuperMartijn642 SuperMartijn642",
+          "linkProject": "https://www.curseforge.com/minecraft/mc-mods/fusion-connected-textures",
+          "favorite": false,
+          "categories": [
+            {
+              "id": 7,
+              "name": "library_api",
+              "shortName": "api",
+              "nesting": 0
+            },
+            {
+              "id": 3,
+              "name": "cosmetic",
+              "shortName": "cosmetic",
+              "nesting": 0
+            }
+          ],
+          "picture": 787841,
+          "pictures": [
+            998974,
+            485237,
+            485239,
+            998966,
+            998968,
+            485238,
+            998973,
+            998965,
+            998971,
+            998972,
+            998969,
+            998970,
+            998975,
+            998967
+          ],
+          "lanName": "fusion-connected-textures",
+          "version": {
+            "id": 7471518,
+            "name": "fusion-1.2.12-forge-mc1.20.1",
+            "updateDate": 1768617543000,
+            "type": "release",
+            "gameVersionsDTO": [
+              {
+                "id": 46,
+                "name": "1.20.1"
+              },
+              {
+                "id": 45,
+                "name": "1.20"
+              }
+            ],
+            "metadata": {
+              "sha1": "ec5c8a552493297842543140fed1b0a327c217f4",
+              "size": 544586,
+              "path": "mods/fusion-1.2.12-forge-mc1.20.1.jar",
+              "url": "/mods/854949/7471518/fusion-1.2.12-forge-mc1.20.1.jar"
+            },
+            "installed": 1238,
+            "available": false,
+            "remove": false,
+            "minecraftVersionTypes": [
+              {
+                "id": 5,
+                "name": "neoForge"
+              },
+              {
+                "id": 1,
+                "name": "forge"
+              }
+            ]
+          },
+          "popularity": 5,
+          "downloadMonth": 0,
+          "userInstall": false,
+          "populateStatus": false,
+          "dependencies": [],
+          "lastGameVersion": {
+            "id": 66,
+            "name": "1.21.11"
+          },
+          "updated": 1768597200000,
+          "update": 1768597200000,
+          "downloadALL": 1373389,
+          "available": true,
+          "parser": true,
+          "totalComments": 0,
+          "adult": false
+        },
+        {
+          "stateGameElement": "active",
+          "id": 383129,
+          "name": "Connected Glass",
+          "author": "supermartijn642",
+          "linkProject": "https://www.curseforge.com/minecraft/mc-mods/connected-glass",
+          "favorite": false,
+          "categories": [
+            {
+              "id": 3,
+              "name": "cosmetic",
+              "shortName": "cosmetic",
+              "nesting": 0
+            }
+          ],
+          "picture": 821351,
+          "pictures": [],
+          "lanName": "connected-glass",
+          "version": {
+            "id": 6811804,
+            "name": "connectedglass-1.1.14-forge-mc1.20.1",
+            "updateDate": 1753482198000,
+            "type": "release",
+            "gameVersionsDTO": [
+              {
+                "id": 46,
+                "name": "1.20.1"
+              },
+              {
+                "id": 45,
+                "name": "1.20"
+              }
+            ],
+            "metadata": {
+              "sha1": "2f65edcf4faed33979d5dec81597b472abf17325",
+              "size": 873714,
+              "path": "mods/connectedglass-1.1.14-forge-mc1.20.1.jar",
+              "url": "/mods/383129/6811804/connectedglass-1.1.14-forge-mc1.20.1.jar"
+            },
+            "installed": 31156,
+            "available": false,
+            "remove": false,
+            "minecraftVersionTypes": [
+              {
+                "id": 5,
+                "name": "neoForge"
+              },
+              {
+                "id": 1,
+                "name": "forge"
+              }
+            ]
+          },
+          "popularity": 5,
+          "downloadMonth": 834,
+          "userInstall": false,
+          "populateStatus": false,
+          "dependencies": [
+            {
+              "gameType": "mod",
+              "id": 4663,
+              "name": "Rechiseled",
+              "gameEntityId": 558998,
+              "dependencyType": "optional",
+              "available": false
+            },
+            {
+              "gameType": "mod",
+              "id": 1230,
+              "name": "SuperMartijn642's Core Lib",
+              "gameEntityId": 454372,
+              "dependencyType": "required",
+              "available": false
+            },
+            {
+              "gameType": "mod",
+              "id": 5680,
+              "name": "Fusion (Connected Textures)",
+              "gameEntityId": 854949,
+              "dependencyType": "required",
+              "available": false
+            }
+          ],
+          "lastGameVersion": {
+            "id": 66,
+            "name": "1.21.11"
+          },
+          "updated": 1767042000000,
+          "update": 1767042000000,
+          "downloadALL": 1516484,
+          "available": true,
+          "parser": true,
+          "totalComments": 0,
+          "adult": false
+        },
+        {
+          "stateGameElement": "active",
+          "id": 1254350,
+          "name": "[TACZ Addons] Daffa's Arsenal",
+          "author": "dafafatan",
+          "linkProject": "https://www.curseforge.com/minecraft/mc-mods/tacz-addons-daffas-arsenal",
+          "favorite": false,
+          "categories": [
+            {
+              "id": 4,
+              "name": "armor_weapons_tools",
+              "shortName": "military",
+              "nesting": 0
+            },
+            {
+              "id": 26,
+              "name": "mc_addons",
+              "shortName": "addons",
+              "nesting": 0
+            }
+          ],
+          "picture": 1111136,
+          "pictures": [
+            1213124,
+            1111305,
+            1111306,
+            1111308,
+            1211244,
+            1211246,
+            1125918,
+            1213123,
+            1111304,
+            1213122,
+            1111311,
+            1111309,
+            1125919,
+            1213125,
+            1111310,
+            1125917,
+            1111307,
+            1211245
+          ],
+          "lanName": "tacz-addons-daffas-arsenal",
+          "version": {
+            "id": 7386830,
+            "name": "daffas_arsenal-3.1.0",
+            "updateDate": 1766890634000,
+            "type": "release",
+            "gameVersionsDTO": [
+              {
+                "id": 46,
+                "name": "1.20.1"
+              }
+            ],
+            "metadata": {
+              "sha1": "30975bb96f7d41bd710bd10656f5a3fdcf5a48b4",
+              "size": 14331924,
+              "path": "mods/daffas_arsenal-3.1.0.jar",
+              "url": "/mods/1254350/7386830/daffas_arsenal-3.1.0.jar"
+            },
+            "installed": 13548,
+            "available": false,
+            "remove": false,
+            "minecraftVersionTypes": [
+              {
+                "id": 1,
+                "name": "forge"
+              }
+            ]
+          },
+          "popularity": 3,
+          "downloadMonth": 0,
+          "userInstall": false,
+          "populateStatus": false,
+          "dependencies": [
+            {
+              "gameType": "mod",
+              "id": 7102,
+              "name": "[TaCZ] Timeless and Classics Zero",
+              "gameEntityId": 1028108,
+              "dependencyType": "required",
+              "available": false
+            }
+          ],
+          "lastGameVersion": {
+            "id": 46,
+            "name": "1.20.1"
+          },
+          "updated": 1766869200000,
+          "update": 1766869200000,
+          "downloadALL": 121429,
+          "available": true,
+          "parser": true,
+          "totalComments": 0
+        },
+        {
+          "stateGameElement": "active",
+          "id": 661293,
+          "name": "SmartBrainLib (ForgeFabricQuilt)",
+          "author": "scimiguy",
+          "linkProject": "https://www.curseforge.com/minecraft/mc-mods/smartbrainlib",
+          "favorite": false,
+          "categories": [
+            {
+              "id": 7,
+              "name": "library_api",
+              "shortName": "api",
+              "nesting": 0
+            }
+          ],
+          "picture": 821331,
+          "pictures": [],
+          "lanName": "smartbrainlib",
+          "version": {
+            "id": 5654977,
+            "name": "SmartBrainLib-neoforge-1.20.1-1.15",
+            "updateDate": 1724387403000,
+            "type": "release",
+            "gameVersionsDTO": [
+              {
+                "id": 46,
+                "name": "1.20.1"
+              }
+            ],
+            "metadata": {
+              "sha1": "834d70593e4befaf46934e9fbf99fef258779065",
+              "size": 361325,
+              "path": "mods/SmartBrainLib-neoforge-1.20.1-1.15.jar",
+              "url": "/mods/661293/5654977/SmartBrainLib-neoforge-1.20.1-1.15.jar"
+            },
+            "installed": 143550,
+            "available": false,
+            "remove": false,
+            "minecraftVersionTypes": [
+              {
+                "id": 1,
+                "name": "forge"
+              }
+            ]
+          },
+          "popularity": 4,
+          "downloadMonth": 0,
+          "userInstall": false,
+          "populateStatus": false,
+          "dependencies": [],
+          "lastGameVersion": {
+            "id": 66,
+            "name": "1.21.11"
+          },
+          "updated": 1760821200000,
+          "update": 1760821200000,
+          "downloadALL": 363591,
+          "available": true,
+          "parser": true,
+          "totalComments": 0,
+          "adult": false
+        },
+        {
+          "stateGameElement": "active",
+          "id": 1376660,
+          "name": "TACZ Turrets",
+          "author": "Entropy159",
+          "linkProject": "https://www.curseforge.com/minecraft/mc-mods/tacz-turrets",
+          "favorite": false,
+          "categories": [
+            {
+              "id": 4,
+              "name": "armor_weapons_tools",
+              "shortName": "military",
+              "nesting": 0
+            },
+            {
+              "id": 5,
+              "name": "technology",
+              "shortName": "technology",
+              "nesting": 0
+            },
+            {
+              "id": 26,
+              "name": "mc_addons",
+              "shortName": "addons",
+              "nesting": 0
+            }
+          ],
+          "picture": 1260995,
+          "pictures": [
+            1261110,
+            1261108,
+            1261109
+          ],
+          "lanName": "tacz-turrets",
+          "version": {
+            "id": 7174823,
+            "name": "tacz_turrets-1.0.1-all",
+            "updateDate": 1762019619000,
+            "type": "release",
+            "gameVersionsDTO": [
+              {
+                "id": 46,
+                "name": "1.20.1"
+              }
+            ],
+            "metadata": {
+              "sha1": "e740ea5255a537049679ccfbd76d461088b31077",
+              "size": 1468651,
+              "path": "mods/tacz_turrets-1.0.1-all.jar",
+              "url": "/mods/1376660/7174823/tacz_turrets-1.0.1-all.jar"
+            },
+            "installed": 13561,
+            "available": false,
+            "remove": false,
+            "minecraftVersionTypes": [
+              {
+                "id": 1,
+                "name": "forge"
+              }
+            ]
+          },
+          "popularity": 2,
+          "downloadMonth": 0,
+          "userInstall": false,
+          "populateStatus": false,
+          "dependencies": [
+            {
+              "gameType": "mod",
+              "id": 4305,
+              "name": "SmartBrainLib (ForgeFabricQuilt)",
+              "gameEntityId": 661293,
+              "dependencyType": "embedded",
+              "available": false
+            },
+            {
+              "gameType": "mod",
+              "id": 7102,
+              "name": "[TaCZ] Timeless and Classics Zero",
+              "gameEntityId": 1028108,
+              "dependencyType": "required",
+              "available": false
+            },
+            {
+              "gameType": "mod",
+              "id": 2440,
+              "name": "GeckoLib",
+              "gameEntityId": 388172,
+              "dependencyType": "embedded",
+              "available": false
+            }
+          ],
+          "lastGameVersion": {
+            "id": 46,
+            "name": "1.20.1"
+          },
+          "updated": 1761944400000,
+          "update": 1761944400000,
+          "downloadALL": 13671,
+          "available": true,
+          "parser": true,
+          "totalComments": 0
+        },
+        {
+          "stateGameElement": "active",
+          "id": 1266833,
+          "name": "Simply Server Ram Optimizer [Cleaner]",
+          "author": "DavideFox1",
+          "linkProject": "https://www.curseforge.com/minecraft/mc-mods/simply-server-ram-optimizer-cleaner",
+          "favorite": false,
+          "categories": [
+            {
+              "id": 15,
+              "name": "server_utility",
+              "shortName": "plugins",
+              "nesting": 0
+            }
+          ],
+          "picture": 1110429,
+          "pictures": [],
+          "lanName": "simply-server-ram-optimizer-cleaner",
+          "version": {
+            "id": 6821081,
+            "name": "simply_server_ram_optimizer-1.2.0-1.20.1",
+            "updateDate": 1753707315000,
+            "type": "release",
+            "gameVersionsDTO": [
+              {
+                "id": 46,
+                "name": "1.20.1"
+              }
+            ],
+            "metadata": {
+              "sha1": "9562295e3ce050b5f3c014482ca75af6b6753839",
+              "size": 10798,
+              "path": "mods/simply_server_ram_optimizer-1.2.0-1.20.1.jar",
+              "url": "/mods/1266833/6821081/simply_server_ram_optimizer-1.2.0-1.20.1.jar"
+            },
+            "installed": 1164,
+            "available": false,
+            "remove": false,
+            "minecraftVersionTypes": [
+              {
+                "id": 1,
+                "name": "forge"
+              }
+            ]
+          },
+          "popularity": 1,
+          "downloadMonth": 0,
+          "userInstall": false,
+          "populateStatus": false,
+          "dependencies": [],
+          "lastGameVersion": {
+            "id": 46,
+            "name": "1.20.1"
+          },
+          "updated": 1753650000000,
+          "update": 1753650000000,
+          "downloadALL": 1385,
+          "available": true,
+          "parser": true,
+          "totalComments": 0
+        },
+        {
+          "stateGameElement": "active",
+          "id": 257814,
+          "name": "CreativeCore",
+          "author": "CreativeMD",
+          "linkProject": "https://www.curseforge.com/minecraft/mc-mods/creativecore",
+          "favorite": false,
+          "categories": [
+            {
+              "id": 7,
+              "name": "library_api",
+              "shortName": "api",
+              "nesting": 0
+            }
+          ],
+          "picture": 787403,
+          "pictures": [],
+          "lanName": "creativecore",
+          "version": {
+            "id": 6383884,
+            "name": "_FORGE_v2.12.32_mc1.20.1",
+            "updateDate": 1743770956000,
+            "type": "release",
+            "gameVersionsDTO": [
+              {
+                "id": 46,
+                "name": "1.20.1"
+              }
+            ],
+            "metadata": {
+              "sha1": "d49e8c29748677d0a530432f1c1bda4e9865da00",
+              "size": 1158417,
+              "path": "mods/CreativeCore_FORGE_v2.12.32_mc1.20.1.jar",
+              "url": "/mods/257814/6383884/CreativeCore_FORGE_v2.12.32_mc1.20.1.jar"
+            },
+            "installed": 299644,
+            "available": false,
+            "remove": false,
+            "minecraftVersionTypes": [
+              {
+                "id": 5,
+                "name": "neoForge"
+              },
+              {
+                "id": 1,
+                "name": "forge"
+              }
+            ]
+          },
+          "popularity": 5,
+          "downloadMonth": 720,
+          "userInstall": false,
+          "populateStatus": false,
+          "dependencies": [],
+          "lastGameVersion": {
+            "id": 66,
+            "name": "1.21.11"
+          },
+          "updated": 1768251600000,
+          "update": 1768251600000,
+          "downloadALL": 4306813,
+          "available": true,
+          "parser": true,
+          "totalComments": 0,
+          "adult": false
+        },
+        {
+          "stateGameElement": "active",
+          "id": 266890,
+          "name": "PlayerRevive",
+          "author": "CreativeMD",
+          "linkProject": "https://www.curseforge.com/minecraft/mc-mods/playerrevive",
+          "favorite": false,
+          "categories": [
+            {
+              "id": 55,
+              "name": "adventure_and_rpg",
+              "shortName": "roleplay",
+              "nesting": 0
+            }
+          ],
+          "picture": 800503,
+          "pictures": [],
+          "lanName": "playerrevive",
+          "version": {
+            "id": 6048921,
+            "name": "_FORGE_v2.0.31_mc1.20.1",
+            "updateDate": 1735908224000,
+            "type": "release",
+            "gameVersionsDTO": [
+              {
+                "id": 46,
+                "name": "1.20.1"
+              }
+            ],
+            "metadata": {
+              "sha1": "84c039f20b8f048c835c429c2c4a9fd82a5e65f6",
+              "size": 5298162,
+              "path": "mods/PlayerRevive_FORGE_v2.0.31_mc1.20.1.jar",
+              "url": "/mods/266890/6048921/PlayerRevive_FORGE_v2.0.31_mc1.20.1.jar"
+            },
+            "installed": 75327,
+            "available": false,
+            "remove": false,
+            "minecraftVersionTypes": [
+              {
+                "id": 5,
+                "name": "neoForge"
+              },
+              {
+                "id": 1,
+                "name": "forge"
+              }
+            ]
+          },
+          "popularity": 5,
+          "downloadMonth": 483,
+          "userInstall": false,
+          "populateStatus": false,
+          "dependencies": [
+            {
+              "gameType": "mod",
+              "id": 670,
+              "name": "CreativeCore",
+              "gameEntityId": 257814,
+              "dependencyType": "required",
+              "available": false
+            }
+          ],
+          "lastGameVersion": {
+            "id": 66,
+            "name": "1.21.11"
+          },
+          "updated": 1768251600000,
+          "update": 1768251600000,
+          "downloadALL": 1533834,
+          "available": true,
+          "parser": true,
+          "totalComments": 0,
+          "adult": false
+        },
+        {
+          "stateGameElement": "active",
+          "id": 401648,
+          "name": "BetterF3",
+          "author": "cominixo",
+          "linkProject": "https://www.curseforge.com/minecraft/mc-mods/betterf3",
+          "favorite": false,
+          "categories": [
+            {
+              "id": 6,
+              "name": "map_information",
+              "shortName": "maps",
+              "nesting": 0
+            }
+          ],
+          "picture": 821292,
+          "pictures": [],
+          "lanName": "betterf3",
+          "version": {
+            "id": 4863626,
+            "name": "7.0.2-Forge-1.20.1",
+            "updateDate": 1699838229000,
+            "type": "beta",
+            "gameVersionsDTO": [
+              {
+                "id": 46,
+                "name": "1.20.1"
+              },
+              {
+                "id": 45,
+                "name": "1.20"
+              }
+            ],
+            "metadata": {
+              "sha1": "b65cba59e87dc6c6d1aa9c47f09b9996b4e5075d",
+              "size": 468517,
+              "path": "mods/BetterF3-7.0.2-Forge-1.20.1.jar",
+              "url": "/mods/401648/4863626/BetterF3-7.0.2-Forge-1.20.1.jar"
+            },
+            "installed": 105782,
+            "available": false,
+            "remove": false,
+            "minecraftVersionTypes": [
+              {
+                "id": 1,
+                "name": "forge"
+              }
+            ]
+          },
+          "popularity": 5,
+          "downloadMonth": 28,
+          "userInstall": false,
+          "populateStatus": false,
+          "dependencies": [
+            {
+              "gameType": "mod",
+              "id": 332,
+              "name": "Cloth Config API (FabricForgeNeoForge)",
+              "gameEntityId": 348521,
+              "dependencyType": "required",
+              "available": false
+            },
+            {
+              "gameType": "mod",
+              "id": 2,
+              "name": "Fabric API",
+              "gameEntityId": 306612,
+              "dependencyType": "required",
+              "available": false
+            },
+            {
+              "gameType": "mod",
+              "id": 204,
+              "name": "Mod Menu",
+              "gameEntityId": 308702,
+              "dependencyType": "optional",
+              "available": false
+            }
+          ],
+          "lastGameVersion": {
+            "id": 66,
+            "name": "1.21.11"
+          },
+          "updated": 1767906000000,
+          "update": 1767906000000,
+          "downloadALL": 665017,
+          "available": true,
+          "parser": true,
+          "totalComments": 0,
+          "adult": false
+        },
+        {
+          "stateGameElement": "active",
+          "id": 582327,
+          "name": "Server Performance - Smooth Chunk Save[ForgeFabric]",
+          "author": "someaddon",
+          "linkProject": "https://www.curseforge.com/minecraft/mc-mods/smooth-chunk-save",
+          "favorite": false,
+          "categories": [
+            {
+              "id": 15,
+              "name": "server_utility",
+              "shortName": "plugins",
+              "nesting": 0
+            },
+            {
+              "id": 6,
+              "name": "map_information",
+              "shortName": "maps",
+              "nesting": 0
+            }
+          ],
+          "picture": 821162,
+          "pictures": [],
+          "lanName": "smooth-chunk-save",
+          "version": {
+            "id": 6296598,
+            "name": "smoothchunk-1.20.1-4.1",
+            "updateDate": 1741797575000,
+            "type": "release",
+            "gameVersionsDTO": [
+              {
+                "id": 46,
+                "name": "1.20.1"
+              }
+            ],
+            "metadata": {
+              "sha1": "3e142e4a2e12db1c9a3777879cc021aff49da088",
+              "size": 14249,
+              "path": "mods/smoothchunk-1.20.1-4.1.jar",
+              "url": "/mods/582327/6296598/smoothchunk-1.20.1-4.1.jar"
+            },
+            "installed": 27202,
+            "available": false,
+            "remove": false,
+            "minecraftVersionTypes": [
+              {
+                "id": 5,
+                "name": "neoForge"
+              },
+              {
+                "id": 1,
+                "name": "forge"
+              }
+            ]
+          },
+          "popularity": 3,
+          "downloadMonth": 0,
+          "userInstall": false,
+          "populateStatus": false,
+          "dependencies": [],
+          "lastGameVersion": {
+            "id": 53,
+            "name": "1.21.1"
+          },
+          "updated": 1741726800000,
+          "update": 1741726800000,
+          "downloadALL": 148758,
+          "available": true,
+          "parser": true,
+          "totalComments": 0,
+          "adult": false
         }
       ],
       "resourcePacks": [],

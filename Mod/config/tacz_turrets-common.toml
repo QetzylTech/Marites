@@ -1,0 +1,3 @@
+#Whether turrets need ammo
+consumeAmmo = true
+
