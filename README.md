@@ -123,14 +123,14 @@ Steps:
     - `mods/`, `config/`, `defaultconfigs/`, `scripts/`, `kubejs/`
     - Remove client-only mods (Oculus, LegendaryTooltips).
 8. Adjust server startup script (optional):
-    - Set RAM allocation: -Xms1024M -Xmx2048M.
+    - Set RAM allocation: `-Xms1024M -Xmx2048M`.
 9. Start server by double-clicking run.bat
 
 Notes:
 - Eula.txt will only show up if installation is successful.
 - If the server starts successfully, you should see a window with a graph and console.
 - The arguments when starting the server, -Xms1024M and -Xmx2048M, set the max ram usage at startup and at runtime. If not set, the default value is 1/16 and 1/4 of the installed ram, respectively.
-- During installation, run the Forge jar by DOUBLE-CLICKING, NOT CMD. Using CMD will install to the default location: 'C:\Users\<YourUsername>\AppData\Roaming\.minecraft'
+- During installation, run the Forge jar by DOUBLE-CLICKING, NOT CMD. Using CMD will install to the default location: `C:\Users\<YourUsername>\AppData\Roaming\.minecraft`
 - I said to copy just those folders in step 6. I did that + copied everything else in the tlauncher folder and it still worked fine. Just need to delete client side mods(Oculus and Legendarytooltips) from the mod folder.
 - If run.bat shows a terminal window running and then it outputs an error after loading the mods, you can see the cause on the first few lines of error after the list of mods (oculus error or something). Usually just means you need to delete client-side mods.
 ### 2.5 Deploy Server (Ubuntu CLI)
