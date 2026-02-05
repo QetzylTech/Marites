@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <title>Marites README</title>
+  <!-- GitHub Markdown CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
+  <style>
+    body {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+  </style>
 </head>
-<body>
-  <iframe src="README.md" style="width:100%;height:100vh;border:none;"></iframe>
+<body class="markdown-body">
+  <div id="content"></div>
+
+  <!-- Markdown-it JS library -->
+  <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+  <script>
+    // Load README.md via fetch
+    fetch('README.md')
+      .then(response => response.text())
+      .then(md => {
+        const mdRenderer = window.markdownit({html: true});
+        document.getElementById('content').innerHTML = mdRenderer.render(md);
+      });
+  </script>
 </body>
 </html>
