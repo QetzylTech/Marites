@@ -103,25 +103,6 @@
     "firepit": true,
     "ingot_pile": true
   },
-  "jadeaddons": {
-    "equipment_requirement": ""
-  },
-  "jadeaddons.create": {
-    "filter": true,
-    "backtank_capacity": true,
-    "goggles.requires_goggles": true,
-    "goggles": false,
-    "blaze_burner": true,
-    "exact_block": true,
-    "goggles.detailed": false,
-    "placard": true
-  },
-  "jadeaddons.lootr": {
-    "info": true
-  },
-  "twilightforest": {
-    "quest_ram_wool": true
-  },
   "dynamictrees": {
     "rooty_water": true,
     "pod": true,
@@ -141,5 +122,11 @@
     "adventure": true,
     "ench": true,
     "spawner": true
+  },
+  "storagedrawers": {
+    "display.stacklimit": true,
+    "main": true,
+    "display.content": true,
+    "display.status": true
   }
 }

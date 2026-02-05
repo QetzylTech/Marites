@@ -154,6 +154,17 @@
         "value": 100
       }
     },
+    "cataclysm_spellbooks:abyssal_magic_resist": {
+      "enabled": false,
+      "min": {
+        "default": 0,
+        "value": 0
+      },
+      "max": {
+        "default": 10,
+        "value": 10
+      }
+    },
     "attributeslib:cold_damage": {
       "enabled": false,
       "min": {
@@ -220,15 +231,15 @@
         "value": 100
       }
     },
-    "tacz:tacz.bullet_resistance": {
+    "cataclysm_spellbooks:abyssal_spell_power": {
       "enabled": false,
       "min": {
         "default": 0,
         "value": 0
       },
       "max": {
-        "default": 1,
-        "value": 1
+        "default": 10,
+        "value": 10
       }
     },
     "celestisynth:celestial_damage": {
@@ -693,6 +704,17 @@
         "value": 10
       }
     },
+    "cataclysm_spellbooks:technomancy_spell_power": {
+      "enabled": false,
+      "min": {
+        "default": 0,
+        "value": 0
+      },
+      "max": {
+        "default": 10,
+        "value": 10
+      }
+    },
     "minecraft:generic.movement_speed": {
       "enabled": true,
       "min": {
@@ -771,6 +793,17 @@
       }
     },
     "attributeslib:arrow_damage": {
+      "enabled": false,
+      "min": {
+        "default": 0,
+        "value": 0
+      },
+      "max": {
+        "default": 10,
+        "value": 10
+      }
+    },
+    "cataclysm_spellbooks:technomancy_magic_resist": {
       "enabled": false,
       "min": {
         "default": 0,
