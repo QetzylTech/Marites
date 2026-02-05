@@ -1,3 +1,3 @@
 #
-#Wed Jan 21 21:18:21 PST 2026
-shaderPack=§r§lAstra§4§lLex§r§l_By_LexBoosT_§4§lV93.0§r§l.zip
+#Fri Jan 23 17:35:40 PST 2026
+shaderPack=Solas%20Shader%20V3.2.zip
