@@ -6,6 +6,7 @@
   "mainClass": "cpw.mods.bootstraplauncher.BootstrapLauncher",
   "minimumLauncherVersion": 21,
   "arguments": {
+    "default_user_jvm": [],
     "game": [
       {
         "values": [
@@ -285,7 +286,6 @@
         "rules": []
       }
     ],
-    "default_user_jvm": [],
     "jvm": [
       {
         "values": [

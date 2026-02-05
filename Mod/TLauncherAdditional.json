@@ -19606,6 +19606,94 @@
           "parser": true,
           "totalComments": 0,
           "adult": false
+        },
+        {
+          "stateGameElement": "active",
+          "id": 1340131,
+          "name": "Villager Warship",
+          "author": "SuperWarioModTeam",
+          "linkProject": "https://www.curseforge.com/minecraft/mc-mods/villager-warship",
+          "favorite": false,
+          "categories": [
+            {
+              "id": 27,
+              "name": "world_structures",
+              "shortName": "structures",
+              "nesting": 0
+            },
+            {
+              "id": 55,
+              "name": "adventure_and_rpg",
+              "shortName": "roleplay",
+              "nesting": 0
+            },
+            {
+              "id": 14,
+              "name": "world_biomes",
+              "shortName": "biomes",
+              "nesting": 0
+            },
+            {
+              "id": 29,
+              "name": "world_gen",
+              "shortName": "world",
+              "nesting": 0
+            }
+          ],
+          "picture": 1213039,
+          "pictures": [
+            1213349,
+            1213346,
+            1213345,
+            1213347,
+            1213351,
+            1213344,
+            1213348,
+            1213350
+          ],
+          "lanName": "villager-warship",
+          "version": {
+            "id": 6957799,
+            "name": "villager_warship-1.0.0-forge-1.20.1",
+            "updateDate": 1756865788000,
+            "type": "release",
+            "gameVersionsDTO": [
+              {
+                "id": 46,
+                "name": "1.20.1"
+              }
+            ],
+            "metadata": {
+              "sha1": "590c991238108920ea2fdf91c3059a8a3d65e2d5",
+              "size": 55072,
+              "path": "mods/villager_warship-1.0.0-forge-1.20.1.jar",
+              "url": "/mods/1340131/6957799/villager_warship-1.0.0-forge-1.20.1.jar"
+            },
+            "installed": 5664,
+            "available": false,
+            "remove": false,
+            "minecraftVersionTypes": [
+              {
+                "id": 1,
+                "name": "forge"
+              }
+            ]
+          },
+          "popularity": 1,
+          "downloadMonth": 0,
+          "userInstall": false,
+          "populateStatus": false,
+          "dependencies": [],
+          "lastGameVersion": {
+            "id": 63,
+            "name": "1.21.8"
+          },
+          "updated": 1759266000000,
+          "update": 1759266000000,
+          "downloadALL": 8049,
+          "available": true,
+          "parser": true,
+          "totalComments": 0
         }
       ],
       "resourcePacks": [],
