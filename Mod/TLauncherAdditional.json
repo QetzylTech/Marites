@@ -16670,88 +16670,6 @@
         },
         {
           "stateGameElement": "active",
-          "id": 476788,
-          "name": "MC Dungeons Artifacts",
-          "author": "chronos_sacaria",
-          "linkProject": "https://www.curseforge.com/minecraft/mc-mods/mcdar",
-          "favorite": false,
-          "categories": [
-            {
-              "id": 1,
-              "name": "magic",
-              "shortName": "magic",
-              "nesting": 0
-            },
-            {
-              "id": 55,
-              "name": "adventure_and_rpg",
-              "shortName": "roleplay",
-              "nesting": 0
-            },
-            {
-              "id": 4,
-              "name": "armor_weapons_tools",
-              "shortName": "military",
-              "nesting": 0
-            }
-          ],
-          "picture": 845130,
-          "pictures": [],
-          "lanName": "mcdar",
-          "version": {
-            "id": 6075583,
-            "name": "mcdar-4.0.5",
-            "updateDate": 1736571531000,
-            "type": "release",
-            "gameVersionsDTO": [
-              {
-                "id": 46,
-                "name": "1.20.1"
-              },
-              {
-                "id": 45,
-                "name": "1.20"
-              }
-            ],
-            "metadata": {
-              "sha1": "1d8541b12457eb4228c5466a8449ac0c4a79b915",
-              "size": 676448,
-              "path": "mods/mcdar-4.0.5.jar",
-              "url": "/mods/476788/6075583/mcdar-4.0.5.jar"
-            },
-            "installed": 13929,
-            "available": false,
-            "remove": false,
-            "minecraftVersionTypes": [
-              {
-                "id": 2,
-                "name": "fabric"
-              },
-              {
-                "id": 1,
-                "name": "forge"
-              }
-            ]
-          },
-          "popularity": 2,
-          "downloadMonth": 0,
-          "userInstall": false,
-          "populateStatus": false,
-          "dependencies": [],
-          "lastGameVersion": {
-            "id": 46,
-            "name": "1.20.1"
-          },
-          "updated": 1736542800000,
-          "update": 1736542800000,
-          "downloadALL": 79144,
-          "available": true,
-          "parser": true,
-          "totalComments": 0,
-          "adult": false
-        },
-        {
-          "stateGameElement": "active",
           "id": 1131738,
           "name": "Alex’s Artifacts",
           "author": "Project_Count",
@@ -19015,79 +18933,6 @@
         },
         {
           "stateGameElement": "active",
-          "id": 1281654,
-          "name": "Brimm Armors  Tactical Military Armors",
-          "author": "Taro_DVE",
-          "linkProject": "https://www.curseforge.com/minecraft/mc-mods/brimm-armors-tactical-military-armors",
-          "favorite": false,
-          "categories": [
-            {
-              "id": 4,
-              "name": "armor_weapons_tools",
-              "shortName": "military",
-              "nesting": 0
-            }
-          ],
-          "picture": 1137725,
-          "pictures": [
-            1141275,
-            1141273,
-            1141278,
-            1141274,
-            1141277,
-            1141279,
-            1141276
-          ],
-          "lanName": "brimm-armors-tactical-military-armors",
-          "version": {
-            "id": 7476385,
-            "name": "brimm-2.0.3",
-            "updateDate": 1768671163000,
-            "type": "release",
-            "gameVersionsDTO": [
-              {
-                "id": 46,
-                "name": "1.20.1"
-              },
-              {
-                "id": 45,
-                "name": "1.20"
-              }
-            ],
-            "metadata": {
-              "sha1": "1b598c180de3327a8bf8cfd4e7355fe2724fc214",
-              "size": 4503392,
-              "path": "mods/brimm-2.0.3.jar",
-              "url": "/mods/1281654/7476385/brimm-2.0.3.jar"
-            },
-            "installed": 1238,
-            "available": false,
-            "remove": false,
-            "minecraftVersionTypes": [
-              {
-                "id": 1,
-                "name": "forge"
-              }
-            ]
-          },
-          "popularity": 2,
-          "downloadMonth": 0,
-          "userInstall": false,
-          "populateStatus": false,
-          "dependencies": [],
-          "lastGameVersion": {
-            "id": 51,
-            "name": "1.20.6"
-          },
-          "updated": 1768597200000,
-          "update": 1768597200000,
-          "downloadALL": 19375,
-          "available": true,
-          "parser": true,
-          "totalComments": 0
-        },
-        {
-          "stateGameElement": "active",
           "id": 580681,
           "name": "Immersive Armors [FabricForge]",
           "author": "conczin",
@@ -19831,6 +19676,508 @@
           "parser": true,
           "totalComments": 0,
           "adult": false
+        },
+        {
+          "stateGameElement": "active",
+          "id": 583345,
+          "name": "Jade Addons (NeoForge)",
+          "author": "snownee_",
+          "linkProject": "https://www.curseforge.com/minecraft/mc-mods/jade-addons",
+          "favorite": false,
+          "categories": [
+            {
+              "id": 6,
+              "name": "map_information",
+              "shortName": "maps",
+              "nesting": 0
+            },
+            {
+              "id": 26,
+              "name": "mc_addons",
+              "shortName": "addons",
+              "nesting": 0
+            }
+          ],
+          "picture": 821271,
+          "pictures": [],
+          "lanName": "jade-addons",
+          "version": {
+            "id": 6274674,
+            "name": "JadeAddons-1.20.1-Forge-5.5.0",
+            "updateDate": 1741349658000,
+            "gameVersionsDTO": [
+              {
+                "id": 46,
+                "name": "1.20.1"
+              },
+              {
+                "id": 45,
+                "name": "1.20"
+              }
+            ],
+            "metadata": {
+              "sha1": "5e74e87f61cf05c18457f09dfa1cb70332b6b777",
+              "size": 91771,
+              "path": "mods/JadeAddons-1.20.1-Forge-5.5.0.jar",
+              "url": "/mods/583345/6274674/JadeAddons-1.20.1-Forge-5.5.0.jar"
+            },
+            "installed": 23339,
+            "available": false,
+            "remove": false,
+            "minecraftVersionTypes": [
+              {
+                "id": 5,
+                "name": "neoForge"
+              },
+              {
+                "id": 1,
+                "name": "forge"
+              }
+            ]
+          },
+          "popularity": 2,
+          "downloadMonth": 0,
+          "userInstall": false,
+          "populateStatus": false,
+          "dependencies": [
+            {
+              "gameType": "mod",
+              "id": 55,
+              "name": "Jade 🔍",
+              "gameEntityId": 324717,
+              "dependencyType": "required",
+              "available": false
+            }
+          ],
+          "lastGameVersion": {
+            "id": 53,
+            "name": "1.21.1"
+          },
+          "updated": 1742158800000,
+          "update": 1742158800000,
+          "downloadALL": 99531,
+          "available": true,
+          "parser": true,
+          "totalComments": 0,
+          "adult": false
+        },
+        {
+          "stateGameElement": "active",
+          "id": -18273531370500,
+          "name": "GuardRibbits-1.20.1-Fabric-1.0.8$reflections-0.10.2_mapped_srg_1.20.1",
+          "favorite": false,
+          "version": {
+            "id": -18273545490300,
+            "name": "1.0",
+            "metadata": {
+              "sha1": "d7a4078899f16e20ac4216821078afb3501603ec",
+              "size": 135328,
+              "path": "mods/.connector/GuardRibbits-1.20.1-Fabric-1.0.8$reflections-0.10.2_mapped_srg_1.20.1.jar",
+              "url": "mods/.connector/GuardRibbits-1.20.1-Fabric-1.0.8$reflections-0.10.2_mapped_srg_1.20.1.jar"
+            },
+            "available": false,
+            "remove": false
+          },
+          "userInstall": true,
+          "populateStatus": false,
+          "available": false,
+          "parser": false,
+          "totalComments": 0
+        },
+        {
+          "stateGameElement": "active",
+          "id": -18273545845600,
+          "name": "GuardRibbits-1.20.1-Fabric-1.0.8_mapped_srg_1.20.1",
+          "favorite": false,
+          "version": {
+            "id": -18273546345300,
+            "name": "1.0",
+            "metadata": {
+              "sha1": "1fc4490555b7fcf03ed8557b02c4b93d57db4365",
+              "size": 171702,
+              "path": "mods/.connector/GuardRibbits-1.20.1-Fabric-1.0.8_mapped_srg_1.20.1.jar",
+              "url": "mods/.connector/GuardRibbits-1.20.1-Fabric-1.0.8_mapped_srg_1.20.1.jar"
+            },
+            "available": false,
+            "remove": false
+          },
+          "userInstall": true,
+          "populateStatus": false,
+          "available": false,
+          "parser": false,
+          "totalComments": 0
+        },
+        {
+          "stateGameElement": "active",
+          "id": -18273546395400,
+          "name": "mcda-5.0.2_mapped_srg_1.20.1",
+          "favorite": false,
+          "version": {
+            "id": -18273547918400,
+            "name": "1.0",
+            "metadata": {
+              "sha1": "37513b64c58c6d1157768fde6f39b02ae9ad7110",
+              "size": 983149,
+              "path": "mods/.connector/mcda-5.0.2_mapped_srg_1.20.1.jar",
+              "url": "mods/.connector/mcda-5.0.2_mapped_srg_1.20.1.jar"
+            },
+            "available": false,
+            "remove": false
+          },
+          "userInstall": true,
+          "populateStatus": false,
+          "available": false,
+          "parser": false,
+          "totalComments": 0
+        },
+        {
+          "stateGameElement": "active",
+          "id": -18273547973800,
+          "name": "mcdar-4.0.5_mapped_srg_1.20.1",
+          "favorite": false,
+          "version": {
+            "id": -18273548786800,
+            "name": "1.0",
+            "metadata": {
+              "sha1": "81543dd9b33fe72f60a8b4b426a055b2a28ac371",
+              "size": 664500,
+              "path": "mods/.connector/mcdar-4.0.5_mapped_srg_1.20.1.jar",
+              "url": "mods/.connector/mcdar-4.0.5_mapped_srg_1.20.1.jar"
+            },
+            "available": false,
+            "remove": false
+          },
+          "userInstall": true,
+          "populateStatus": false,
+          "available": false,
+          "parser": false,
+          "totalComments": 0
+        },
+        {
+          "stateGameElement": "active",
+          "id": -18273548848800,
+          "name": "mcdw-9.0.4$mixinextras-fabric-0.2.0-beta.8_mapped_srg_1.20.1",
+          "favorite": false,
+          "version": {
+            "id": -18273549094700,
+            "name": "1.0",
+            "metadata": {
+              "sha1": "fdda9427aa7890b959c44975b722097df26ea4d6",
+              "size": 107749,
+              "path": "mods/.connector/mcdw-9.0.4$mixinextras-fabric-0.2.0-beta.8_mapped_srg_1.20.1.jar",
+              "url": "mods/.connector/mcdw-9.0.4$mixinextras-fabric-0.2.0-beta.8_mapped_srg_1.20.1.jar"
+            },
+            "available": false,
+            "remove": false
+          },
+          "userInstall": true,
+          "populateStatus": false,
+          "available": false,
+          "parser": false,
+          "totalComments": 0
+        },
+        {
+          "stateGameElement": "active",
+          "id": -18273549125700,
+          "name": "mcdw-9.0.4_mapped_srg_1.20.1",
+          "favorite": false,
+          "version": {
+            "id": -18273550503600,
+            "name": "1.0",
+            "metadata": {
+              "sha1": "dd175f4414ba019ca615ed030fb8694c58d393f1",
+              "size": 1388110,
+              "path": "mods/.connector/mcdw-9.0.4_mapped_srg_1.20.1.jar",
+              "url": "mods/.connector/mcdw-9.0.4_mapped_srg_1.20.1.jar"
+            },
+            "available": false,
+            "remove": false
+          },
+          "userInstall": true,
+          "populateStatus": false,
+          "available": false,
+          "parser": false,
+          "totalComments": 0
+        },
+        {
+          "stateGameElement": "active",
+          "id": -18273550533400,
+          "name": "GuardRibbits-1.20.1-Fabric-1.0.8$reflections-0.10.2",
+          "favorite": false,
+          "version": {
+            "id": -18273550787100,
+            "name": "1.0",
+            "metadata": {
+              "sha1": "d12e731d0542220b1fcf2c1ff0b6825c40b573b2",
+              "size": 131865,
+              "path": "mods/.connector/temp/GuardRibbits-1.20.1-Fabric-1.0.8$reflections-0.10.2.jar",
+              "url": "mods/.connector/temp/GuardRibbits-1.20.1-Fabric-1.0.8$reflections-0.10.2.jar"
+            },
+            "available": false,
+            "remove": false
+          },
+          "userInstall": true,
+          "populateStatus": false,
+          "available": false,
+          "parser": false,
+          "totalComments": 0
+        },
+        {
+          "stateGameElement": "active",
+          "id": -18273550816100,
+          "name": "mcdw-9.0.4$mixinextras-fabric-0.2.0-beta.8",
+          "favorite": false,
+          "version": {
+            "id": -18273551086200,
+            "name": "1.0",
+            "metadata": {
+              "sha1": "070ad6c19ef09108fc3e768f6db98050c20b4756",
+              "size": 104713,
+              "path": "mods/.connector/temp/mcdw-9.0.4$mixinextras-fabric-0.2.0-beta.8.jar",
+              "url": "mods/.connector/temp/mcdw-9.0.4$mixinextras-fabric-0.2.0-beta.8.jar"
+            },
+            "available": false,
+            "remove": false
+          },
+          "userInstall": true,
+          "populateStatus": false,
+          "available": false,
+          "parser": false,
+          "totalComments": 0
+        },
+        {
+          "stateGameElement": "active",
+          "id": 771275,
+          "name": "Jet and Elia's Armors",
+          "author": "epictehjet",
+          "linkProject": "https://www.curseforge.com/minecraft/mc-mods/jet-and-elias-armors",
+          "favorite": false,
+          "categories": [
+            {
+              "id": 4,
+              "name": "armor_weapons_tools",
+              "shortName": "military",
+              "nesting": 0
+            },
+            {
+              "id": 2,
+              "name": "adventure_rpg",
+              "shortName": "rpg",
+              "nesting": 0
+            },
+            {
+              "id": 3,
+              "name": "cosmetic",
+              "shortName": "cosmetic",
+              "nesting": 0
+            }
+          ],
+          "picture": 800615,
+          "pictures": [
+            433337,
+            426305,
+            426307,
+            426301,
+            393204,
+            393203,
+            426308,
+            433333,
+            433335,
+            393200,
+            433338,
+            433334,
+            426302,
+            426306,
+            433336,
+            426303,
+            393202,
+            426304,
+            393201
+          ],
+          "lanName": "jet-and-elias-armors",
+          "version": {
+            "id": 11008591,
+            "name": "1.4",
+            "updateDate": 1709301222000,
+            "type": "release",
+            "gameVersionsDTO": [
+              {
+                "id": 46,
+                "name": "1.20.1"
+              }
+            ],
+            "metadata": {
+              "sha1": "88f40644127b2579712e7466d4b1cb8d2857a6a9",
+              "size": 6636582,
+              "path": "mods/jet_and_elias_armors-1.4-1.20.1.jar",
+              "url": "/mods/25001520/11008580/jet_and_elias_armors-1.4-1.20.1.jar"
+            },
+            "installed": 27946,
+            "available": false,
+            "remove": false,
+            "minecraftVersionTypes": [
+              {
+                "id": 1,
+                "name": "forge"
+              }
+            ]
+          },
+          "popularity": 2,
+          "downloadMonth": 0,
+          "userInstall": false,
+          "populateStatus": false,
+          "dependencies": [],
+          "lastGameVersion": {
+            "id": 46,
+            "name": "1.20.1"
+          },
+          "updated": 1708203600000,
+          "update": 1708203600000,
+          "downloadALL": 46456,
+          "available": true,
+          "parser": true,
+          "totalComments": 0,
+          "adult": false
+        },
+        {
+          "stateGameElement": "active",
+          "id": 1083998,
+          "name": "Fantasy Armor (Medieval Series)",
+          "author": "Kenddie",
+          "linkProject": "https://www.curseforge.com/minecraft/mc-mods/fantasy-armor",
+          "favorite": false,
+          "categories": [
+            {
+              "id": 1,
+              "name": "magic",
+              "shortName": "magic",
+              "nesting": 0
+            },
+            {
+              "id": 55,
+              "name": "adventure_and_rpg",
+              "shortName": "roleplay",
+              "nesting": 0
+            },
+            {
+              "id": 4,
+              "name": "armor_weapons_tools",
+              "shortName": "military",
+              "nesting": 0
+            },
+            {
+              "id": 3,
+              "name": "cosmetic",
+              "shortName": "cosmetic",
+              "nesting": 0
+            }
+          ],
+          "picture": 898923,
+          "pictures": [
+            899954,
+            899960,
+            899951,
+            923289,
+            899961,
+            899950,
+            1307174,
+            1307176,
+            1307177,
+            899952,
+            899953,
+            1307175,
+            899957,
+            923292,
+            899956,
+            923290,
+            1307173,
+            899949,
+            899962,
+            899958,
+            899959,
+            923291,
+            899955
+          ],
+          "lanName": "fantasy-armor",
+          "version": {
+            "id": 7328423,
+            "name": "fantasy_armor-forge-1.2-1.20.1",
+            "updateDate": 1765638155000,
+            "type": "release",
+            "gameVersionsDTO": [
+              {
+                "id": 49,
+                "name": "1.20.4"
+              },
+              {
+                "id": 48,
+                "name": "1.20.3"
+              },
+              {
+                "id": 47,
+                "name": "1.20.2"
+              },
+              {
+                "id": 46,
+                "name": "1.20.1"
+              }
+            ],
+            "metadata": {
+              "sha1": "3eef1769377486be3e1a6ad6fa5c22e9641a609e",
+              "size": 544531,
+              "path": "mods/fantasy_armor-forge-1.2-1.20.1.jar",
+              "url": "/mods/1083998/7328423/fantasy_armor-forge-1.2-1.20.1.jar"
+            },
+            "installed": 10391,
+            "available": false,
+            "remove": false,
+            "minecraftVersionTypes": [
+              {
+                "id": 1,
+                "name": "forge"
+              }
+            ]
+          },
+          "popularity": 3,
+          "downloadMonth": 0,
+          "userInstall": false,
+          "populateStatus": false,
+          "dependencies": [
+            {
+              "gameType": "mod",
+              "id": 2440,
+              "name": "GeckoLib",
+              "gameEntityId": 388172,
+              "dependencyType": "embedded",
+              "available": false
+            },
+            {
+              "gameType": "mod",
+              "id": 10752,
+              "name": "Fantasy Weapons (Medieval Series)",
+              "gameEntityId": 1090102,
+              "dependencyType": "optional",
+              "available": false
+            },
+            {
+              "gameType": "mod",
+              "id": 332,
+              "name": "Cloth Config API (FabricForgeNeoForge)",
+              "gameEntityId": 348521,
+              "dependencyType": "required",
+              "available": false
+            }
+          ],
+          "lastGameVersion": {
+            "id": 65,
+            "name": "1.21.10"
+          },
+          "updated": 1768597200000,
+          "update": 1768597200000,
+          "downloadALL": 121859,
+          "available": true,
+          "parser": true,
+          "totalComments": 0
         }
       ],
       "resourcePacks": [],
