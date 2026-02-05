@@ -3,8 +3,8 @@ By JP
 
 ## Client TLDR
 1. Install the latest:
-  TLauncher https://tlauncher.org/en/
-  Tailscale https://tailscale.com/download
+  - TLauncher https://tlauncher.org/en/
+  - Tailscale https://tailscale.com/download
 2. Join VPN using the Tailscale account provided by JP
 3. Import modpack 
   https://drive.google.com/drive/folders/1vuYmIkiJw5WnN9wqXW7krUkUowxOI1wr?usp=sharing
@@ -29,8 +29,6 @@ The majority of this guide covers server setup and configuration.
   - [2.2 Deploy Server (Windows)](#22-deploy-server-windows)
   - [2.3 Deploy Server (Ubuntu CLI)](#23-deploy-server-ubuntu-cli)
     - [2.3.1 Ubuntu Server Installation](#231-ubuntu-server-installation)
-      - [A. Prepare Installation Media](#a-prepare-installation-media)
-      - [B. Install Ubuntu Server](#b-install-ubuntu-server)
     - [2.3.2 Minecraft Server Deployment](#232-minecraft-server-deployment)
   - [2.4 Server Properties and Other Configs](#24-server-properties-and-other-configs)
   - [2.5 Network Setup (VPN Path)](#25-network-setup-vpn-path)
@@ -114,7 +112,7 @@ Steps:
 8. Start server:
     - Double-click run.bat → verify console shows successful startup.
 ### 2.3 Deploy Server (Ubuntu CLI)
-Skip to 2.3.2 If Ubuntu is already installed.
+Skip to [2.3.2](#232-minecraft-server-deployment) If Ubuntu is already installed.
 #### 2.3.1 Ubuntu Server Installation
 Preconditions:
   - Target PC ready.
