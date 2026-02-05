@@ -1,5 +1,0 @@
-#Tue Jan 20 13:25:16 PST 2026
-FXAA=true
-BLOOM=false
-VOLUMETRIC_CLOUDS=false
-VC_SHADOWS=false

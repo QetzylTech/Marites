@@ -1,8 +1,8 @@
 {
   "commonHelmets": {
     "entries": {
-      "iron_helmet": 0.3,
       "leather_helmet": 0.1,
+      "iron_helmet": 0.3,
       "chainmail_helmet": 0.3,
       "carved_pumpkin": 0.01
     },
