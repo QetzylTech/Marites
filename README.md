@@ -11,15 +11,15 @@ By JP
 4. Join the server using the URL provided by JP
 
 ## Foreword
-This documentation is intended for Marites only. Most instructions are aimed at the server admin.
-It assumes all VPNs, tunnels, and credentials are distributed manually and are not public.
-While the tutorial uses Cisco’s Modpacks, it can work with other Forge modpacks—adjust as needed (other modpacks are untested).
-For best results, follow these instructions at least once while on a call with JP or Sam.
-The majority of this guide covers server setup and configuration.
+&nbsp;&nbsp;&nbsp;&nbsp;This documentation is intended for Marites only. Most instructions are aimed at the server admin.
+&nbsp;&nbsp;&nbsp;&nbsp;It assumes all VPNs, tunnels, and credentials are distributed manually and are not public.
+&nbsp;&nbsp;&nbsp;&nbsp;While the tutorial uses Cisco’s Modpacks, it can work with other Forge modpacks — adjust the process as needed.
+&nbsp;&nbsp;&nbsp;&nbsp;For best results, follow these instructions at least once while on a call with JP or Sam.
+&nbsp;&nbsp;&nbsp;&nbsp;The majority of this guide covers server setup and configuration.
 
 ## Table of Contents
 
-&nbsp;&nbsp;&nbsp;&nbsp;[1 CLIENT SETUP](#1-client-setup)  
+&nbsp;&nbsp;&nbsp;&nbsp;[1 Client Setup](#1-client-setup)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.1 Install Modpack](#11-install-modpack)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.2 Joining VPN (If Required)](#12-joining-vpn-if-required)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.3 Connecting to Server](#13-connecting-to-server)  
@@ -37,7 +37,7 @@ The majority of this guide covers server setup and configuration.
 &nbsp;&nbsp;&nbsp;&nbsp;[3 General Notes and Known Issues](#3-general-notes-and-known-issues)  
 
 
-## 1 CLIENT SETUP
+## 1 Client Setup
 Steps required for players to join the server.
 ### 1.1 Install Modpack
 1. Download the modpack zip file from https://drive.google.com/drive/folders/1vuYmIkiJw5WnN9wqXW7krUkUowxOI1wr?usp=sharing

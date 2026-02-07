@@ -22,13 +22,28 @@
       color: #24292f;
       line-height: 1.6;
       word-wrap: break-word;
-      padding-top: 3.25rem;
+      padding-top: 0;
     }
 
     main {
-      max-width: 860px;
+      max-width: 1536px;
+      width: 80vw;
       margin: 0 auto;
       padding: 2rem 1rem;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        width: 94vw;
+        padding: 1.5rem 1rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      main {
+        width: 100%;
+        padding: 1rem 0.9rem;
+      }
     }
 
     article {
@@ -94,7 +109,7 @@
     /* Lists */
     ul, ol {
       margin-bottom: 1em;
-      padding-left: 2em;
+      padding-left: 4em;
     }
 
     ul {
@@ -155,6 +170,8 @@
       margin-bottom: 1em;
       overflow: hidden;
       background: #f6f8fa;
+      width: 100%;
+      max-width: min(50vw, 80ch);
     }
 
     .code-header {
@@ -349,11 +366,12 @@
       left: 0;
       right: 0;
       z-index: 1100;
-      padding: 0.55rem 1rem;
+      padding: 0.8rem 1.2rem;
       background: #f1f5f9;
       border-bottom: 1px solid #e5ebf0;
-      font-weight: 600;
+      font-weight: 700;
       color: #24292f;
+      font-size: 1.5rem;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     }
   </style>
@@ -613,8 +631,12 @@
             return;
           }
 
+          const stripLeadingNumber = (text) => {
+            return text.replace(/^\s*\d+(?:\.\d+)*\s*[-.)]?\s*/u, '');
+          };
+
           const h2Text = currentH2.textContent.trim();
-          const h3Text = currentH3 ? currentH3.textContent.trim() : '';
+          const h3Text = currentH3 ? stripLeadingNumber(currentH3.textContent.trim()) : '';
           stickyHeader.textContent = h3Text ? `${h2Text}: ${h3Text}` : h2Text;
           stickyHeader.hidden = false;
         };
