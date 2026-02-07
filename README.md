@@ -25,7 +25,7 @@ The majority of this guide covers server setup and configuration.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.3 Connecting to Server](#13-connecting-to-server)  
 &nbsp;&nbsp;&nbsp;&nbsp;[2 Server Setup](#2-server-setup)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.1 Ubuntu Server Installation](#21-ubuntu-server-installation)  
-&nbsp;&nbsp;&nbsp;&nbsp;[2.2 Deploy Vanilla Server](#22-deploy-vanilla-server)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.2 Deploy Vanilla Server](#22-deploy-vanilla-server)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.3 Create and Distribute Modpacks](#23-create-and-distribute-modpacks)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.4 Deploy Modded Server (Windows)](#24-deploy-server-windows)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.5 Deploy Modded Server (Ubuntu CLI)](#25-deploy-server-ubuntu-cli)  

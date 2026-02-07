@@ -22,6 +22,7 @@
       color: #24292f;
       line-height: 1.6;
       word-wrap: break-word;
+      padding-top: 3.25rem;
     }
 
     main {
@@ -50,8 +51,9 @@
 
     h2 {
       font-size: 1.5em;
-      border-bottom: 1px solid #e5ebf0;
-      padding-bottom: 0.3em;
+      background: #f1f5f9;
+      border-radius: 6px;
+      padding: 0.2em 0.4em;
     }
 
     h3 {
@@ -147,6 +149,79 @@
       font-size: 0.875em;
     }
 
+    .code-block {
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      margin-bottom: 1em;
+      overflow: hidden;
+      background: #f6f8fa;
+    }
+
+    .code-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.35rem 0.7rem;
+      background: #eef2f7;
+      border-bottom: 1px solid #d0d7de;
+      font-size: 0.75rem;
+      letter-spacing: 0.02em;
+    }
+
+    .code-lang {
+      font-weight: 600;
+      text-transform: lowercase;
+      color: #57606a;
+    }
+
+    .code-copy {
+      appearance: none;
+      border: 1px solid #d0d7de;
+      background: #ffffff;
+      color: #24292f;
+      border-radius: 6px;
+      padding: 0.2rem 0.5rem;
+      font-size: 0.75rem;
+      cursor: pointer;
+    }
+
+    .code-copy:hover {
+      background: #f6f8fa;
+    }
+
+    .code-copy:active {
+      transform: translateY(1px);
+    }
+
+    .code-block pre {
+      margin: 0;
+      padding: 1rem;
+      background: transparent;
+      border-radius: 0;
+    }
+    /* Syntax highlighting (self-contained) */
+    .tok-keyword {
+      color: #cf222e;
+      font-weight: 600;
+    }
+
+    .tok-string {
+      color: #0a3069;
+    }
+
+    .tok-comment {
+      color: #6e7781;
+      font-style: italic;
+    }
+
+    .tok-number {
+      color: #8250df;
+    }
+
+    .tok-builtin {
+      color: #0550ae;
+    }
+
     /* Blockquotes */
     blockquote {
       padding: 0 1em;
@@ -240,14 +315,58 @@
       color: #57606a;
       font-style: italic;
     }
+
+    /* Floating Back to Top/TOC button */
+    .back-to-top {
+      position: fixed;
+      right: 1.25rem;
+      bottom: 1.25rem;
+      z-index: 1000;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.6rem 0.9rem;
+      border-radius: 999px;
+      background: #0b3d91;
+      color: #ffffff;
+      font-size: 0.875rem;
+      font-weight: 600;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .back-to-top:hover {
+      background: #0a357f;
+      text-decoration: none;
+    }
+
+    /* Sticky section header */
+    .sticky-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1100;
+      padding: 0.55rem 1rem;
+      background: #f1f5f9;
+      border-bottom: 1px solid #e5ebf0;
+      font-weight: 600;
+      color: #24292f;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
   </style>
 </head>
 <body>
+  <div id="stickyHeader" class="sticky-header" hidden></div>
   <main>
     <article id="content">
       <p class="loading">Loading README…</p>
     </article>
   </main>
+
+  <a id="backToTop" class="back-to-top" href="#top" aria-label="Back to top">Back to top</a>
 
   <script>
     // Configure marked for GitHub-flavored markdown
@@ -274,7 +393,13 @@
 
     // Custom link renderer
     renderer.link = (token) => {
-      return `<a href="${token.href}"${token.title ? ` title="${token.title}"` : ''} target="_blank" rel="noopener noreferrer">${token.text}</a>`;
+      const href = token.href || '';
+      const title = token.title ? ` title="${token.title}"` : '';
+      // In-page anchors should scroll within this document.
+      if (href.startsWith('#')) {
+        return `<a href="${href}"${title}>${token.text}</a>`;
+      }
+      return `<a href="${href}"${title} target="_blank" rel="noopener noreferrer">${token.text}</a>`;
     };
 
     // Custom image renderer
@@ -289,14 +414,100 @@
 
     renderer.code = (token) => {
       const lang = token.lang || 'plaintext';
-      return `<pre><code class="language-${lang}">${token.text}</code></pre>\n`;
+      const label = escapeHtml(lang || 'text');
+      return `
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">${label}</span>
+            <button class="code-copy" type="button" aria-label="Copy code">Copy</button>
+          </div>
+          <pre><code class="language-${lang}">${highlightCode(lang, token.text)}</code></pre>
+        </div>
+      `;
     };
 
     marked.setOptions({ renderer });
 
+    const escapeHtml = (value) => {
+      return value
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    };
+
+    const protectTokens = (text, regex, className, store) => {
+      return text.replace(regex, (match) => {
+        const key = `@@TOK${store.length}@@`;
+        store.push(`<span class="${className}">${match}</span>`);
+        return key;
+      });
+    };
+
+    const restoreTokens = (text, store) => {
+      return text.replace(/@@TOK(\d+)@@/g, (match, index) => {
+        const token = store[Number(index)];
+        return token || match;
+      });
+    };
+
+    const highlightPython = (code) => {
+      let text = escapeHtml(code);
+      const store = [];
+      text = protectTokens(
+        text,
+        /("""[\s\S]*?"""|'''[\s\S]*?'''|"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*')/g,
+        'tok-string',
+        store
+      );
+      text = protectTokens(text, /#.*$/gm, 'tok-comment', store);
+
+      text = text.replace(
+        /\b(False|None|True|and|as|assert|async|await|break|class|continue|def|del|elif|else|except|finally|for|from|global|if|import|in|is|lambda|nonlocal|not|or|pass|raise|return|try|while|with|yield)\b/g,
+        '<span class="tok-keyword">$1</span>'
+      );
+      text = text.replace(/\b(\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)\b/g, '<span class="tok-number">$1</span>');
+      text = text.replace(
+        /\b(print|len|range|list|dict|set|tuple|str|int|float|bool|enumerate|zip|map|filter|sum|min|max|open|type|isinstance)\b/g,
+        '<span class="tok-builtin">$1</span>'
+      );
+
+      return restoreTokens(text, store);
+    };
+
+    const highlightShell = (code) => {
+      let text = escapeHtml(code);
+      const store = [];
+      text = protectTokens(text, /"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'/g, 'tok-string', store);
+      text = protectTokens(text, /#.*$/gm, 'tok-comment', store);
+
+      text = text.replace(
+        /\b(sudo|cd|ls|cat|echo|grep|find|awk|sed|chmod|chown|curl|wget|tar|zip|unzip|git|ssh|scp|make|docker|python|node|npm|yarn|apt|apt-get|dnf|yum|pacman)\b/g,
+        '<span class="tok-keyword">$1</span>'
+      );
+      text = text.replace(/\b(\d+(?:\.\d+)?)\b/g, '<span class="tok-number">$1</span>');
+
+      return restoreTokens(text, store);
+    };
+
+    const highlightCode = (lang, code) => {
+      const normalized = String(lang || '').toLowerCase();
+      if (['py', 'python'].includes(normalized)) {
+        return highlightPython(code);
+      }
+      if (['sh', 'shell', 'bash', 'zsh'].includes(normalized)) {
+        return highlightShell(code);
+      }
+      return escapeHtml(code);
+    };
+
     // Fetch and render README
-    const readmeURL = 'https://raw.githubusercontent.com/QetzylTech/Marites/main/README.md';
+    // const readmeURL = 'https://raw.githubusercontent.com/QetzylTech/Marites/main/README.md';
+    const readmeURL = 'https://raw.githubusercontent.com/QetzylTech/Marites/refs/heads/main/README.md';
     const contentElement = document.getElementById('content');
+    const backToTopButton = document.getElementById('backToTop');
+    const stickyHeader = document.getElementById('stickyHeader');
 
     fetch(readmeURL)
       .then(res => {
@@ -308,6 +519,113 @@
       .then(mdText => {
         const html = marked.parse(mdText);
         contentElement.innerHTML = html;
+
+        const wireCopyButtons = () => {
+          const buttons = contentElement.querySelectorAll('.code-copy');
+          buttons.forEach(button => {
+            button.addEventListener('click', async () => {
+              const codeEl = button.closest('.code-block')?.querySelector('pre code');
+              if (!codeEl) return;
+              const text = codeEl.textContent || '';
+              try {
+                if (navigator.clipboard?.writeText) {
+                  await navigator.clipboard.writeText(text);
+                } else {
+                  const textarea = document.createElement('textarea');
+                  textarea.value = text;
+                  textarea.style.position = 'fixed';
+                  textarea.style.opacity = '0';
+                  document.body.appendChild(textarea);
+                  textarea.select();
+                  document.execCommand('copy');
+                  textarea.remove();
+                }
+                const original = button.textContent;
+                button.textContent = 'Copied';
+                button.disabled = true;
+                setTimeout(() => {
+                  button.textContent = original;
+                  button.disabled = false;
+                }, 1200);
+              } catch (err) {
+                console.error('Copy failed:', err);
+              }
+            });
+          });
+        };
+
+        wireCopyButtons();
+
+        // Point the floating button to Table of Contents if it exists, otherwise top.
+        const tocHeading = document.getElementById('table-of-contents');
+        if (tocHeading) {
+          backToTopButton.setAttribute('href', '#table-of-contents');
+          backToTopButton.textContent = 'Back to Table of Contents';
+        } else {
+          backToTopButton.setAttribute('href', '#top');
+          backToTopButton.textContent = 'Back to top';
+        }
+
+        // Enable in-page anchor navigation after content is injected.
+        const anchorLinks = contentElement.querySelectorAll('a[href^="#"]');
+        anchorLinks.forEach(link => {
+          link.addEventListener('click', (event) => {
+            const targetId = link.getAttribute('href').slice(1);
+            const target = document.getElementById(targetId);
+            if (!target) return;
+            event.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            history.pushState(null, '', `#${targetId}`);
+          });
+        });
+
+        // If the page loads with a hash, scroll to it.
+        if (location.hash) {
+          const target = document.getElementById(location.hash.slice(1));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+
+        // Sticky section header (H2) with current subsection (H3).
+        const headings = Array.from(contentElement.querySelectorAll('h2, h3'));
+        let ticking = false;
+
+        const updateSticky = () => {
+          ticking = false;
+          let currentH2 = null;
+          let currentH3 = null;
+          const scrollY = window.scrollY + 10;
+
+          for (const heading of headings) {
+            if (heading.offsetTop <= scrollY) {
+              if (heading.tagName === 'H2') {
+                currentH2 = heading;
+                currentH3 = null;
+              } else if (heading.tagName === 'H3' && currentH2) {
+                currentH3 = heading;
+              }
+            }
+          }
+
+          if (!currentH2) {
+            stickyHeader.hidden = true;
+            return;
+          }
+
+          const h2Text = currentH2.textContent.trim();
+          const h3Text = currentH3 ? currentH3.textContent.trim() : '';
+          stickyHeader.textContent = h3Text ? `${h2Text}: ${h3Text}` : h2Text;
+          stickyHeader.hidden = false;
+        };
+
+        updateSticky();
+        window.addEventListener('scroll', () => {
+          if (!ticking) {
+            window.requestAnimationFrame(updateSticky);
+            ticking = true;
+          }
+        }, { passive: true });
       })
       .catch(err => {
         contentElement.innerHTML = `<div class="error"><strong>Error loading README:</strong> ${err.message}</div>`;
