@@ -1,50 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Marites README</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
-<style>
-  body { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
-  .markdown-body { padding: 1rem; }
-  nav#toc { margin-bottom: 2rem; border-left: 3px solid #ddd; padding-left: 1rem; }
-  nav#toc a { display: block; margin-bottom: 0.25rem; text-decoration: none; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>README Documentation</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      background-color: #ffffff;
+      color: #24292f;
+      line-height: 1.6;
+      word-wrap: break-word;
+    }
+
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    article {
+      overflow: hidden;
+    }
+
+    /* Headings */
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.5em;
+      margin-bottom: 0.5em;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    h1 {
+      font-size: 2em;
+      border-bottom: 1px solid #d0d7de;
+      padding-bottom: 0.3em;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      border-bottom: 1px solid #e5ebf0;
+      padding-bottom: 0.3em;
+    }
+
+    h3 {
+      font-size: 1.25em;
+    }
+
+    h4 {
+      font-size: 1em;
+    }
+
+    h5 {
+      font-size: 0.875em;
+    }
+
+    h6 {
+      font-size: 0.85em;
+      color: #57606a;
+    }
+
+    /* Paragraphs */
+    p {
+      margin-bottom: 1em;
+    }
+
+    /* Links */
+    a {
+      color: #0969da;
+      text-decoration: none;
+      background-color: transparent;
+      cursor: pointer;
+    }
+
+    a:hover,
+    a:active {
+      text-decoration: underline;
+    }
+
+    /* Lists */
+    ul, ol {
+      margin-bottom: 1em;
+      padding-left: 2em;
+    }
+
+    ul {
+      list-style-type: disc;
+    }
+
+    ol {
+      list-style-type: decimal;
+    }
+
+    li {
+      margin-bottom: 0.25em;
+      margin-top: 0.25em;
+    }
+
+    li > p {
+      margin-bottom: 0.5em;
+    }
+
+    li > ul,
+    li > ol {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+
+    /* Code */
+    code {
+      background-color: #f6f8fa;
+      border-radius: 3px;
+      padding: 0.2em 0.4em;
+      margin: 0;
+      font-family: monospace;
+      font-size: 0.875em;
+      color: #11505a;
+    }
+
+    pre {
+      background-color: #f6f8fa;
+      border-radius: 6px;
+      padding: 1.5rem;
+      overflow-x: auto;
+      margin-bottom: 1em;
+      line-height: 1.45;
+    }
+
+    pre code {
+      background-color: transparent;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      color: #24292f;
+      font-size: 0.875em;
+    }
+
+    /* Blockquotes */
+    blockquote {
+      padding: 0 1em;
+      color: #57606a;
+      border-left: 0.25em solid #d0d7de;
+      margin: 1em 0;
+    }
+
+    blockquote > :first-child {
+      margin-top: 0;
+    }
+
+    blockquote > :last-child {
+      margin-bottom: 0;
+    }
+
+    /* Horizontal rule */
+    hr {
+      background-color: #d0d7de;
+      border: 0;
+      height: 0.25em;
+      margin: 1.5em 0;
+      padding: 0;
+    }
+
+    /* Tables */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 1em;
+    }
+
+    table tr {
+      background-color: #ffffff;
+      border-top-color: #d0d7de;
+      border-top-style: solid;
+      border-top-width: 1px;
+    }
+
+    table tr:nth-child(2n) {
+      background-color: #f6f8fa;
+    }
+
+    table th {
+      background-color: #f6f8fa;
+      border: 1px solid #d0d7de;
+      font-weight: 600;
+      padding: 0.75rem;
+      text-align: left;
+    }
+
+    table td {
+      border: 1px solid #d0d7de;
+      padding: 0.75rem;
+    }
+
+    /* Images */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 1em 0;
+    }
+
+    /* Strong and Em */
+    strong {
+      font-weight: 600;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    /* Strikethrough */
+    del {
+      text-decoration: line-through;
+      color: #57606a;
+    }
+
+    /* Loading and error states */
+    .error {
+      background-color: #fff8c5;
+      border: 1px solid #d3b300;
+      border-radius: 6px;
+      padding: 1rem;
+      color: #24292f;
+      margin: 1rem 0;
+    }
+
+    .loading {
+      color: #57606a;
+      font-style: italic;
+    }
+  </style>
 </head>
-<body class="markdown-body">
+<body>
+  <main>
+    <article id="content">
+      <p class="loading">Loading README…</p>
+    </article>
+  </main>
 
-<nav id="toc"></nav>
-<div id="content"></div>
-
-<script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/markdown-it-anchor/dist/markdown-it-anchor.min.js"></script>
-<script>
-  // Initialize Markdown-it with anchor plugin
-  const md = window.markdownit({ html: true }).use(window.markdownitAnchor, {
-    permalink: false,
-    slugify: s => s.trim().toLowerCase().replace(/[^\w]+/g, '-')
-  });
-
-  // Fetch README.md
-  fetch('README.md')
-    .then(res => res.text())
-    .then(mdText => {
-      // Render Markdown
-      document.getElementById('content').innerHTML = md.render(mdText);
-
-      // Build Table of Contents
-      const toc = document.getElementById('toc');
-      const headers = document.querySelectorAll('#content h1, #content h2, #content h3, #content h4, #content h5, #content h6');
-
-      headers.forEach(header => {
-        const link = document.createElement('a');
-        link.href = '#' + header.id;
-        link.textContent = header.textContent;
-        link.style.marginLeft = (parseInt(header.tagName[1]) - 1) * 10 + 'px'; // indent by heading level
-        toc.appendChild(link);
-      });
+  <script>
+    // Configure marked for GitHub-flavored markdown
+    marked.setOptions({
+      breaks: true,
+      gfm: true,
+      headerIds: true,
+      mangle: false,
+      pedantic: false
     });
-</script>
 
+    // Custom renderer for better semantic HTML
+    const renderer = new marked.Renderer();
+
+    // Custom heading renderer with ID anchors
+    renderer.heading = (token) => {
+      const id = token.text
+        .toLowerCase()
+        .trim()
+        .replace(/[^\w\s-]/g, '')
+        .replace(/\s+/g, '-');
+      return `<h${token.depth} id="${id}">${token.text}</h${token.depth}>\n`;
+    };
+
+    // Custom link renderer
+    renderer.link = (token) => {
+      return `<a href="${token.href}"${token.title ? ` title="${token.title}"` : ''} target="_blank" rel="noopener noreferrer">${token.text}</a>`;
+    };
+
+    // Custom image renderer
+    renderer.image = (token) => {
+      return `<img src="${token.href}" alt="${token.text}"${token.title ? ` title="${token.title}"` : ''}>`;
+    };
+
+    // Custom code block renderer with language support
+    renderer.codespan = (token) => {
+      return `<code>${token.text}</code>`;
+    };
+
+    renderer.code = (token) => {
+      const lang = token.lang || 'plaintext';
+      return `<pre><code class="language-${lang}">${token.text}</code></pre>\n`;
+    };
+
+    marked.setOptions({ renderer });
+
+    // Fetch and render README
+    const readmeURL = 'https://raw.githubusercontent.com/QetzylTech/Marites/main/README.md';
+    const contentElement = document.getElementById('content');
+
+    fetch(readmeURL)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`Network error ${res.status}: ${res.statusText}`);
+        }
+        return res.text();
+      })
+      .then(mdText => {
+        const html = marked.parse(mdText);
+        contentElement.innerHTML = html;
+      })
+      .catch(err => {
+        contentElement.innerHTML = `<div class="error"><strong>Error loading README:</strong> ${err.message}</div>`;
+        console.error('Failed to load README:', err);
+      });
+  </script>
+</body>
+</html>
 </body>
 </html>
