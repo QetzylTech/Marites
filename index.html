@@ -4,6 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>README Documentation</title>
+  <link id="hljs-theme" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css" data-light="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css" data-dark="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/c.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/cpp.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/java.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/bash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/powershell.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/dos.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     * {
@@ -12,37 +21,90 @@
       box-sizing: border-box;
     }
 
+    :root {
+      --sticky-offset: 72px;
+      --toc-width: 22rem;
+      --sticky-height: 64px;
+      --toc-top: var(--sticky-height);
+      --canvas-padding: 1.5rem;
+      --canvas-gutter: 0.75rem;
+      --canvas-max: 1200px;
+      --content-left-base: 0px;
+      --content-width: 100vw;
+      --canvas-width: min(var(--canvas-max), calc(var(--content-width) - (2 * var(--canvas-gutter))));
+      --canvas-left: calc(var(--content-left-base) + (var(--content-width) - var(--canvas-width)) / 2);
+      --canvas-right: calc(var(--content-left-base) + var(--content-width) - var(--canvas-left) - var(--canvas-width));
+      --burger-space: 4.5rem;
+    }
+
+    body.toc-open {
+      --content-left-base: var(--toc-width);
+      --content-width: calc(100vw - var(--toc-width));
+    }
+
     html {
       font-size: 16px;
+      scroll-padding-top: var(--sticky-offset);
     }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-      background-color: #ffffff;
+      background-color: #eef1f4;
       color: #24292f;
       line-height: 1.6;
       word-wrap: break-word;
       padding-top: 0;
+      overflow-x: hidden;
     }
 
     main {
       max-width: 1536px;
-      width: 80vw;
-      margin: 0 auto;
-      padding: 2rem 1rem;
+      width: var(--canvas-width);
+      max-width: 100%;
+      margin: 0 var(--canvas-right) 0 var(--canvas-left);
+      padding: 2rem var(--canvas-padding);
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+      transition: margin-left 220ms ease, margin-right 220ms ease, width 220ms ease, max-width 220ms ease;
     }
 
     @media (max-width: 900px) {
-      main {
-        width: 94vw;
-        padding: 1.5rem 1rem;
+      :root {
+        --canvas-padding: 1rem;
+        --canvas-gutter: 1rem;
       }
     }
 
     @media (max-width: 600px) {
-      main {
-        width: 100%;
-        padding: 1rem 0.9rem;
+      :root {
+        --canvas-padding: 0.9rem;
+        --canvas-gutter: 0.9rem;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      :root {
+        --canvas-gutter: 0px;
+        --canvas-padding: 1rem;
+        --canvas-max: 100vw;
+      }
+
+      body.toc-open {
+        --content-left-base: 0px;
+        --content-width: 100vw;
+      }
+    }
+
+    @media (min-width: 1101px) {
+      body {
+        --content-left-base: var(--toc-width);
+        --content-width: calc(100vw - var(--toc-width));
+        --canvas-left: max(var(--toc-width), calc(var(--content-left-base) + (var(--content-width) - var(--canvas-width)) / 2));
+      }
+
+      .toc-sidebar {
+        transform: translateX(0);
       }
     }
 
@@ -56,6 +118,7 @@
       margin-bottom: 0.5em;
       font-weight: 600;
       line-height: 1.25;
+      scroll-margin-top: var(--sticky-offset);
     }
 
     h1 {
@@ -147,8 +210,8 @@
     }
 
     pre {
-      background-color: #f6f8fa;
-      border-radius: 6px;
+      background-color: transparent;
+      border-radius: 0;
       padding: 1.5rem;
       overflow-x: auto;
       margin-bottom: 1em;
@@ -162,6 +225,19 @@
       padding: 0;
       color: #24292f;
       font-size: 0.875em;
+    }
+
+    .hljs {
+      background: transparent !important;
+    }
+
+    .tok-command {
+      color: #0550ae;
+      font-weight: 600;
+    }
+
+    .tok-flag {
+      color: #a40e26;
     }
 
     .code-block {
@@ -216,29 +292,6 @@
       background: transparent;
       border-radius: 0;
     }
-    /* Syntax highlighting (self-contained) */
-    .tok-keyword {
-      color: #cf222e;
-      font-weight: 600;
-    }
-
-    .tok-string {
-      color: #0a3069;
-    }
-
-    .tok-comment {
-      color: #6e7781;
-      font-style: italic;
-    }
-
-    .tok-number {
-      color: #8250df;
-    }
-
-    .tok-builtin {
-      color: #0550ae;
-    }
-
     /* Blockquotes */
     blockquote {
       padding: 0 1em;
@@ -366,18 +419,372 @@
       left: 0;
       right: 0;
       z-index: 1100;
-      padding: 0.8rem 1.2rem;
+      display: block;
+      height: var(--sticky-height);
+      padding: 0 1.2rem;
       background: #f1f5f9;
       border-bottom: 1px solid #e5ebf0;
       font-weight: 700;
       color: #24292f;
       font-size: 1.5rem;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      transition: transform 220ms ease, left 220ms ease, width 220ms ease;
+    }
+
+    .sticky-inner {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      padding-left: max(calc(var(--canvas-left) + var(--canvas-padding)), var(--burger-space));
+      transition: padding-left 220ms ease;
+    }
+
+    .sticky-menu {
+      appearance: none;
+      border: 1px solid #d0d7de;
+      background: #ffffff;
+      color: #24292f;
+      border-radius: 10px;
+      height: 44px;
+      padding: 0 0.7rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      transition: transform 220ms ease, background 200ms ease;
+      position: absolute;
+      left: 1.2rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .sticky-menu-label {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    .sticky-menu-lines {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .sticky-menu-lines span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: currentColor;
+      border-radius: 999px;
+    }
+
+    .sticky-title {
+      font-weight: 700;
+      flex: 1 1 auto;
+      min-width: 0;
+      line-height: 1.2;
+      overflow: hidden;
+      word-break: break-word;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+    }
+
+    .sticky-menu:hover {
+      background: #f6f8fa;
+    }
+
+    /* TOC sidebar */
+    .toc-sidebar {
+      position: fixed;
+      top: var(--toc-top);
+      left: 0;
+      right: auto;
+      width: var(--toc-width);
+      height: calc(100vh - var(--toc-top));
+      max-height: calc(100vh - var(--toc-top));
+      overflow: auto;
+      background: #ffffff;
+      border: 1px solid #d0d7de;
+      border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+      padding: 0.75rem 0.9rem 0.9rem;
+      z-index: 1050;
+      transform: translateX(-100%);
+      transition: transform 240ms ease;
+    }
+
+
+    .toc-sidebar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+
+    .toc-body ul {
+      list-style: none;
+      padding-left: 0.6rem;
+      margin: 0;
+    }
+
+    .toc-body li {
+      margin: 0.35rem 0;
+    }
+
+    .toc-item {
+      display: block;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .toc-item.is-active {
+      background: rgba(11, 61, 145, 0.12);
+      border-radius: 6px;
+      padding: 0.15rem 0.35rem;
+    }
+
+
+    .toc-item.level-3 {
+      margin-left: 1.25rem;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 960px) {
+      .sticky-inner {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .toc-sidebar {
+        position: fixed;
+        top: var(--toc-top);
+        left: 0;
+        width: var(--toc-width);
+        height: calc(100vh - var(--toc-top));
+        max-height: calc(100vh - var(--toc-top));
+        border-radius: 12px;
+        transform: translateX(-100%);
+        z-index: 1000;
+      }
+    }
+
+    .toc-sidebar.is-visible {
+      transform: translateX(0);
+    }
+
+    @media (max-width: 900px) {
+      .sticky-header {
+        padding-left: var(--canvas-padding);
+      }
+
+      .sticky-menu {
+        left: var(--canvas-padding);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .sticky-header {
+        padding: 0 0.9rem;
+      }
+
+      .sticky-menu {
+        height: 44px;
+        padding: 0 0.7rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .sticky-header {
+        padding: 0 0.75rem;
+        gap: 0.6rem;
+      }
+
+      .sticky-menu-lines span {
+        width: 16px;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #0b0f14;
+        color: #c9d1d9;
+      }
+
+      h1 {
+        border-bottom-color: #30363d;
+      }
+
+      h2 {
+        background: #1f2937;
+      }
+
+      h6 {
+        color: #8b949e;
+      }
+
+      a {
+        color: #58a6ff;
+      }
+
+      code {
+        background-color: #161b22;
+        color: #79c0ff;
+      }
+
+      pre {
+        background-color: transparent;
+      }
+
+      pre code {
+        color: #c9d1d9;
+      }
+
+      .tok-command {
+        color: #79c0ff;
+      }
+
+      .tok-flag {
+        color: #ff7b72;
+      }
+
+      .code-block {
+        border-color: #30363d;
+        background: #161b22;
+      }
+
+      .code-header {
+        background: #1f2937;
+        border-bottom-color: #30363d;
+      }
+
+      .code-lang {
+        color: #8b949e;
+      }
+
+      .code-copy {
+        border-color: #30363d;
+        background: #0d1117;
+        color: #c9d1d9;
+      }
+
+      .code-copy:hover {
+        background: #161b22;
+      }
+
+      blockquote {
+        color: #8b949e;
+        border-left-color: #30363d;
+      }
+
+      hr {
+        background-color: #30363d;
+      }
+
+      table tr {
+        background-color: #0d1117;
+        border-top-color: #30363d;
+      }
+
+      table tr:nth-child(2n) {
+        background-color: #161b22;
+      }
+
+      table th {
+        background-color: #161b22;
+        border-color: #30363d;
+      }
+
+      table td {
+        border-color: #30363d;
+      }
+
+      del {
+        color: #8b949e;
+      }
+
+      .error {
+        background-color: #2d1d1d;
+        border-color: #663333;
+        color: #f0f6fc;
+      }
+
+      .loading {
+        color: #8b949e;
+      }
+
+      .back-to-top {
+        background: #1f6feb;
+        color: #ffffff;
+      }
+
+      .back-to-top:hover {
+        background: #1a5bb8;
+      }
+
+      .sticky-header {
+        background: #161b22;
+        border-bottom-color: #30363d;
+        color: #c9d1d9;
+      }
+
+      .sticky-menu {
+        border-color: #30363d;
+        background: #0d1117;
+        color: #c9d1d9;
+      }
+
+      .sticky-menu:hover {
+        background: #161b22;
+      }
+
+      main {
+        background: #0d1117;
+        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+      }
+
+      .toc-sidebar {
+        background: #0d1117;
+        border-color: #30363d;
+      }
+
+      .toc-item.is-active {
+        background: rgba(31, 111, 235, 0.18);
+      }
+
     }
   </style>
 </head>
 <body>
-  <div id="stickyHeader" class="sticky-header" hidden></div>
+  <div id="stickyHeader" class="sticky-header">
+    <div class="sticky-inner">
+      <button id="stickyMenu" class="sticky-menu" type="button" aria-label="Toggle table of contents">
+        <span class="sticky-menu-lines" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <span id="stickyMenuLabel" class="sticky-menu-label" hidden>Table of Contents</span>
+      </button>
+      <span id="stickyHeaderTitle" class="sticky-title"></span>
+    </div>
+  </div>
+  <aside id="tocSidebar" class="toc-sidebar" aria-label="Table of contents sidebar">
+    <div class="toc-sidebar-header">
+      <span>Contents</span>
+    </div>
+    <div id="tocSidebarBody" class="toc-body"></div>
+  </aside>
   <main>
     <article id="content">
       <p class="loading">Loading README…</p>
@@ -432,6 +839,7 @@
 
     renderer.code = (token) => {
       const lang = token.lang || 'plaintext';
+      const normalized = normalizeLang(lang);
       const label = escapeHtml(lang || 'text');
       return `
         <div class="code-block">
@@ -439,7 +847,7 @@
             <span class="code-lang">${label}</span>
             <button class="code-copy" type="button" aria-label="Copy code">Copy</button>
           </div>
-          <pre><code class="language-${lang}">${highlightCode(lang, token.text)}</code></pre>
+          <pre><code class="hljs language-${normalized}">${highlightCode(normalized, token.text)}</code></pre>
         </div>
       `;
     };
@@ -470,55 +878,56 @@
       });
     };
 
-    const highlightPython = (code) => {
-      let text = escapeHtml(code);
-      const store = [];
-      text = protectTokens(
-        text,
-        /("""[\s\S]*?"""|'''[\s\S]*?'''|"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*')/g,
-        'tok-string',
-        store
-      );
-      text = protectTokens(text, /#.*$/gm, 'tok-comment', store);
-
-      text = text.replace(
-        /\b(False|None|True|and|as|assert|async|await|break|class|continue|def|del|elif|else|except|finally|for|from|global|if|import|in|is|lambda|nonlocal|not|or|pass|raise|return|try|while|with|yield)\b/g,
-        '<span class="tok-keyword">$1</span>'
-      );
-      text = text.replace(/\b(\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)\b/g, '<span class="tok-number">$1</span>');
-      text = text.replace(
-        /\b(print|len|range|list|dict|set|tuple|str|int|float|bool|enumerate|zip|map|filter|sum|min|max|open|type|isinstance)\b/g,
-        '<span class="tok-builtin">$1</span>'
-      );
-
-      return restoreTokens(text, store);
-    };
-
-    const highlightShell = (code) => {
-      let text = escapeHtml(code);
-      const store = [];
-      text = protectTokens(text, /"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'/g, 'tok-string', store);
-      text = protectTokens(text, /#.*$/gm, 'tok-comment', store);
-
-      text = text.replace(
-        /\b(sudo|cd|ls|cat|echo|grep|find|awk|sed|chmod|chown|curl|wget|tar|zip|unzip|git|ssh|scp|make|docker|python|node|npm|yarn|apt|apt-get|dnf|yum|pacman)\b/g,
-        '<span class="tok-keyword">$1</span>'
-      );
-      text = text.replace(/\b(\d+(?:\.\d+)?)\b/g, '<span class="tok-number">$1</span>');
-
-      return restoreTokens(text, store);
+    const normalizeLang = (lang) => {
+      const normalized = String(lang || '').toLowerCase();
+      if (['sh', 'shell', 'bash', 'zsh'].includes(normalized)) {
+        return 'bash';
+      }
+      return normalized || 'plaintext';
     };
 
     const highlightCode = (lang, code) => {
-      const normalized = String(lang || '').toLowerCase();
-      if (['py', 'python'].includes(normalized)) {
-        return highlightPython(code);
-      }
-      if (['sh', 'shell', 'bash', 'zsh'].includes(normalized)) {
-        return highlightShell(code);
+      const normalized = normalizeLang(lang);
+      if (window.hljs) {
+        if (normalized && hljs.getLanguage(normalized)) {
+          const highlighted = hljs.highlight(code, { language: normalized }).value;
+          if (normalized === 'bash') {
+            return enhanceShellHighlight(highlighted);
+          }
+          return highlighted;
+        }
+        return hljs.highlightAuto(code).value;
       }
       return escapeHtml(code);
     };
+
+    const enhanceShellHighlight = (html) => {
+      return html.split('\n').map(line => {
+        if (line.includes('<span')) return line;
+        const withCommand = line.replace(/^(\s*)([^\s#]+)/, '$1<span class="tok-command">$2</span>');
+        return withCommand.replace(/(\s)(-{1,2}[\w-]+)/g, '$1<span class="tok-flag">$2</span>');
+      }).join('\n');
+    };
+
+    const applySystemTheme = () => {
+      const themeLink = document.getElementById('hljs-theme');
+      if (!themeLink) return;
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const nextHref = prefersDark ? themeLink.dataset.dark : themeLink.dataset.light;
+      if (nextHref && themeLink.getAttribute('href') !== nextHref) {
+        themeLink.setAttribute('href', nextHref);
+      }
+    };
+
+    applySystemTheme();
+    if (window.matchMedia) {
+      const media = window.matchMedia('(prefers-color-scheme: dark)');
+      if (typeof media.addEventListener === 'function') {
+        media.addEventListener('change', applySystemTheme);
+      } else if (typeof media.addListener === 'function') {
+        media.addListener(applySystemTheme);
+      }
+    }
 
     // Fetch and render README
     // const readmeURL = 'https://raw.githubusercontent.com/QetzylTech/Marites/main/README.md';
@@ -526,6 +935,11 @@
     const contentElement = document.getElementById('content');
     const backToTopButton = document.getElementById('backToTop');
     const stickyHeader = document.getElementById('stickyHeader');
+    const stickyHeaderTitle = document.getElementById('stickyHeaderTitle');
+    const stickyMenuButton = document.getElementById('stickyMenu');
+    const stickyMenuLabel = document.getElementById('stickyMenuLabel');
+    const tocSidebar = document.getElementById('tocSidebar');
+    const tocSidebarBody = document.getElementById('tocSidebarBody');
 
     fetch(readmeURL)
       .then(res => {
@@ -537,6 +951,42 @@
       .then(mdText => {
         const html = marked.parse(mdText);
         contentElement.innerHTML = html;
+
+        const h1Title = contentElement.querySelector('h1');
+        if (h1Title) {
+          document.title = h1Title.textContent.trim();
+        }
+
+        // Remove in-content "Back to top" links from the README.
+        const normalize = (value) => value
+          .replace(/\s+/g, ' ')
+          .replace(/[^\w\s]/g, '')
+          .trim()
+          .toLowerCase();
+
+        const backToTopTargets = new Set(['#top', '#table-of-contents', '#toc', '#readme']);
+        const backToTopLabels = [
+          'back to top',
+          'back to the top',
+          'back to start',
+          'back to contents',
+          'back to table of contents',
+          'return to top',
+          'return to the top',
+          'top'
+        ].map(normalize);
+
+        contentElement.querySelectorAll('a[href^="#"]').forEach(link => {
+          const href = (link.getAttribute('href') || '').toLowerCase();
+          const label = normalize(link.textContent || '');
+          const isBackToTop = backToTopTargets.has(href) || backToTopLabels.includes(label);
+          if (!isBackToTop) return;
+          const parent = link.parentElement;
+          link.remove();
+          if (parent && parent.textContent.trim() === '') {
+            parent.remove();
+          }
+        });
 
         const wireCopyButtons = () => {
           const buttons = contentElement.querySelectorAll('.code-copy');
@@ -574,15 +1024,132 @@
 
         wireCopyButtons();
 
-        // Point the floating button to Table of Contents if it exists, otherwise top.
+        // Always point the floating button to top.
         const tocHeading = document.getElementById('table-of-contents');
-        if (tocHeading) {
-          backToTopButton.setAttribute('href', '#table-of-contents');
-          backToTopButton.textContent = 'Back to Table of Contents';
-        } else {
-          backToTopButton.setAttribute('href', '#top');
-          backToTopButton.textContent = 'Back to top';
+        backToTopButton.setAttribute('href', '#top');
+        backToTopButton.textContent = 'Back to top';
+
+        let tocPinned = true;
+        let updateTocVisibility = () => {};
+        const narrowMql = window.matchMedia('(max-width: 1100px)');
+        const wideMql = window.matchMedia('(min-width: 1101px)');
+
+        const syncStickyOffset = () => {
+          const offset = (stickyHeader?.offsetHeight || 0) + 12;
+          document.documentElement.style.setProperty('--sticky-offset', `${offset}px`);
+        };
+
+        const scrollToTarget = (target) => {
+          if (!target) return;
+          const offset = (stickyHeader?.offsetHeight || 0) + 12;
+          const targetTop = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top: targetTop, behavior: 'smooth' });
+        };
+
+        const buildTocListFromHeadings = () => {
+          const list = document.createElement('ul');
+          const headingNodes = Array.from(contentElement.querySelectorAll('h2, h3'));
+          headingNodes.forEach(heading => {
+            if (heading.id === 'table-of-contents') return;
+            const link = document.createElement('a');
+            link.href = `#${heading.id}`;
+            link.textContent = heading.textContent.trim();
+            link.classList.add('toc-item', heading.tagName === 'H3' ? 'level-3' : 'level-2');
+            const item = document.createElement('li');
+            item.appendChild(link);
+            list.appendChild(item);
+          });
+          return list;
+        };
+
+        const findInlineToc = () => {
+          const candidates = Array.from(contentElement.querySelectorAll('ul, ol, p, div, section, nav'));
+          let best = null;
+          let bestScore = 0;
+
+          candidates.forEach(node => {
+            const anchors = node.querySelectorAll('a[href^="#"]');
+            if (anchors.length < 4) return;
+            const text = (node.textContent || '').trim();
+            const wordCount = text ? text.split(/\s+/).length : 0;
+            const density = anchors.length / Math.max(1, wordCount);
+            const score = anchors.length + density * 8;
+            if (score > bestScore) {
+              bestScore = score;
+              best = node;
+            }
+          });
+
+          return best;
+        };
+
+        const inlineTocVisible = () => {
+          const tocNode = findInlineToc();
+          if (!tocNode) return;
+          const shouldHide = wideMql.matches;
+          tocNode.style.display = shouldHide ? 'none' : '';
+        };
+
+        // Build TOC sidebar from document headings (2 levels max).
+        const buildTocSidebar = () => {
+          const listEl = buildTocListFromHeadings();
+
+          tocSidebarBody.innerHTML = '';
+          tocSidebarBody.appendChild(listEl);
+
+          tocSidebarBody.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', (event) => {
+              const targetId = link.getAttribute('href').slice(1);
+              const target = document.getElementById(targetId);
+              if (!target) return;
+              event.preventDefault();
+              scrollToTarget(target);
+              history.pushState(null, '', `#${targetId}`);
+            });
+          });
+
+          updateTocVisibility = () => {
+            const visible = tocPinned;
+            tocSidebar.classList.toggle('is-visible', visible);
+            document.body.classList.toggle('toc-open', visible);
+            stickyMenuLabel.hidden = !visible;
+          };
+
+          updateTocVisibility();
+        };
+
+        stickyMenuButton.addEventListener('click', () => {
+          if (narrowMql.matches) {
+            tocPinned = !tocPinned;
+          } else {
+            tocPinned = true;
+          }
+          updateTocVisibility();
+        });
+
+        const syncTocForWidth = () => {
+          if (narrowMql.matches) {
+            tocPinned = false;
+          } else {
+            tocPinned = true;
+          }
+          updateTocVisibility();
+          inlineTocVisible();
+        };
+        syncTocForWidth();
+        if (typeof narrowMql.addEventListener === 'function') {
+          narrowMql.addEventListener('change', syncTocForWidth);
+        } else if (typeof narrowMql.addListener === 'function') {
+          narrowMql.addListener(syncTocForWidth);
         }
+
+        if (typeof wideMql.addEventListener === 'function') {
+          wideMql.addEventListener('change', inlineTocVisible);
+        } else if (typeof wideMql.addListener === 'function') {
+          wideMql.addListener(inlineTocVisible);
+        }
+
+        buildTocSidebar();
 
         // Enable in-page anchor navigation after content is injected.
         const anchorLinks = contentElement.querySelectorAll('a[href^="#"]');
@@ -592,7 +1159,7 @@
             const target = document.getElementById(targetId);
             if (!target) return;
             event.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            scrollToTarget(target);
             history.pushState(null, '', `#${targetId}`);
           });
         });
@@ -601,23 +1168,39 @@
         if (location.hash) {
           const target = document.getElementById(location.hash.slice(1));
           if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            scrollToTarget(target);
           }
         }
 
         // Sticky section header (H2) with current subsection (H3).
-        const headings = Array.from(contentElement.querySelectorAll('h2, h3'));
+        const headings = Array.from(contentElement.querySelectorAll('h1, h2, h3'));
         let ticking = false;
+
+        const updateActiveTocLink = (currentH2, currentH3) => {
+          const links = tocSidebarBody.querySelectorAll('a[href^="#"]');
+          links.forEach(link => link.classList.remove('is-active'));
+          const activeHeading = currentH3 || currentH2;
+          if (!activeHeading) return;
+          const activeLink = tocSidebarBody.querySelector(`a[href="#${activeHeading.id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('is-active');
+          }
+        };
 
         const updateSticky = () => {
           ticking = false;
+          let currentH1 = null;
           let currentH2 = null;
           let currentH3 = null;
-          const scrollY = window.scrollY + 10;
+          const scrollY = window.scrollY + (stickyHeader?.offsetHeight || 0) + 12;
 
           for (const heading of headings) {
             if (heading.offsetTop <= scrollY) {
-              if (heading.tagName === 'H2') {
+              if (heading.tagName === 'H1') {
+                currentH1 = heading;
+                currentH2 = null;
+                currentH3 = null;
+              } else if (heading.tagName === 'H2') {
                 currentH2 = heading;
                 currentH3 = null;
               } else if (heading.tagName === 'H3' && currentH2) {
@@ -626,22 +1209,25 @@
             }
           }
 
-          if (!currentH2) {
-            stickyHeader.hidden = true;
-            return;
-          }
-
           const stripLeadingNumber = (text) => {
             return text.replace(/^\s*\d+(?:\.\d+)*\s*[-.)]?\s*/u, '');
           };
 
-          const h2Text = currentH2.textContent.trim();
+          const h1Text = currentH1 ? currentH1.textContent.trim() : '';
+          const h2Text = currentH2 ? stripLeadingNumber(currentH2.textContent.trim()) : '';
           const h3Text = currentH3 ? stripLeadingNumber(currentH3.textContent.trim()) : '';
-          stickyHeader.textContent = h3Text ? `${h2Text}: ${h3Text}` : h2Text;
+          const title = h3Text
+            ? `${h2Text}: ${h3Text}`
+            : (h2Text || h1Text || '');
+          stickyHeaderTitle.textContent = title || '\u00a0';
           stickyHeader.hidden = false;
+          updateActiveTocLink(currentH2, currentH3);
         };
 
+        syncStickyOffset();
+        updateTocVisibility();
         updateSticky();
+        window.addEventListener('resize', syncStickyOffset);
         window.addEventListener('scroll', () => {
           if (!ticking) {
             window.requestAnimationFrame(updateSticky);
