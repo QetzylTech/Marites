@@ -19,22 +19,22 @@ The majority of this guide covers server setup and configuration.
 
 ## Table of Contents
 
-- [1 CLIENT SETUP](#1-client-setup)
-  - [1.1 Install Modpack](#11-install-modpack)
-  - [1.2 Joining VPN (If Required)](#12-joining-vpn-if-required)
-  - [1.3 Connecting to Server](#13-connecting-to-server)
-- [2 Server Setup](#2-server-setup)
-  - [2.1 Ubuntu Server Installation](#21-ubuntu-server-installation)
-  - [2.2 Deploy Vanilla Server](#22-deploy-vanilla-server)
-  - [2.3 Create and Distribute Modpacks](#23-create-and-distribute-modpacks)
-  - [2.4 Deploy Modded Server (Windows)](#24-deploy-server-windows)
-  - [2.5 Deploy Modded Server (Ubuntu CLI)](#25-deploy-server-ubuntu-cli)
-  - [2.6 Server Properties and Other Configs](#26-server-properties-and-other-configs)
-  - [2.7 Network Setup (VPN Path)](#27-network-setup-vpn-path)
-  - [2.8 Network Setup (Tunnel Path)](#28-network-setup-tunnel-path)
-  - [2.9 Server Moderation](#29-server-moderation)
-  - [2.10 Backup and Sync (WIP uwu)](#210-backup-and-sync-wip-uwu)
-- [3 General Notes and Known Issues](#3-general-notes-and-known-issues)
+&nbsp;&nbsp;&nbsp;&nbsp;[1 CLIENT SETUP](#1-client-setup)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.1 Install Modpack](#11-install-modpack)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.2 Joining VPN (If Required)](#12-joining-vpn-if-required)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.3 Connecting to Server](#13-connecting-to-server)  
+&nbsp;&nbsp;&nbsp;&nbsp;[2 Server Setup](#2-server-setup)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.1 Ubuntu Server Installation](#21-ubuntu-server-installation)  
+&nbsp;&nbsp;&nbsp;&nbsp;[2.2 Deploy Vanilla Server](#22-deploy-vanilla-server)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.3 Create and Distribute Modpacks](#23-create-and-distribute-modpacks)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.4 Deploy Modded Server (Windows)](#24-deploy-server-windows)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.5 Deploy Modded Server (Ubuntu CLI)](#25-deploy-server-ubuntu-cli)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.6 Server Properties and Other Configs](#26-server-properties-and-other-configs)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.7 Network Setup (VPN Path)](#27-network-setup-vpn-path)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.8 Network Setup (Tunnel Path)](#28-network-setup-tunnel-path)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.9 Server Moderation](#29-server-moderation)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.10 Backup and Sync (WIP uwu)](#210-backup-and-sync-wip-uwu)  
+&nbsp;&nbsp;&nbsp;&nbsp;[3 General Notes and Known Issues](#3-general-notes-and-known-issues)  
 
 
 ## 1 CLIENT SETUP
