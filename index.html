@@ -308,6 +308,48 @@
       margin-bottom: 0;
     }
 
+    .md-alert {
+      margin: 1em 0;
+      padding: 0.2rem 0.8rem;
+      border-left: 4px solid #d3b300;
+      color: #9a6700;
+      background: transparent;
+    }
+
+    .md-alert-title {
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: inherit;
+    }
+
+    .md-alert-warning {
+      border-left-color: #d29922;
+      color: #9a6700;
+    }
+
+    .md-alert-note {
+      border-left-color: #0969da;
+      color: #0969da;
+    }
+
+    .md-alert-tip {
+      border-left-color: #2da44e;
+      color: #1a7f37;
+    }
+
+    .md-alert-important {
+      border-left-color: #d35f75;
+      color: #b42318;
+    }
+
+    .md-alert-caution {
+      border-left-color: #f1a10b;
+      color: #9a6700;
+    }
+
     /* Horizontal rule */
     hr {
       background-color: #d0d7de;
@@ -354,6 +396,19 @@
       height: auto;
       display: block;
       margin: 1em 0;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.2rem;
+      align-items: center;
+      margin: 0.5rem 0;
+    }
+
+    .badge-row img {
+      display: block;
+      margin: 0;
     }
 
     /* Strong and Em */
@@ -557,6 +612,119 @@
       font-size: 0.95rem;
     }
 
+    .toc-footer {
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid #d0d7de;
+    }
+
+    .toc-upload {
+      width: 100%;
+      appearance: none;
+      border: 1px solid #d0d7de;
+      background: #ffffff;
+      color: #24292f;
+      border-radius: 10px;
+      padding: 0.6rem 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .toc-upload:hover {
+      background: #f6f8fa;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.45);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+
+    .modal.is-open {
+      display: flex;
+    }
+
+    .modal-content {
+      background: #ffffff;
+      border-radius: 14px;
+      width: min(560px, 92vw);
+      padding: 1.25rem 1.5rem 1.5rem;
+      box-shadow: 0 24px 64px rgba(15, 23, 42, 0.2);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .modal-header h2 {
+      background: transparent;
+      padding: 0;
+      border-radius: 0;
+    }
+
+    .modal-close {
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: #24292f;
+      font-size: 1.5rem;
+      line-height: 1;
+      padding: 0.25rem;
+      cursor: pointer;
+    }
+
+    .modal-body {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .modal-input {
+      width: 100%;
+      padding: 0.6rem 0.75rem;
+      border-radius: 8px;
+      border: 1px solid #d0d7de;
+      font-size: 0.95rem;
+    }
+
+    .modal-submit {
+      appearance: none;
+      border: none;
+      background: #0b3d91;
+      color: #ffffff;
+      border-radius: 10px;
+      padding: 0.6rem 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .modal-hint {
+      color: #57606a;
+      font-size: 0.9rem;
+    }
+
+    .drop-zone {
+      border: 2px dashed #d0d7de;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      color: #57606a;
+      background: #f6f8fa;
+    }
+
+    .drop-zone.is-dragover {
+      border-color: #0b3d91;
+      color: #0b3d91;
+      background: #eef3ff;
+    }
+
     @media (max-width: 960px) {
       .sticky-inner {
         display: flex;
@@ -687,6 +855,35 @@
         border-left-color: #30363d;
       }
 
+      .md-alert {
+        color: #f2cc60;
+      }
+
+      .md-alert-warning {
+        border-left-color: #d29922;
+        color: #f2cc60;
+      }
+
+      .md-alert-note {
+        border-left-color: #58a6ff;
+        color: #58a6ff;
+      }
+
+      .md-alert-tip {
+        border-left-color: #3fb950;
+        color: #3fb950;
+      }
+
+      .md-alert-important {
+        border-left-color: #f778ba;
+        color: #f778ba;
+      }
+
+      .md-alert-caution {
+        border-left-color: #e3b341;
+        color: #e3b341;
+      }
+
       hr {
         background-color: #30363d;
       }
@@ -762,6 +959,55 @@
         background: rgba(31, 111, 235, 0.18);
       }
 
+      .toc-footer {
+        border-top-color: #30363d;
+      }
+
+      .toc-upload {
+        border-color: #30363d;
+        background: #0d1117;
+        color: #c9d1d9;
+      }
+
+      .toc-upload:hover {
+        background: #161b22;
+      }
+
+      .modal-close {
+        color: #c9d1d9;
+      }
+
+      .modal-content {
+        background: #0d1117;
+        color: #c9d1d9;
+      }
+
+      .modal-input {
+        background: #0b0f14;
+        border-color: #30363d;
+        color: #c9d1d9;
+      }
+
+      .modal-submit {
+        background: #1f6feb;
+      }
+
+      .modal-hint {
+        color: #8b949e;
+      }
+
+      .drop-zone {
+        border-color: #30363d;
+        background: #0b0f14;
+        color: #8b949e;
+      }
+
+      .drop-zone.is-dragover {
+        border-color: #1f6feb;
+        color: #1f6feb;
+        background: rgba(31, 111, 235, 0.15);
+      }
+
     }
   </style>
 </head>
@@ -784,7 +1030,26 @@
       <span>Contents</span>
     </div>
     <div id="tocSidebarBody" class="toc-body"></div>
+    <div class="toc-footer">
+      <button id="uploadTrigger" class="toc-upload" type="button">Upload README</button>
+    </div>
   </aside>
+  <div id="uploadModal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="uploadTitle">
+      <div class="modal-header">
+        <h2 id="uploadTitle">Load README</h2>
+        <button id="uploadClose" class="modal-close" type="button" aria-label="Close upload dialog">&times;</button>
+      </div>
+      <div class="modal-body">
+        <input id="readmeUrl" class="modal-input" type="url" placeholder="https://example.com/README.md">
+        <button id="readmeSubmit" class="modal-submit" type="button">Load</button>
+        <p class="modal-hint">Or drag a file to upload</p>
+        <div id="dropZone" class="drop-zone" aria-label="Drag and drop README file">
+          Drag &amp; drop a README.md here
+        </div>
+      </div>
+    </div>
+  </div>
   <main>
     <article id="content">
       <p class="loading">Loading README…</p>
@@ -829,12 +1094,40 @@
 
     // Custom image renderer
     renderer.image = (token) => {
-      return `<img src="${token.href}" alt="${token.text}"${token.title ? ` title="${token.title}"` : ''}>`;
+      let src = token.href || token.url || token.src || '';
+      if (src.startsWith('http://')) {
+        src = src
+          .replace(/^http:\/\/img\.shields\.io/i, 'https://img.shields.io')
+          .replace(/^http:\/\/img\.badgesize\.io/i, 'https://img.badgesize.io')
+          .replace(/^http:\/\/badgesize\.io/i, 'https://badgesize.io');
+      }
+      const alt = token.text || token.alt || '';
+      return `<img src="${src}" alt="${alt}"${token.title ? ` title="${token.title}"` : ''}>`;
     };
 
     // Custom code block renderer with language support
     renderer.codespan = (token) => {
       return `<code>${token.text}</code>`;
+    };
+
+    // GitHub-style alert blocks (e.g., [!WARNING])
+    renderer.blockquote = (token) => {
+      const raw = token.text || '';
+      const lines = raw.split('\n');
+      const first = lines[0] ? lines[0].trim() : '';
+      const match = first.match(/^\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\s*(.*)$/i);
+      if (!match) {
+        return `<blockquote>${marked.parse(raw)}</blockquote>`;
+      }
+      const kind = match[1].toLowerCase();
+      const title = match[1].toUpperCase();
+      const rest = [match[2], ...lines.slice(1)].filter(Boolean).join('\n');
+      return `
+        <div class="md-alert md-alert-${kind}">
+          <div class="md-alert-title">${title}</div>
+          <div class="md-alert-body">${marked.parse(rest)}</div>
+        </div>
+      `;
     };
 
     renderer.code = (token) => {
@@ -861,6 +1154,147 @@
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#39;');
+    };
+
+    const normalizeMarkdown = (md) => {
+      const lines = String(md || '').split(/\r?\n/);
+      let inFence = false;
+      return lines.map(line => {
+        const fenceMatch = line.match(/^\s*```/);
+        if (fenceMatch) {
+          inFence = !inFence;
+          return line;
+        }
+        if (!inFence) {
+          if (/^\s*!\[[^\]]*]\([^)]+\)\s*$/.test(line)) {
+            return line.trimStart();
+          }
+        }
+        return line;
+      }).join('\n');
+    };
+
+    const forceInlineImages = (md) => {
+      const lines = String(md || '').split(/\r?\n/);
+      let inFence = false;
+      return lines.map(line => {
+        const fenceMatch = line.match(/^\s*```/);
+        if (fenceMatch) {
+          inFence = !inFence;
+          return line;
+        }
+        if (inFence) return line;
+        if (line.includes('<img')) return line;
+
+        let out = '';
+        let i = 0;
+        while (i < line.length) {
+          const start = line.indexOf('![', i);
+          if (start === -1) {
+            out += line.slice(i);
+            break;
+          }
+          out += line.slice(i, start);
+          const altEnd = line.indexOf('](', start);
+          if (altEnd === -1) {
+            out += line.slice(start);
+            break;
+          }
+          const altText = line.slice(start + 2, altEnd);
+          let j = altEnd + 2;
+          let depth = 1;
+          let urlStart = j;
+          while (j < line.length && depth > 0) {
+            const ch = line[j];
+            if (ch === '(') depth += 1;
+            if (ch === ')') depth -= 1;
+            j += 1;
+          }
+          if (depth !== 0) {
+            out += line.slice(start);
+            break;
+          }
+          const urlRaw = line.slice(urlStart, j - 1).trim();
+          let safeUrl = urlRaw;
+          if (safeUrl.startsWith('http://')) {
+            safeUrl = safeUrl
+              .replace(/^http:\/\/img\.shields\.io/i, 'https://img.shields.io')
+              .replace(/^http:\/\/img\.badgesize\.io/i, 'https://img.badgesize.io')
+              .replace(/^http:\/\/badgesize\.io/i, 'https://badgesize.io');
+          }
+          out += `<img src="${safeUrl}" alt="${altText}">`;
+          i = j;
+        }
+        return out;
+      }).join('\n');
+    };
+
+    const resolveReferenceImages = (md) => {
+      const lines = String(md || '').split(/\r?\n/);
+      const refs = {};
+      for (let i = 0; i < lines.length; i += 1) {
+        const line = lines[i];
+        const def = line.match(/^\s*\[([^\]]+)\]:\s*(<[^>]+>|\S+)?\s*(?:"([^"]+)"|'([^']+)'|\(([^)]+)\))?\s*$/);
+        if (!def) continue;
+        const key = def[1].toLowerCase();
+        let rawUrl = def[2] || '';
+        let title = def[3] || def[4] || def[5] || '';
+
+        if (!rawUrl) {
+          let j = i + 1;
+          while (j < lines.length && /^\s+/.test(lines[j])) {
+            const candidate = lines[j].trim();
+            if (candidate) {
+              rawUrl = candidate;
+              break;
+            }
+            j += 1;
+          }
+        }
+
+        if (rawUrl) {
+          rawUrl = rawUrl.startsWith('<') ? rawUrl.slice(1, -1) : rawUrl;
+          refs[key] = { url: rawUrl, title };
+        }
+      }
+
+      let inFence = false;
+      return lines.map(line => {
+        const fenceMatch = line.match(/^\s*```/);
+        if (fenceMatch) {
+          inFence = !inFence;
+          return line;
+        }
+        if (inFence) return line;
+
+        return line
+          .replace(/\[!\[([^\]]*)]\[([^\]]*)]]\s*\[([^\]]*)]/g, (m, alt, imgKey, linkKey) => {
+            const imgRefKey = (imgKey || alt || '').toLowerCase();
+            const imgRef = refs[imgRefKey];
+            const linkRefKey = (linkKey || '').toLowerCase();
+            const linkRef = refs[linkRefKey];
+            if (!imgRef) return m;
+            const imgTitle = imgRef.title ? ` "${imgRef.title}"` : '';
+            const img = `![${alt}](${imgRef.url}${imgTitle})`;
+            if (!linkRef) return img;
+            const linkTitle = linkRef.title ? ` "${linkRef.title}"` : '';
+            return `[${img}](${linkRef.url}${linkTitle})`;
+          })
+          .replace(/!\[([^\]]*)]\[([^\]]*)]/g, (m, alt, key) => {
+            const refKey = (key || alt || '').toLowerCase();
+            const ref = refs[refKey];
+            if (!ref) return m;
+            const title = ref.title ? ` "${ref.title}"` : '';
+            return `![${alt}](${ref.url}${title})`;
+          })
+          .replace(/!\[([^\]]*)]\[\]/g, (m, alt) => {
+            const refKey = (alt || '').toLowerCase();
+            const ref = refs[refKey];
+            if (!ref) return m;
+            const title = ref.title ? ` "${ref.title}"` : '';
+            return `![${alt}](${ref.url}${title})`;
+          });
+      }).join('\n');
     };
 
     const protectTokens = (text, regex, className, store) => {
@@ -940,6 +1374,17 @@
     const stickyMenuLabel = document.getElementById('stickyMenuLabel');
     const tocSidebar = document.getElementById('tocSidebar');
     const tocSidebarBody = document.getElementById('tocSidebarBody');
+    const uploadTrigger = document.getElementById('uploadTrigger');
+    const uploadModal = document.getElementById('uploadModal');
+    const uploadClose = document.getElementById('uploadClose');
+    const readmeUrlInput = document.getElementById('readmeUrl');
+    const readmeSubmit = document.getElementById('readmeSubmit');
+    const dropZone = document.getElementById('dropZone');
+    let updateSticky = () => {};
+    let updateActiveTocLink = () => {};
+    let headings = [];
+    let ticking = false;
+    let listenersBound = false;
 
     fetch(readmeURL)
       .then(res => {
@@ -949,7 +1394,10 @@
         return res.text();
       })
       .then(mdText => {
-        const html = marked.parse(mdText);
+        const processMarkdown = (mdText) => {
+        const resolved = resolveReferenceImages(mdText);
+        const normalized = normalizeMarkdown(resolved);
+        const html = marked.parse(forceInlineImages(normalized));
         contentElement.innerHTML = html;
 
         const h1Title = contentElement.querySelector('h1');
@@ -988,6 +1436,32 @@
           }
         });
 
+        const mergeBadgeRows = () => {
+          const paragraphs = Array.from(contentElement.querySelectorAll('p'));
+          paragraphs.forEach(p => {
+            const nodes = Array.from(p.childNodes).filter(node => {
+              if (node.nodeType === Node.TEXT_NODE) {
+                return node.textContent.trim().length > 0;
+              }
+              return node.nodeType === Node.ELEMENT_NODE && node.tagName !== 'BR';
+            });
+            if (nodes.length === 0) return;
+            const allBadges = nodes.every(node => {
+              if (node.nodeType !== Node.ELEMENT_NODE) return false;
+              if (node.tagName === 'IMG') return true;
+              if (node.tagName === 'A') {
+                return !!node.querySelector('img');
+              }
+              return false;
+            });
+            if (!allBadges) return;
+            const wrapper = document.createElement('div');
+            wrapper.className = 'badge-row';
+            nodes.forEach(node => wrapper.appendChild(node));
+            p.replaceWith(wrapper);
+          });
+        };
+
         const wireCopyButtons = () => {
           const buttons = contentElement.querySelectorAll('.code-copy');
           buttons.forEach(button => {
@@ -1022,6 +1496,7 @@
           });
         };
 
+        mergeBadgeRows();
         wireCopyButtons();
 
         // Always point the floating button to top.
@@ -1173,10 +1648,9 @@
         }
 
         // Sticky section header (H2) with current subsection (H3).
-        const headings = Array.from(contentElement.querySelectorAll('h1, h2, h3'));
-        let ticking = false;
+        headings = Array.from(contentElement.querySelectorAll('h1, h2, h3'));
 
-        const updateActiveTocLink = (currentH2, currentH3) => {
+        updateActiveTocLink = (currentH2, currentH3) => {
           const links = tocSidebarBody.querySelectorAll('a[href^="#"]');
           links.forEach(link => link.classList.remove('is-active'));
           const activeHeading = currentH3 || currentH2;
@@ -1187,7 +1661,7 @@
           }
         };
 
-        const updateSticky = () => {
+        updateSticky = () => {
           ticking = false;
           let currentH1 = null;
           let currentH2 = null;
@@ -1227,13 +1701,83 @@
         syncStickyOffset();
         updateTocVisibility();
         updateSticky();
-        window.addEventListener('resize', syncStickyOffset);
-        window.addEventListener('scroll', () => {
-          if (!ticking) {
-            window.requestAnimationFrame(updateSticky);
-            ticking = true;
+        if (!listenersBound) {
+          window.addEventListener('resize', syncStickyOffset);
+          window.addEventListener('scroll', () => {
+            if (!ticking) {
+              window.requestAnimationFrame(updateSticky);
+              ticking = true;
+            }
+          }, { passive: true });
+          listenersBound = true;
+        }
+        };
+
+        processMarkdown(mdText);
+
+        const openModal = () => {
+          uploadModal.classList.add('is-open');
+          uploadModal.setAttribute('aria-hidden', 'false');
+          readmeUrlInput.focus();
+        };
+
+        const closeModal = () => {
+          uploadModal.classList.remove('is-open');
+          uploadModal.setAttribute('aria-hidden', 'true');
+        };
+
+        const loadReadmeFromUrl = (url) => {
+          if (!url) return;
+          fetch(url)
+            .then(res => {
+              if (!res.ok) {
+                throw new Error(`Network error ${res.status}: ${res.statusText}`);
+              }
+              return res.text();
+            })
+            .then(processMarkdown)
+            .catch(err => {
+              contentElement.innerHTML = `<div class="error"><strong>Error loading README:</strong> ${err.message}</div>`;
+              console.error('Failed to load README:', err);
+            });
+        };
+
+        uploadTrigger.addEventListener('click', openModal);
+        uploadClose.addEventListener('click', closeModal);
+        uploadModal.addEventListener('click', (event) => {
+          if (event.target === uploadModal) {
+            closeModal();
           }
-        }, { passive: true });
+        });
+
+        readmeSubmit.addEventListener('click', () => {
+          const url = readmeUrlInput.value.trim();
+          if (!url) return;
+          closeModal();
+          loadReadmeFromUrl(url);
+        });
+
+        dropZone.addEventListener('dragover', (event) => {
+          event.preventDefault();
+          dropZone.classList.add('is-dragover');
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+          dropZone.classList.remove('is-dragover');
+        });
+
+        dropZone.addEventListener('drop', (event) => {
+          event.preventDefault();
+          dropZone.classList.remove('is-dragover');
+          const file = event.dataTransfer.files && event.dataTransfer.files[0];
+          if (!file) return;
+          const reader = new FileReader();
+          reader.onload = () => {
+            closeModal();
+            processMarkdown(String(reader.result || ''));
+          };
+          reader.readAsText(file);
+        });
       })
       .catch(err => {
         contentElement.innerHTML = `<div class="error"><strong>Error loading README:</strong> ${err.message}</div>`;
