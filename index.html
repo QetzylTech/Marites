@@ -65,7 +65,7 @@
       padding: 2rem var(--canvas-padding);
       background: #ffffff;
       border-radius: 14px;
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+      box-shadow: none;
       transition: margin-left 220ms ease, margin-right 220ms ease, width 220ms ease, max-width 220ms ease;
     }
 
@@ -94,6 +94,10 @@
         --content-left-base: 0px;
         --content-width: 100vw;
       }
+
+      body.toc-open .sticky-inner {
+        padding-left: calc(var(--canvas-padding) + var(--toc-width));
+      }
     }
 
     @media (min-width: 1101px) {
@@ -105,6 +109,14 @@
 
       .toc-sidebar {
         transform: translateX(0);
+      }
+
+      .sticky-menu {
+        display: none !important;
+      }
+
+      #stickyMenu {
+        display: none !important;
       }
     }
 
@@ -130,8 +142,13 @@
     h2 {
       font-size: 1.5em;
       background: #f1f5f9;
-      border-radius: 6px;
-      padding: 0.2em 0.4em;
+      border-radius: 0;
+      display: block;
+      margin-left: calc(-1 * var(--canvas-padding));
+      margin-right: calc(-1 * var(--canvas-padding));
+      width: calc(100% + (2 * var(--canvas-padding)));
+      box-sizing: border-box;
+      padding: 0.25em var(--canvas-padding);
     }
 
     h3 {
@@ -482,7 +499,7 @@
       font-weight: 700;
       color: #24292f;
       font-size: 1.5rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
       transition: transform 220ms ease, left 220ms ease, width 220ms ease;
     }
 
@@ -497,10 +514,10 @@
 
     .sticky-menu {
       appearance: none;
-      border: 1px solid #d0d7de;
-      background: #ffffff;
+      border: none;
+      background: transparent;
       color: #24292f;
-      border-radius: 10px;
+      border-radius: 0;
       height: 44px;
       padding: 0 0.7rem;
       cursor: pointer;
@@ -549,7 +566,7 @@
     }
 
     .sticky-menu:hover {
-      background: #f6f8fa;
+      background: rgba(15, 23, 42, 0.08);
     }
 
     /* TOC sidebar */
@@ -563,9 +580,10 @@
       max-height: calc(100vh - var(--toc-top));
       overflow: auto;
       background: #ffffff;
-      border: 1px solid #d0d7de;
-      border-radius: 12px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+      border: none;
+      border-right: 1px solid #e2e8f0;
+      border-radius: 0;
+      box-shadow: none;
       padding: 0.75rem 0.9rem 0.9rem;
       z-index: 1050;
       transform: translateX(-100%);
@@ -615,7 +633,7 @@
     .toc-footer {
       margin-top: 1rem;
       padding-top: 0.75rem;
-      border-top: 1px solid #d0d7de;
+      border-top: none;
     }
 
     .toc-upload {
@@ -628,6 +646,7 @@
       padding: 0.6rem 0.75rem;
       font-weight: 600;
       cursor: pointer;
+      display: none;
     }
 
     .toc-upload:hover {
@@ -936,23 +955,24 @@
       }
 
       .sticky-menu {
-        border-color: #30363d;
-        background: #0d1117;
+        border: none;
+        background: transparent;
         color: #c9d1d9;
       }
 
       .sticky-menu:hover {
-        background: #161b22;
+        background: rgba(148, 163, 184, 0.18);
       }
 
       main {
         background: #0d1117;
-        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+        box-shadow: none;
       }
 
       .toc-sidebar {
         background: #0d1117;
-        border-color: #30363d;
+        border: none;
+        border-right: 1px solid #262c35;
       }
 
       .toc-item.is-active {
@@ -960,7 +980,7 @@
       }
 
       .toc-footer {
-        border-top-color: #30363d;
+        border-top: none;
       }
 
       .toc-upload {
@@ -1071,14 +1091,27 @@
     // Custom renderer for better semantic HTML
     const renderer = new marked.Renderer();
 
+    const slugCounts = new Map();
+
+    const getUniqueSlug = (base) => {
+      const count = slugCounts.get(base) || 0;
+      slugCounts.set(base, count + 1);
+      if (count === 0) return base;
+      return `${base}-${count}`;
+    };
+
     // Custom heading renderer with ID anchors
     renderer.heading = (token) => {
-      const id = token.text
+      const rawText = token.text.replace(/<[^>]*>/g, '');
+      const id = rawText
         .toLowerCase()
         .trim()
         .replace(/[^\w\s-]/g, '')
-        .replace(/\s+/g, '-');
-      return `<h${token.depth} id="${id}">${token.text}</h${token.depth}>\n`;
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '');
+      const uniqueId = getUniqueSlug(id);
+      return `<h${token.depth} id="${uniqueId}">${token.text}</h${token.depth}>\n`;
     };
 
     // Custom link renderer
@@ -1395,6 +1428,7 @@
       })
       .then(mdText => {
         const processMarkdown = (mdText) => {
+        slugCounts.clear();
         const resolved = resolveReferenceImages(mdText);
         const normalized = normalizeMarkdown(resolved);
         const html = marked.parse(forceInlineImages(normalized));
@@ -1503,6 +1537,10 @@
         const tocHeading = document.getElementById('table-of-contents');
         backToTopButton.setAttribute('href', '#top');
         backToTopButton.textContent = 'Back to top';
+        backToTopButton.addEventListener('click', (event) => {
+          event.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
 
         let tocPinned = true;
         let updateTocVisibility = () => {};
@@ -1561,8 +1599,22 @@
         const inlineTocVisible = () => {
           const tocNode = findInlineToc();
           if (!tocNode) return;
+          const findTocHeading = (node) => {
+            let cursor = node.previousElementSibling;
+            while (cursor) {
+              if (/^H[1-6]$/.test(cursor.tagName)) {
+                return cursor;
+              }
+              cursor = cursor.previousElementSibling;
+            }
+            return null;
+          };
+          const tocHeading = findTocHeading(tocNode);
           const shouldHide = wideMql.matches;
           tocNode.style.display = shouldHide ? 'none' : '';
+          if (tocHeading) {
+            tocHeading.style.display = shouldHide ? 'none' : '';
+          }
         };
 
         // Build TOC sidebar from document headings (2 levels max).
@@ -1605,8 +1657,10 @@
         const syncTocForWidth = () => {
           if (narrowMql.matches) {
             tocPinned = false;
+            stickyMenuButton.hidden = false;
           } else {
             tocPinned = true;
+            stickyMenuButton.hidden = true;
           }
           updateTocVisibility();
           inlineTocVisible();
