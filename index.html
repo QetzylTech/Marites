@@ -536,6 +536,11 @@ del {
   .sticky-header {
     display: none !important;
   }
+
+  .toc-sidebar {
+    display: none !important;
+    visibility: hidden !important;
+  }
 }
 
 /* Sticky section header */
@@ -1059,7 +1064,7 @@ del {
     <div id="tocSidebarBody" class="toc-body"></div>
   </aside>
   <main>
-<article id="content">
+    <article id="content">
     </article>
   </main>
 
@@ -1768,6 +1773,7 @@ del {
           console.error('Failed to load README:', err);
         });
     };
+
     contentElement.innerHTML = '';
     setEmptyState(true);
     loadReadmeFromUrl(readmeURL);
