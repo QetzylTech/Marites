@@ -315,4 +315,107 @@ Common, observed problems and their usual causes.
 - Make your own batch files so you don't have to open the terminal and type commands each time you start the server. Forge does this for you, but you can still edit the run.bat or run.sh files.
 - I suggest to run both the VPN and the Minecraft server as daemons in Ubuntu Server
 
+## Minecraft Server as a systemd Service (Ubuntu Server)
+This guide explains how to move a modded Minecraft server to `/opt/minecraft` and configure it to start automatically at boot using `systemd`.
+---
+### 1. Move Server Files to `/opt`
+Create the target directory:
+```
+sudo mkdir -p /opt/minecraft
+```
+Move your existing server files:
+```
+sudo mv /home/marites/Minecraft/* /opt/minecraft/
+```
+---
+### 2. Set Ownership to the Service User
+Assuming you created a user named `server`:
+```
+sudo chown -R server:server /opt/minecraft
+```
+Verify ownership:
+```
+ls -ld /opt/minecraft
+```
+The owner and group should both be `server`.
+---
+### 3. Make `run.sh` Executable
+```
+cd /opt/minecraft
+chmod +x run.sh
+```
+Ensure `run.sh` launches the server directly (no `screen`, no interactive prompts).
+---
+### 4. Create the systemd Service File
+Create the service definition:
+```
+sudo nano /etc/systemd/system/minecraft.service
+```
+Paste the following:
+```
+[Unit]
+Description=Modded Minecraft Server
+After=network.target
+
+[Service]
+User=server
+WorkingDirectory=/opt/minecraft
+ExecStart=/bin/bash /opt/minecraft/run.sh
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+```
+Save and exit.
+---
+### 5. Reload systemd
+```
+sudo systemctl daemon-reload
+```
+---
+### 6. Enable Automatic Startup
+```
+sudo systemctl enable minecraft
+```
+This ensures the server starts automatically at boot.
+---
+### 7. Start the Server Now
+```
+sudo systemctl start minecraft
+```
+---
+### 8. Check Status
+```
+sudo systemctl status minecraft
+```
+If the service is active (running), it is working correctly.
+To view live logs:
+```
+sudo journalctl -u minecraft -f
+```
+---
+### 9. Test Boot Persistence
+Reboot the machine:
+```
+sudo reboot
+```
+After the system comes back online:
+```
+sudo systemctl status minecraft
+```
+If it is running, the setup is complete.
+---
+### Notes
+* Ensure Java is installed system-wide:
+  ```
+  java -version
+  ```
+* If needed, verify Java works for the `server` user:
+  ```
+  sudo -u server java -version
+  ```
+* The service will automatically restart if it crashes due to `Restart=always`.
+The server is now managed by the operating system and will run in the background without requiring login or manual execution.
+
 [⬆ Back to Top](#table-of-contents)
