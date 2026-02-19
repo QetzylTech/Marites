@@ -417,5 +417,88 @@ If it is running, the setup is complete.
   ```
 * The service will automatically restart if it crashes due to `Restart=always`.
 The server is now managed by the operating system and will run in the background without requiring login or manual execution.
+````markdown
+## Minecraft Server Live Backup Guide (Ubuntu Server)
+This guide explains how to safely back up a running Minecraft server’s world files as zip archives without shutting down the server. Backups are stored in `/home/marites/backups/` and can be automated.
+---
+### 1. Install Required Tools
+Make sure `zip` and `mcrcon` are installed:
+```bash
+sudo apt update
+sudo apt install zip mcrcon
+````
+---
+### 2. Enable RCON in Minecraft
+Edit `server.properties` and set:
+```
+enable-rcon=true
+rcon.password=YourStrongPasswordHere
+rcon.port=25575
+```
+Restart the server for changes to take effect.
+---
+### 3. Create Backup Script
+Create the backup script:
+```bash
+sudo nano /opt/minecraft/backup.sh
+```
+Paste the following (update the RCON password if needed):
+```bash
+#!/bin/bash
+
+RCON_PASS="YourStrongPasswordHere"
+WORLD_DIR="/opt/minecraft/world"
+BACKUP_DIR="/home/marites/backups"
+DATE=$(date +"%Y-%m-%d_%H-%M-%S")
+
+mkdir -p "$BACKUP_DIR"
+
+# Flush all world data and disable automatic saving
+mcrcon -H 127.0.0.1 -P 25575 -p "$RCON_PASS" "save-all"
+mcrcon -H 127.0.0.1 -P 25575 -p "$RCON_PASS" "save-off"
+
+sleep 5
+
+# Create zip backup
+zip -r "$BACKUP_DIR/world_$DATE.zip" "$WORLD_DIR"
+
+# Re-enable saving
+mcrcon -H 127.0.0.1 -P 25575 -p "$RCON_PASS" "save-on"
+```
+Make it executable:
+```bash
+chmod +x /opt/minecraft/backup.sh
+```
+---
+### 4. Test the Script
+Run manually:
+```bash
+/opt/minecraft/backup.sh
+```
+Check `/home/marites/backups/` for the new zip file.
+---
+### 5. Automate Backups with Cron
+Edit root’s crontab:
+```bash
+sudo crontab -e
+```
+Add the following to run backups at midnight and noon every day:
+```
+0 0,12 * * * /opt/minecraft/backup.sh >> /var/log/minecraft-backup.log 2>&1
+```
+This also logs output to `/var/log/minecraft-backup.log`.
+---
+### 6. Notes
+* `save-all` flushes all world data to disk.
+* `save-off` prevents world changes during the copy.
+* `save-on` resumes automatic saving.
+* Ensure the server’s timezone is correct:
+
+```bash
+timedatectl
+```
+* Your backup script can be combined with another script to copy zip files to a remote server.
+
+
 
 [⬆ Back to Top](#table-of-contents)
