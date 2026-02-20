@@ -509,6 +509,142 @@ timedatectl
 ```
 * Your backup script can be combined with another script to copy zip files to a remote server.
 
+---
+## RCON Web Admin Setup Guide (Ubuntu / Linux)
+This guide walks through:
+1. Installing Node.js and npm
+2. Installing RCON Web Admin
+3. Configuring environment variables
+4. Testing manually
+5. Creating a systemd service
+---
+### 1. Install Node.js and npm
+Verify Node and npm are installed:
+```bash
+node -v
+npm -v
+```
+If not installed (or outdated), install Node 20 LTS:
+```bash
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt install -y nodejs
+```
+Verify:
+```bash
+node -v
+npm -v
+```
+---
+### 2. Install RCON Web Admin
+Navigate to your server directory:
+```bash
+cd /home/marites/server/
+```
+If you haven’t cloned it yet:
+```bash
+git clone https://github.com/itzg/rcon-web-admin.git
+cd rcon-web-admin
+```
+Install dependencies:
+
+```bash
+npm install
+```
+You may see deprecation warnings. These are common and do not prevent operation.
+---
+### 3. Configure Environment Variables
+RCON Web Admin requires environment variables for login and RCON connection.
+You can test temporarily by exporting them:
+```bash
+export RWA_USERNAME=admin
+export RWA_PASSWORD=YourWebUIPassword
+export RWA_ADMIN=true
+export RWA_RCON_HOST=127.0.0.1
+export RWA_RCON_PORT=25575
+export RWA_RCON_PASSWORD=YourMinecraftRconPassword
+export PORT=4326
+```
+Make sure RCON is enabled in your `server.properties`:
+```properties
+enable-rcon=true
+rcon.port=25575
+rcon.password=YourMinecraftRconPassword
+```
+Restart Minecraft if you changed those values.
+---
+### 4. Start RCON Web Admin Manually (Test First)
+Do not run just `node src/main.js`.
+You must include the start argument:
+```bash
+node src/main.js start
+```
+If successful, it will stay running and listen on port 4326.
+Open in browser:
+```
+http://your-server-ip:4326
+```
+If this works, continue to systemd setup.
+Stop it with Ctrl+C.
+---
+### 5. Create systemd Service
+Create a new service file:
+```bash
+sudo nano /etc/systemd/system/rcon-web.service
+```
+Paste:
+```ini
+[Unit]
+Description=RCON Web Admin
+After=network.target
+
+[Service]
+Type=simple
+User=marites
+WorkingDirectory=/home/marites/server/rcon-web-admin
+ExecStart=/usr/bin/node src/main.js start
+Restart=always
+RestartSec=5
+
+Environment=RWA_USERNAME=admin
+Environment=RWA_PASSWORD=YourWebUIPassword
+Environment=RWA_ADMIN=true
+Environment=RWA_RCON_HOST=127.0.0.1
+Environment=RWA_RCON_PORT=25575
+Environment=RWA_RCON_PASSWORD=YourMinecraftRconPassword
+Environment=PORT=4326
+
+[Install]
+WantedBy=multi-user.target
+```
+Save and exit.
+---
+### 6. Enable and Start the Service
+Reload systemd:
+```bash
+sudo systemctl daemon-reload
+```
+Enable at boot:
+```bash
+sudo systemctl enable rcon-web
+```
+Start it:
+```bash
+sudo systemctl start rcon-web
+```
+Check status:
+```bash
+sudo systemctl status rcon-web
+```
+If running, you are done.
+---
+### Optional: Disable Minecraft Auto-Start
+If Minecraft was previously auto-starting via systemd and you want Web Admin to control it instead:
+```bash
+sudo systemctl stop minecraft
+sudo systemctl disable minecraft
+```
+This does not delete the service file. It only disables auto-start.
+---
 
 
 [⬆ Back to Top](#table-of-contents)
