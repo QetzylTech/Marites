@@ -442,25 +442,35 @@ Create the backup script:
 ```bash
 sudo nano /opt/minecraft/backup.sh
 ```
-Paste the following (update the RCON password if needed):
+Paste the following (update the RCON password and directories):
 ```bash
 #!/bin/bash
 
-RCON_PASS="YourStrongPasswordHere"
-WORLD_DIR="/opt/minecraft/world"
+RCON_PASS="<YourStrongPasswordHere>"
+WORLD_DIR="/opt/Minecraft/The Server"
 BACKUP_DIR="/home/marites/backups"
 DATE=$(date +"%Y-%m-%d_%H-%M-%S")
 
 mkdir -p "$BACKUP_DIR"
 
-# Flush all world data and disable automatic saving
+# Notify players that backup is starting
+mcrcon -H 127.0.0.1 -P 25575 -p "$RCON_PASS" "say Backup starting! Server may lag for a few seconds."
+
+# Force world save and disable writes
 mcrcon -H 127.0.0.1 -P 25575 -p "$RCON_PASS" "save-all"
 mcrcon -H 127.0.0.1 -P 25575 -p "$RCON_PASS" "save-off"
 
+# Give disk a moment to flush
 sleep 5
 
 # Create zip backup
-zip -r "$BACKUP_DIR/world_$DATE.zip" "$WORLD_DIR"
+if zip -r "$BACKUP_DIR/world_$DATE.zip" "$WORLD_DIR"; then
+    # Backup succeeded
+    mcrcon -H 127.0.0.1 -P 25575 -p "$RCON_PASS" "say Backup completed successfully! Saved to $BACKUP_DIR/world_$DATE.zip"
+else
+    # Backup failed
+    mcrcon -H 127.0.0.1 -P 25575 -p "$RCON_PASS" "say Backup failed! Check server logs."
+fi
 
 # Re-enable saving
 mcrcon -H 127.0.0.1 -P 25575 -p "$RCON_PASS" "save-on"
