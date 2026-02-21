@@ -78,7 +78,7 @@ Skip to [2.5](#25-deploy-server-ubuntu-cli) If Ubuntu is already installed.
 6. Complete installation and reboot into Ubuntu Server.
 ### 2.2 Deploy Vanilla Server
 1. Install Java JDK from here: https://www.oracle.com/java/technologies/downloads/
-    - Recommended version 21 for modded, 24 works for now but not fully tested
+    - Recommended version 21
 2. Download the Minecraft server jar. 1.21.1 available here: 
     - https://piston-data.mojang.com/v1/objects/6bce4ef400e4efaa63a13d5e6f6b500be969ef81/server.jar
     - https://www.minecraft.net/en-us/download/server
@@ -106,14 +106,14 @@ Skip to [2.5](#25-deploy-server-ubuntu-cli) If Ubuntu is already installed.
 5. Export the modpack by clicking the screwdriver & wrench icon and then select Backup Mods.
 6. Select Create Backup, choose the modpack, and then the save location.
 7. Share the newly created zip file.
-### 2.4 Deploy Server (Windows)
+### 2.4 Deploy Modded Server (Windows)
 Preconditions:
 - Modpack created and ready for distribution (See [2.3](#23-create-and-distribute-modpacks)).
 - Admin machine has sufficient resources for server.
 
 Steps:
 1. Install Java JDK from https://www.oracle.com/java/technologies/downloads/
-    - Recommended version 17 for modded, 24 works for now but not fully tested
+    - Recommended version 17 for modded
 2. Create a folder for the server files (e.g., C:\MinecraftServer).
 3. Download server Forge installer matching Minecraft version from https://files.minecraftforge.net/net/minecraftforge/forge/
 4. Run the Forge installer by double clicking it. Select `Server` → browse to server folder.
@@ -294,31 +294,31 @@ Choose only 1 Tunnel
 -File Sync between and backup system is still in development. Use  Google Drive in the meantime.
 ## 3 General Notes and Known Issues
 Common, observed problems and their usual causes.
-### Tunnels
+### 3.1 Tunnels
 - Playit.gg has a glitch that causes connections to fail even with proper settings. Workaround is either set the port to something else and then set it back to the proper port, or unassign all agents, deactivate all tunnels, then reactivate 1 tunnel and reassign your agent.
 - When the server is laggy, the only solution so far is switch between different services or swap servers.
 - Ngrok is fast but has a **1GB** transfer limit **PER MONTH**
-### Ubuntu Server Installation
+### 3.2 Ubuntu Server Installation
 - The installation may fail during the kernel installation phase. Force shutdown and  repeat the installation in case this happens. Cause is still unknown.
-### Software Versions
-#### Forge
-- Latest supported JDK version is 17 for modded and 21 for Vanilla. 24 works fine in testing, so far. If bugs appear, use the older JDK versions.
+### 3.3 Software Versions
+#### 3.3.1 Forge
+- Latest supported JDK version is 17 for modded and 21 for Vanilla. 24 needs to be tested per mod. If bugs appear, use the older JDK versions.
 - Use the Forge version for the Minecraft version of the modpack (Minecraft version indicated at the tlauncher modpack download page). Use the recommended versions of Forge, not the latest, unless you have a very specific reason.
-### Security
+### 3.4 Security
 - The tutorial assumes all account credentials are distributed privately. 
 - Whitelist is not very effective if online-mode and enforce-secure-profile in server.properties are both false. This is because anyone can just change usernames, and it won't be verified by the server.
 - VPN is more secure because it is invite only and admin has full control of network
 - Tunnels, while technically public, can  be used as backup in case of performance issue with VPNs
 - Unverified accounts are accepted. Breaches are handled on case by case basis.
 - A proper backup system is still under development.
-### Server Admin Quality of Life Tips
+### 3.5 Server Admin Quality of Life Tips
 - Make your own batch files so you don't have to open the terminal and type commands each time you start the server. Forge does this for you, but you can still edit the run.bat or run.sh files.
 - I suggest to run both the VPN and the Minecraft server as daemons in Ubuntu Server
 
-## Minecraft Server as a systemd Service (Ubuntu Server)
-This guide explains how to move a modded Minecraft server to `/opt/minecraft` and configure it to start automatically at boot using `systemd`.
----
-### 1. Move Server Files to `/opt`
+##  4 Advanced Ubuntu Server Setup
+### 4.1 Automatic Boot Using Systemd Service
+-This guide explains how to move a modded Minecraft server to `/opt/minecraft` and configure it to start automatically at boot using `systemd`.
+#### 1. Move Server Files to `/opt`
 Create the target directory:
 ```
 sudo mkdir -p /opt/minecraft
@@ -327,8 +327,7 @@ Move your existing server files:
 ```
 sudo mv /home/marites/Minecraft/* /opt/minecraft/
 ```
----
-### 2. Set Ownership to the Service User
+#### 2. Set Ownership to the Service User
 Assuming you created a user named `server`:
 ```
 sudo chown -R server:server /opt/minecraft
@@ -338,15 +337,13 @@ Verify ownership:
 ls -ld /opt/minecraft
 ```
 The owner and group should both be `server`.
----
-### 3. Make `run.sh` Executable
+#### 3. Make `run.sh` Executable
 ```
 cd /opt/minecraft
 chmod +x run.sh
 ```
 Ensure `run.sh` launches the server directly (no `screen`, no interactive prompts).
----
-### 4. Create the systemd Service File
+#### 4. Create the systemd Service File
 Create the service definition:
 ```
 sudo nano /etc/systemd/system/minecraft.service
@@ -368,24 +365,20 @@ RestartSec=10
 WantedBy=multi-user.target
 ```
 Save and exit.
----
-### 5. Reload systemd
+#### 5. Reload systemd
 ```
 sudo systemctl daemon-reload
 ```
----
-### 6. Enable Automatic Startup
+#### 6. Enable Automatic Startup
 ```
 sudo systemctl enable minecraft
 ```
 This ensures the server starts automatically at boot.
----
-### 7. Start the Server Now
+#### 7. Start the Server Now
 ```
 sudo systemctl start minecraft
 ```
----
-### 8. Check Status
+#### 8. Check Status
 ```
 sudo systemctl status minecraft
 ```
@@ -394,8 +387,7 @@ To view live logs:
 ```
 sudo journalctl -u minecraft -f
 ```
----
-### 9. Test Boot Persistence
+#### 9. Test Boot Persistence
 Reboot the machine:
 ```
 sudo reboot
@@ -405,8 +397,7 @@ After the system comes back online:
 sudo systemctl status minecraft
 ```
 If it is running, the setup is complete.
----
-### Notes
+#### Notes
 * Ensure Java is installed system-wide:
   ```
   java -version
@@ -417,18 +408,15 @@ If it is running, the setup is complete.
   ```
 * The service will automatically restart if it crashes due to `Restart=always`.
 The server is now managed by the operating system and will run in the background without requiring login or manual execution.
-````markdown
-## Minecraft Server Live Backup Guide (Ubuntu Server)
-This guide explains how to safely back up a running Minecraft server’s world files as zip archives without shutting down the server. Backups are stored in `/home/marites/backups/` and can be automated.
----
-### 1. Install Required Tools
+### 4.2 Live Backup Guide
+-This guide explains how to safely back up a running Minecraft server’s world files as zip archives without shutting down the server. Backups are stored in `/home/marites/backups/` and can be automated.
+#### 1. Install Required Tools
 Make sure `zip` and `mcrcon` are installed:
 ```bash
 sudo apt update
 sudo apt install zip mcrcon
 ````
----
-### 2. Enable RCON in Minecraft
+#### 2. Enable RCON in Minecraft
 Edit `server.properties` and set:
 ```
 enable-rcon=true
@@ -436,8 +424,7 @@ rcon.password=YourStrongPasswordHere
 rcon.port=25575
 ```
 Restart the server for changes to take effect.
----
-### 3. Create Backup Script
+#### 3. Create Backup Script
 Create the backup script:
 ```bash
 sudo nano /opt/minecraft/backup.sh
@@ -479,15 +466,13 @@ Make it executable:
 ```bash
 chmod +x /opt/minecraft/backup.sh
 ```
----
-### 4. Test the Script
+#### 4. Test the Script
 Run manually:
 ```bash
 /opt/minecraft/backup.sh
 ```
 Check `/home/marites/backups/` for the new zip file.
----
-### 5. Automate Backups with Cron
+#### 5. Automate Backups with Cron
 Edit root’s crontab:
 ```bash
 sudo crontab -e
@@ -497,8 +482,7 @@ Add the following to run backups at midnight and noon every day:
 0 0,12 * * * /opt/minecraft/backup.sh >> /var/log/minecraft-backup.log 2>&1
 ```
 This also logs output to `/var/log/minecraft-backup.log`.
----
-### 6. Notes
+#### 6. Notes
 * `save-all` flushes all world data to disk.
 * `save-off` prevents world changes during the copy.
 * `save-on` resumes automatic saving.
@@ -509,142 +493,6 @@ timedatectl
 ```
 * Your backup script can be combined with another script to copy zip files to a remote server.
 
----
-## RCON Web Admin Setup Guide (Ubuntu / Linux)
-This guide walks through:
-1. Installing Node.js and npm
-2. Installing RCON Web Admin
-3. Configuring environment variables
-4. Testing manually
-5. Creating a systemd service
----
-### 1. Install Node.js and npm
-Verify Node and npm are installed:
-```bash
-node -v
-npm -v
-```
-If not installed (or outdated), install Node 20 LTS:
-```bash
-curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-sudo apt install -y nodejs
-```
-Verify:
-```bash
-node -v
-npm -v
-```
----
-### 2. Install RCON Web Admin
-Navigate to your server directory:
-```bash
-cd /home/marites/server/
-```
-If you haven’t cloned it yet:
-```bash
-git clone https://github.com/itzg/rcon-web-admin.git
-cd rcon-web-admin
-```
-Install dependencies:
-
-```bash
-npm install
-```
-You may see deprecation warnings. These are common and do not prevent operation.
----
-### 3. Configure Environment Variables
-RCON Web Admin requires environment variables for login and RCON connection.
-You can test temporarily by exporting them:
-```bash
-export RWA_USERNAME=admin
-export RWA_PASSWORD=YourWebUIPassword
-export RWA_ADMIN=true
-export RWA_RCON_HOST=127.0.0.1
-export RWA_RCON_PORT=25575
-export RWA_RCON_PASSWORD=YourMinecraftRconPassword
-export PORT=4326
-```
-Make sure RCON is enabled in your `server.properties`:
-```properties
-enable-rcon=true
-rcon.port=25575
-rcon.password=YourMinecraftRconPassword
-```
-Restart Minecraft if you changed those values.
----
-### 4. Start RCON Web Admin Manually (Test First)
-Do not run just `node src/main.js`.
-You must include the start argument:
-```bash
-node src/main.js start
-```
-If successful, it will stay running and listen on port 4326.
-Open in browser:
-```
-http://your-server-ip:4326
-```
-If this works, continue to systemd setup.
-Stop it with Ctrl+C.
----
-### 5. Create systemd Service
-Create a new service file:
-```bash
-sudo nano /etc/systemd/system/rcon-web.service
-```
-Paste:
-```ini
-[Unit]
-Description=RCON Web Admin
-After=network.target
-
-[Service]
-Type=simple
-User=marites
-WorkingDirectory=/home/marites/server/rcon-web-admin
-ExecStart=/usr/bin/node src/main.js start
-Restart=always
-RestartSec=5
-
-Environment=RWA_USERNAME=admin
-Environment=RWA_PASSWORD=YourWebUIPassword
-Environment=RWA_ADMIN=true
-Environment=RWA_RCON_HOST=127.0.0.1
-Environment=RWA_RCON_PORT=25575
-Environment=RWA_RCON_PASSWORD=YourMinecraftRconPassword
-Environment=PORT=4326
-
-[Install]
-WantedBy=multi-user.target
-```
-Save and exit.
----
-### 6. Enable and Start the Service
-Reload systemd:
-```bash
-sudo systemctl daemon-reload
-```
-Enable at boot:
-```bash
-sudo systemctl enable rcon-web
-```
-Start it:
-```bash
-sudo systemctl start rcon-web
-```
-Check status:
-```bash
-sudo systemctl status rcon-web
-```
-If running, you are done.
----
-### Optional: Disable Minecraft Auto-Start
-If Minecraft was previously auto-starting via systemd and you want Web Admin to control it instead:
-```bash
-sudo systemctl stop minecraft
-sudo systemctl disable minecraft
-```
-This does not delete the service file. It only disables auto-start.
----
 
 
 [⬆ Back to Top](#table-of-contents)
