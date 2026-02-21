@@ -1691,14 +1691,30 @@ del {
         }
       }
 
+      const shouldTrackHeading = (heading) => {
+        if (!heading) return false;
+        if (heading.id === 'table-of-contents') return false;
+        if (heading.tagName === 'H2' && heading.textContent.trim().toLowerCase() === 'table of contents') {
+          return false;
+        }
+        const style = window.getComputedStyle(heading);
+        return style.display !== 'none' && style.visibility !== 'hidden';
+      };
+
       // Sticky section header (H2) with current subsection (H3).
-      headings = Array.from(contentElement.querySelectorAll('h1, h2, h3'));
+      headings = Array.from(contentElement.querySelectorAll('h1, h2, h3')).filter(shouldTrackHeading);
 
       updateActiveTocLink = (currentH2, currentH3) => {
         const links = tocSidebarBody.querySelectorAll('a[href^="#"]');
         links.forEach(link => link.classList.remove('is-active'));
         const activeHeading = currentH3 || currentH2;
-        if (!activeHeading) return;
+        if (!activeHeading) {
+          const firstLink = links[0];
+          if (firstLink) {
+            firstLink.classList.add('is-active');
+          }
+          return;
+        }
         const activeLink = tocSidebarBody.querySelector(`a[href="#${activeHeading.id}"]`);
         if (activeLink) {
           activeLink.classList.add('is-active');
@@ -1713,6 +1729,7 @@ del {
         const scrollY = window.scrollY + (stickyHeader?.offsetHeight || 0) + 12;
 
         for (const heading of headings) {
+          if (!shouldTrackHeading(heading)) continue;
           if (heading.offsetTop <= scrollY) {
             if (heading.tagName === 'H1') {
               currentH1 = heading;
@@ -1780,5 +1797,4 @@ del {
   </script>
 </body>
 </html>
-
 
