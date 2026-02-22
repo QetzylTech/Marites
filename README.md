@@ -8,7 +8,8 @@ By JP
 2. Import modpack 
   - https://drive.google.com/drive/folders/1vuYmIkiJw5WnN9wqXW7krUkUowxOI1wr?usp=sharing
 3. Join VPN using the Tailscale account provided by JP
-4. Join the server using the URL provided by JP
+4. Join the server using the server URL 'servera'
+5. If server is off, go to http://servera/ and press start.
 
 ## Foreword
 &nbsp;&nbsp;&nbsp;&nbsp;This documentation is intended for Marites only. Most instructions are aimed at the server admin.
@@ -42,10 +43,10 @@ Steps required for players to join the server.
 ### 1.1 Install Modpack
 1. Download the modpack zip file from https://drive.google.com/drive/folders/1vuYmIkiJw5WnN9wqXW7krUkUowxOI1wr?usp=sharing
 2. Open Tlauncher (make sure tLauncher is updated to the latest version) and then open the TLmods tab
-3. Click the screwdriver and wrench icon, on the upper left part of the window, and select `Backup Mods`.
+3. Click the screwdriver and wrench icon on the upper left part of the window, and select `Backup Mods`.
 4. Find the mod zip file you downloaded and click restore.
 5. Launch the game.
-### 1.2 Joining VPN (If Required)
+### 1.2 Joining VPN
 1. Install Tailscale from https://tailscale.com/download
 2. Open Tailscale and log in using the account provided by JP.
 3. Verify using phone number if prompted.
@@ -53,10 +54,10 @@ Steps required for players to join the server.
 5. Confirm your device is listed as connected.
 #### Notes: 
 - Each device must have the VPN client installed (If using VPN)
-- Up to 3 accounts can connect to a network in Tailscale, so inform JP if using own account.
+- Up to 3 accounts can connect to a network in Tailscale, so inform JP if using your own account.
 ### 1.3 Connecting to Server
-1. JP/ Sam gives you url.
-2. On Minecraft, join the server using the url
+1. On Minecraft, join the server using the url 'servera'
+2. If the server is still off, go to http://servera/ and press the start button to  start the server.
 ## 2 Server Setup
 Steps required to develop, deploy, expose, and operate a server.
 ### 2.1 Ubuntu Server Installation
