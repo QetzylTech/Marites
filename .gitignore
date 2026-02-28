@@ -1,0 +1,41 @@
+﻿# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Python cache / tooling
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+.env
+
+# Project local runtime secrets/config
+webserver/mcweb.env
+
+# Project runtime outputs
+webserver/logs/
+webserver/data/
+webserver/app/__pycache__/
+webserver/scripts/__pycache__/
+webserver/tests/__pycache__/
+webserver/__pycache__/
+
+# Minecraft server runtime/generated content
+Mod/logs/
+Mod/crash-reports/
+Mod/modernfix/
+Mod/XaeroWaypoints_BACKUP*/
+Mod/xaero/
+
+# Optional: if world/cache data appears under Mod or root in future
+*.mca
+*.xwmc
+*.xwmc.outdated
+*.zip.tmp

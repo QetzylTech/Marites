@@ -195,6 +195,15 @@ def register_maintenance_routes(app, state):
         """Handle maintenance api save schedules."""
         payload = request.get_json(silent=True) or {}
         scope = _cleanup_normalize_scope(payload.get("scope", "backups"))
+        ok_pw, err = _require_password(
+            payload,
+            what="save_schedules",
+            why="manual_save",
+            trigger="manual",
+            scope=scope,
+        )
+        if not ok_pw:
+            return err
         ok, parsed = _cleanup_validate_schedules(payload.get("schedules", []))
         if not ok:
             code = "schedule_conflict" if "conflict" in str(parsed).lower() else "validation_failure"
