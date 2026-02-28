@@ -17,17 +17,20 @@ import re
 
 app = Flask(__name__)
 
+# Core service/application settings.
 SERVICE = "minecraft"
 BACKUP_SCRIPT = "/opt/Minecraft/backup.sh"
 BACKUP_DIR = Path("/home/marites/backups")
 SUDO_PASSWORD = "SuperCute"
 RCON_PASSWORD = "SuperCute"
+
+# Backup/automation timing controls.
 BACKUP_INTERVAL_HOURS = 6
 BACKUP_INTERVAL_SECONDS = max(60, int(BACKUP_INTERVAL_HOURS * 3600))
 IDLE_ZERO_PLAYERS_SECONDS = 180
 IDLE_CHECK_INTERVAL_SECONDS = 15
 
-# Shared watcher state (protected by the corresponding locks below).
+# Shared watcher state (protected by locks below).
 idle_zero_players_since = None
 idle_lock = threading.Lock()
 backup_session_started_at = None
@@ -38,6 +41,7 @@ backup_periodic_runs = 0
 backup_lock = threading.Lock()
 backup_active_jobs = 0
 
+# Single-file HTML template for the dashboard UI.
 HTML = """
 <!doctype html>
 <html lang="en">
@@ -319,6 +323,15 @@ HTML = """
         color: #334155;
     }
 
+    .modal-image {
+        width: 100%;
+        max-height: 220px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1px solid #cbd5e1;
+        margin: 0 0 12px 0;
+    }
+
     .modal-input {
         width: 100%;
         border: 1px solid #cbd5e1;
@@ -455,6 +468,7 @@ HTML = """
 <div id="message-modal" class="modal-overlay" aria-hidden="true">
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="message-modal-title">
         <h3 id="message-modal-title" class="modal-title">Action Rejected</h3>
+        <img class="modal-image" src="https://i.imgflip.com/6k8gqw.jpg" alt="Incorrect password image">
         <p id="message-modal-text" class="modal-text"></p>
         <div class="modal-actions">
             <button id="message-modal-ok" type="button">OK</button>
@@ -462,16 +476,26 @@ HTML = """
     </div>
 </div>
 <script>
+    // `alert_message` is set server-side when an action fails validation.
     const alertMessage = {{ alert_message | tojson }};
+
+    // UI state used for dynamic controls/modals.
     let idleCountdownSeconds = null;
     let pendingSudoForm = null;
+
+    // Refresh cadence configuration (milliseconds).
+    // Active mode = full dashboard updates.
     const ACTIVE_METRICS_INTERVAL_MS = 1000;
-    const ACTIVE_LOG_INTERVAL_MS = 5000;
+    const ACTIVE_LOG_INTERVAL_MS = 1000;
     const ACTIVE_COUNTDOWN_INTERVAL_MS = 1000;
+    // Off mode = only server stats update.
     const OFF_SERVER_STATS_INTERVAL_MS = 1000;
+
+    // Timer handles retained so intervals can be stopped/restarted cleanly.
     let metricsTimer = null;
     let logTimer = null;
     let countdownTimer = null;
+    // Current scheduler mode: "active" or "off".
     let refreshMode = null;
 
     function scrollLogToBottom() {
@@ -629,6 +653,7 @@ HTML = """
     }
 
     function clearRefreshTimers() {
+        // Prevent duplicate interval loops when switching modes.
         if (countdownTimer) {
             clearInterval(countdownTimer);
             countdownTimer = null;
@@ -644,6 +669,7 @@ HTML = """
     }
 
     function applyRefreshMode(serviceStatusText) {
+        // Status is rendered as labels (Off/Starting/Running/Shutting Down).
         const normalized = (serviceStatusText || "").trim().toLowerCase();
         const nextMode = normalized === "off" ? "off" : "active";
         if (nextMode === refreshMode) return;
@@ -652,10 +678,12 @@ HTML = """
         clearRefreshTimers();
 
         if (refreshMode === "off") {
+            // In Off mode, refresh only Server Stats at reduced cadence.
             metricsTimer = setInterval(refreshServerStatsOnly, OFF_SERVER_STATS_INTERVAL_MS);
             return;
         }
 
+        // In Active mode, restore full live updates.
         countdownTimer = setInterval(tickIdleCountdown, ACTIVE_COUNTDOWN_INTERVAL_MS);
         metricsTimer = setInterval(refreshMetrics, ACTIVE_METRICS_INTERVAL_MS);
         logTimer = setInterval(refreshMinecraftLog, ACTIVE_LOG_INTERVAL_MS);
@@ -728,6 +756,9 @@ HTML = """
 </html>
 """
 
+# ----------------------------
+# System / privilege helpers
+# ----------------------------
 def get_status():
     """Return the raw systemd state for the Minecraft service."""
     result = subprocess.run(
@@ -747,17 +778,7 @@ def run_sudo(cmd):
 
 def validate_sudo_password(sudo_password):
     """Validate user-supplied sudo password for privileged dashboard actions."""
-    candidate = (sudo_password or "").strip()
-    if candidate == SUDO_PASSWORD:
-        return True
-
-    result = subprocess.run(
-        ["sudo", "-S", "-k", "true"],
-        input=f"{candidate}\n",
-        capture_output=True,
-        text=True,
-    )
-    return result.returncode == 0
+    return (sudo_password or "").strip() == SUDO_PASSWORD
 
 def get_minecraft_logs():
     """Return recent journal lines for the Minecraft service."""
@@ -785,6 +806,9 @@ def get_minecraft_logs():
 
     return "(no logs)"
 
+# ----------------------------
+# Backup status/display helpers
+# ----------------------------
 def get_backups_status():
     """Return whether the backup directory is present and file count."""
     if not BACKUP_DIR.exists() or not BACKUP_DIR.is_dir():
@@ -832,6 +856,7 @@ def format_cpu_per_core_text(cpu_per_core):
     return " | ".join([f"{val}%" for i, val in enumerate(cpu_per_core)])
 
 def _class_from_percent(value):
+    """Map percentage to severity color class for the dashboard."""
     if value < 60:
         return "stat-green"
     if value < 75:
@@ -841,6 +866,7 @@ def _class_from_percent(value):
     return "stat-red"
 
 def _extract_percent(usage_text):
+    """Extract percent value from strings like '12 / 100 (12.0%)'."""
     match = re.search(r"\(([\d.]+)%\)", usage_text or "")
     if not match:
         return None
@@ -850,6 +876,7 @@ def _extract_percent(usage_text):
         return None
 
 def get_cpu_usage_class(cpu_per_core):
+    """Color class based on hottest CPU core usage."""
     if not cpu_per_core:
         return "stat-red"
     try:
@@ -859,18 +886,21 @@ def get_cpu_usage_class(cpu_per_core):
     return _class_from_percent(peak)
 
 def get_ram_usage_class(ram_usage):
+    """Color class based on RAM utilization percentage."""
     percent = _extract_percent(ram_usage)
     if percent is None:
         return "stat-red"
     return _class_from_percent(percent)
 
 def get_storage_usage_class(storage_usage):
+    """Color class based on root filesystem utilization percentage."""
     percent = _extract_percent(storage_usage)
     if percent is None:
         return "stat-red"
     return _class_from_percent(percent)
 
 def get_cpu_frequency_class(cpu_frequency):
+    """Color class for CPU frequency readout."""
     return "stat-red" if cpu_frequency == "unknown" else "stat-green"
 
 def get_ram_usage():
@@ -999,7 +1029,7 @@ def get_tick_rate():
             except ValueError:
                 pass
 
-        # Accept explicit TPS values if present in output.
+        # Convert explicit TPS values to ms/tick.
         match = re.search(r"TPS[^0-9]*([0-9]+(?:[.,][0-9]+)?)", cleaned, re.IGNORECASE)
         if match:
             try:
@@ -1009,7 +1039,7 @@ def get_tick_rate():
             except ValueError:
                 pass
 
-        # Fallback: first decimal-looking number from the output.
+        # Fallback: parse first numeric token (guarded to plausible TPS range).
         match = re.search(r"\b([0-9]+(?:[.,][0-9]+)?)\b", cleaned)
         if match:
             try:
@@ -1047,8 +1077,13 @@ def get_service_status_class(service_status_display):
     return "stat-red"
 
 def stop_server_automatically():
-    """Stop Minecraft without UI interaction (used by idle watcher)."""
-    run_sudo(["systemctl", "stop", SERVICE])
+    """Gracefully stop Minecraft via RCON (used by idle watcher)."""
+    subprocess.run(
+        ["mcrcon", "-p", RCON_PASSWORD, "stop"],
+        capture_output=True,
+        text=True,
+        timeout=8,
+    )
 
 def run_backup_script(track_session_schedule=True):
     """Run backup script and update in-memory backup timestamps."""
@@ -1057,6 +1092,7 @@ def run_backup_script(track_session_schedule=True):
     global backup_active_jobs
 
     with backup_lock:
+        # Track active backup jobs for UI status.
         backup_active_jobs += 1
 
     try:
@@ -1103,6 +1139,7 @@ def get_backup_schedule_times(service_status=None):
 
     next_backup_at = None
     if service_status == "active":
+        # Next backup is aligned to fixed interval boundaries from session start.
         anchor = session_started_at if session_started_at is not None else time.time()
         elapsed_intervals = int(max(0, time.time() - anchor) // BACKUP_INTERVAL_SECONDS)
         next_backup_at = anchor + ((elapsed_intervals + 1) * BACKUP_INTERVAL_SECONDS)
@@ -1203,6 +1240,7 @@ def backup_session_watcher():
                         backup_had_periodic_run = False
                         backup_periodic_runs = 0
 
+                    # Number of interval boundaries crossed since session start.
                     due_runs = int((now - backup_session_started_at) // BACKUP_INTERVAL_SECONDS)
                     if due_runs > backup_periodic_runs:
                         should_run_periodic_backup = True
@@ -1234,6 +1272,10 @@ def start_backup_session_watcher():
     watcher = threading.Thread(target=backup_session_watcher, daemon=True)
     watcher.start()
 
+#
+# ----------------------------
+# Flask routes
+# ----------------------------
 @app.route("/")
 def index():
     """Render dashboard page."""
@@ -1278,7 +1320,7 @@ def index():
 @app.route("/minecraft-log")
 def minecraft_log():
     """Return plain-text Minecraft service log snippet."""
-    return get_minecraft_logs(), 200, {"Content-Type": "text/plain; charset=utf-8"}
+    return get_minecraft_logs(), 50, {"Content-Type": "text/plain; charset=utf-8"}
 
 @app.route("/metrics")
 def metrics():
@@ -1322,6 +1364,7 @@ def start():
 
     subprocess.run(["sudo", "systemctl", "start", SERVICE])
     with backup_lock:
+        # Only initialize if this is the first transition into running.
         if backup_session_started_at is None:
             backup_session_started_at = time.time()
             backup_last_run_at = None
@@ -1342,10 +1385,10 @@ def stop():
         return redirect("/?msg=password_incorrect")
 
     subprocess.run(
-        ["sudo", "-S", "systemctl", "stop", SERVICE],
-        input=f"{sudo_password}\n",
-        text=True,
+        ["mcrcon", "-p", RCON_PASSWORD, "stop"],
         capture_output=True,
+        text=True,
+        timeout=8,
     )
     with backup_lock:
         backup_session_started_at = None
@@ -1357,6 +1400,7 @@ def stop():
 @app.route("/backup", methods=["POST"])
 def backup():
     """Run backup script manually from dashboard."""
+    # Manual backup should not shift the periodic schedule anchor.
     run_backup_script(track_session_schedule=False)
     return redirect("/")
 
@@ -1381,6 +1425,7 @@ def rcon():
     return redirect("/")
 
 if __name__ == "__main__":
+    # Start background automation loops before serving HTTP requests.
     start_idle_player_watcher()
     start_backup_session_watcher()
     app.run(host="0.0.0.0", port=8080)
